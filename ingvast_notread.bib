@@ -1,0 +1,714 @@
+%%%
+%%% Author:	Johan Ingvast
+%%%
+
+This file only contains a database with BibTeX entries, see the file:
+	default.bib	(or chr.default.bib)
+for definitions of strings etc.
+
+%%%
+%%% IV.	The database
+%%%
+
+@Article{Adachi:1988:MCQ,
+  author = 	 {Hironori Adachi and Noriho Koyachi and Eiji Nakano},
+  title = 	 {Mechanism and Control of a Quadruped Walking Robot},
+  journal = 	 j-ieee-ctrl-sys-mag,
+  year = 	 1988,
+  month =	 oct,
+  pages =	 {14--18},
+  affiliation =	 g-JP:MEL # g-JP:MEL # g-JP:Tohoku,
+  abstract =
+	{This paper provides a description of the quadruped walking
+	robot called "TURTLE-1". A new link mechansim named ASTBALLEM
+	is used for the legs of the robot, and highly rigid and easily
+	controllable legs are constructed using this mechanism. Each
+	leg has two degrees of freedom and is driven by two dc
+	servomotors. The motion of the legs is controlled by a
+	microcomputer, and various gaits are generated so that the
+	robot walks not only statically but also
+	quasidynamically. When the walking mode is static, the center
+	of gravity of the robot is kept statically stable. However,
+	when its walking quasidynamic, a two-legged supporting period
+	is required.},
+  annote =	 
+	{This is mostly a description of the ASTBALLEM leg and the
+	TURTLE-1 robot. It is capable of quasidynamic walking. They
+	classify gaits into twelve classes in an innovative
+	way. Potential energy orbit control is used. See
+	Adachi:1993:DQW instead.},
+  location =	 l-Groups # g-JP:MEL
+}
+
+
+@InProceedings{Grahn:IPV:1987,
+  author = 	 {M. Grahn},
+  title = 	 {Investigation of the influence of penetration velocity on the pressure/sinkage relationship},
+  conference  =	"9th Int. Conf of the ISTVS",
+  year = 	 1987,
+  volume = 1,
+  address =	{Barcelona, Spain},
+  pages =	 "",
+  booktitle = "Proceedings of 9th Int. Conf of the ISTVS",
+  annote =	 "",
+}
+
+@Book{Terzaghi:1944:TSM,
+	author = 	{K. Terzaghi},
+	title = 	{Theoretical Soil Mechanics},
+	publisher = 	{J. Wiley \& Sons},
+	year =		1944,
+	address =	{New York, N.Y.},
+}
+@MastersThesis{Reuteras:1998:USE,
+  author = 	 {Peter Reuter{\aa}s},
+  title = 	 {Using Envision to Simulate a Walking robot -- Implementing a Ground Model},
+  school = 	 {Royal Institute of Technology},
+  year = 	 1998,
+  address =	 {Sweden},
+  month =	 may,
+  note =	 {MMK 1998:33MDA73},
+  abstract =     {
+	Walking robots are difficult to control. To aid in the design
+	of controllers, simulations can be used for tests and
+	evaluation. Envision is a commercial simulation program that
+	has been acquired by the Mechatronics Lab (DAMEK) at KTH. It's
+	originally designed to simulate industrial robots and space
+	applications. The purpose of this master's thesis is to study
+	the possibilities to enhance the functionality of Envision so
+	that it is possible to simulate a walking robot. The result
+	was that simulation of a walking robot only required that a
+	model of the ground was added to Envision. After studies of
+	different ground models, a decision to implement a spring and
+	damper model was taken. The spring and damper model allows for
+	simulation of difficult terrain, including slippage due to low
+	friction.  Results from simulations are presented and one of
+	the conclusions is that Envision can be used to simulate a
+	walking robot, even though there is no built in support for
+	ground modelling. Suggestions for future work are also
+	presented.},
+  category =	 {simulation},
+  location =	 {Not printed yet}
+}
+
+
+
+@InProceedings{Jacobsen:1975:LAP,
+  author =	{S. C. Jacobsen and R. B. Jerard and D. Knutti and J. Carruth},
+  title =	{The Ladd actuator as a prosthetic muscle},
+  booktitle =	{Proc. of 5th Int. Symp on External Control of Human
+  		 Extremities },
+  year =	{1975},
+  address =	{Dubrovnik, Yugoslavia},
+  }
+
+
+@InProceedings{Fukuoka:2003:IMS,
+  author =	{Y. Fukuoka and Y. Mimura and N. Yasuda and H. Kimura},
+  title =	{Integration of multi sensors for addaptive walking of a
+  		 quadruped robot},
+  booktitle =	{Proceedings of IEEE Int. Conf. on Multisensory Fusion and
+  Integration for Intelligent Systems, MFI2003},
+  year =	{2003},
+  month = 	{July},
+  pages =	{21 - 26},
+  abstract =	{
+  	We have been trying to induce a quadruped wobot to walk with medium
+	walking speed on irregular terrain based on biological concepts.
+	PD-controller at joints constructs the virtual spring-damper system as
+	the visco-elasticity model of a muscle. The neural system model consists
+	of a CPG (central pattern generator) and refelexes. A CPG receives
+	sensory input and changes the period of its own active phase. The
+	desired angle and P-gain of each joint in the virtual spring-damper
+	system is switched based on the phase signal of the CPG. CPGs, the
+	motion of the virtual spring-damper system of each leg and the rolling
+	motion of the bod are mutually entrained through the rolling motion
+	feedback to CPGs, and can generate adaptive walking. R The adaptation on
+	irregular terrain based on multi sensors including virion is integrated
+	in the neutal system centering the CPGs. MPEG footage of these
+	experiments can be seen at: http://www.kimura.is.uec.ac.jp },
+  annote =	{},
+}
+
+
+
+@Article{Pennestri:2003:RFM,
+  author =	{Ettore Pennestri and Pier Paolo Valentini},
+  title =	{A review of formulas for the mechanical efficiency analysis of
+  		 two degrees-of-freedom epicyclic gear trains},
+  journal =	j-mech-design,
+  year =	{2003},
+  month =	sep,
+  volume =	{125},
+  number =	{3},
+  pages =	{602 - 608},
+  abstract =	{},
+  annote =	{ Maybe ideas for classification and measures of mechanical
+  		  efficiency},
+}
+
+
+@Article{Wadden:XX:ICL,
+  author =	{Tom Wadden and Jeanette Hellgren and Anders Lansner},
+  title =	{Intersegmental coordination in the lamprey: simulations using a
+  		network model without segmental boundaries},
+  journal =	{Biological Cybernetics},
+  year =	{},
+  volume =	{76},
+  number =	{1},
+  pages =	{},
+  abstract =	{Swimming invertebrates such as eel and lamprey involves the
+		  coordination of alternating left and right activity in each
+		  segment.  Forward swimming is achieved by a lag between the
+		  onset of activity in consecutive segments rostrocaudally along
+		  the spinal cord.  The intersegmental phase lag is ...},
+  annote =	{},
+}
+
+
+@Article{Wadden:XX:NMM,
+  author =	{Tom Eadden and {Ö}rjan Ekeberg},
+  title =	{A neuro-mechanical model of legged locomotion: single leg
+		  control},
+  journal =	{Biological Cybernetics},
+  year =	{},
+  volume =	{79},
+  number =	{2},
+  pages =	{},
+  abstract =	{Most models of legged locomotion have concentrated on
+		properties of either the mechanical of the neural system.  Here
+		a combine3d neuro-mechanical model of stepping in a single leg
+		is presented, as the first step in the process of modeling and
+		building a fast and dynamically stable quadruped. ...},
+  annote =	{},
+}
+
+
+@InProceedings{Wadden:1995:SIC,
+  author =	{T. Wadden and J. Hellgren and A. Lansner and S. Grillner},
+  title =	{Simulations of intersegmental coordination during swimming in
+		 the lamprey using continous network model},
+  booktitle =	{ Neurobiology of Computation. Proceedings of the Third Annual
+  		Computation and Neural Systems Conference},
+  year =	{1995},
+  publisher =	{Kluwer},
+  series =	{},
+  address =	{},
+  pages =	{353 -- 358},
+  editor =	{},
+  abstract =	{ The lamprey's swimming action involves the coordination of
+	  alternating burst activity in the left and right sides of each spinal
+	  segment.  Rostrocaudal time delays between burst onset in each segment
+	  produce a laterally directed travelling wave which propels the animal
+	  forwards through the water. The segmental central pattern generator
+	  network responsible for burst generation has been investigated in
+	  terms of circuitry, types of synaptic transmission and general
+	  membrane properties. Much interest has been shown regarding how the
+	  segments are coupled together to produce such a repertoire of
+	  movements as seen in the lamprey. Neurophysiological experiments have
+	  shown that the intersegmental phase lag along the spinal cord can he
+	  influenced by local increases of excitability. The segments with
+	  increased excitability will, regardless of their location in the
+	  spinal cord, become the leading segments from which a lag will be
+	  produced between each segment in the rostral or caudal direction, thus
+	  enabling both forward and backward swimming.  Researchers have varied
+	  in their approach to modeling this complex system. The trend has been
+	  to model the lamprey as a chain of coupled oscillators, due to its
+	  ability to produce fictive swimming with short pieces of in-vitro
+	  spinal cord. This paper introduces a continuous network for modeling
+	  intersegmental coordination. "Continuous" means that the lamprey
+	  spinal cord is considered as consisting of continuous neuronal
+	  populations spread evenly from head to tail, without distinct
+	  segmental boundaries (16 refs.)},
+  annote =	{},
+}
+
+@InProceedings{Hirose:1999:DXS,
+  author =  {Shigeo Hirose and Craig TIbbets and Tetsuo Hagiwara},
+  title = {Development of {X}-screw: {A} load-sensitive actuator incorporating a
+	  variable transmission},
+  booktitle = proc-ICRA,
+  year =  1999,
+  pages = {193 -- 199 },
+  abstract =  {
+    This research deals with the development of a load-sensitive continuously
+    variable transmission designed for use as a linear actuator. This mechanism,
+    named X-screw, has several unique features not found in other transmission
+    systems that make it especially suitable for use as a robotic actuator.
+    X-screw has a transmission ratio that automatically changes in response to
+    the load, making it possible to combine relatively high speed motion under
+    low loads with a large maximum load capacity in a much smaller space and
+    with less complexity, than traditional transmission systems. X-screw also
+    has built-in overload protection since it will stop advancing if the load
+    exceeds a certain value although the motor is able to continue to rotate.
+    Furthermore, X-screw can produce arbitrarily slow linear motion from a high
+    speed input, eliminating the need for bulky gear reductions. Experimental
+    tests conducted with a prototype have confirmed the functionality of this
+    system.
+    },
+  annote =  {},
+}
+
+
+The journal has to be found before this can get into any reference list
+@ Article{,
+  author =	{Hisato P. Kobayashi and Katsuhiko Inagaki},
+  title =	{Basic design of a hexapod walking robot},
+  journal =	{},
+  year =	{},
+  volume =	{},
+  number =	{},
+  pages =	{},
+  abstract =	{},
+  annote =	{},
+}
+
+
+@InProceedings{Inagaki:1993:GTQ,
+  author =	{Katsuhiko Inagaki and Hisato Kobayashi},
+  title =	{A gait transition for quadruped walking machine},
+  booktitle =	proc-IROS,
+  year =	{1993},
+  address =	{Yokohama},
+  pages =	{525--531},
+  abstract =	{
+  	Quadruped walking animals have both a static walking manner and a
+	dynamic walking manner.  The static walking can keep their stability
+	structurally, but it only appears in slow speed walking.  In high speed
+	walking, the dynamic manner is required.  Thus animals change their
+	gaits to be suited for their walking speed.  In this paper the authors
+	propose a new method for transferring the gaits by an autonomous
+	distributed fontrol. This control system includes one central rhythm
+	generatro and fou8r distributed contrllers.  The distributed controllers
+	receives a phase signal which is a kind of rhythm clock from the central
+	rhythm generator. And it determines their own manner which referring tot
+	his signal. This system has enough robuyst stability and reliability},
+  annote =	{},
+}
+
+@InProceedings{Takahama:1997:DMP,
+  author =	{Taku Takahama and Katsuhiko Inagaki},
+  title =	{A design method for practically used walking machine},
+  booktitle =	proc-IROS,
+  year =	1997,
+  publisher =	{IEEE, New York, NY, USA},
+  pages =	{414 -- 419},
+  abstract =	{
+   This paper presents a constructing method for practically used walking
+   machine. For optimal motion, it must have as long a cruising range as
+   possible, and to improve energy cost it should have a powder clutch joint
+   driving system with an engine actuator. We develop applicable leg mechanism
+   with GDA (gravitationally decoupled actuation) to the proposed driving
+   system. Moreover, feasible joint control system for the proposed driving
+   system with powder clutches is designed and implemented by using sliding mode
+   control. From comparison result of this type of driving system with that of a
+   DC motor actuated system, even though power to weight ratio cannot be
+   improved effectively, cruising range is three times longer than DC motor
+   type. Therefore, this type of walking machine can be suitable for personally
+   used walking machine in term of cruising range, cost, and size (8 refs.)
+   },
+  annote =	{},
+}
+
+
+
+@InProceedings{Chou:1994:SDC,
+  author =	{Ching-Ping Chou and Blake Hannaford},
+  title =	{Static and dynamic characteristics of McKibben pneumatic
+  artificial muscles},
+  booktitle =	proc-ICRA,
+  year =	1994,
+  pages =	{281 -- 286 },
+  vol	=	1,
+  abstract =	{
+  	This paper reports mechanical testing and modeling results for the
+	McKibben artificial muscle pneumatic actuator. This device first
+	developed in the 1950's, contains an expanding tube surrounded by
+	braided cords. The authors report static and dynamic length-tension
+	testing results and derive a linearized model of these properties for
+	three different models. The results are briefly compared with human
+	muscle properties to evaluate the suitability of McKibben actuators for
+	human muscle emulation in biologically based robot arms
+	},
+}
+
+@Article{Chou:1996:MMM,
+  author =	{Ching-Ping Chou and Blake Hannaford},
+  title =	{Measurement and modeling of {McKibben} pneumatic artificial
+  muscles},
+  journal =	j-ieee-tran-rob-automatn,
+  year =	1996,
+  volume =	12,
+  number =	1,
+  pages =	{90 -- 102},
+  abstract =	{
+  	This paper reports mechanical testing the modeling results for the
+	McKibben artificial muscle pneumatic actuator. This device contains an
+	expanding tube surrounded by braided cords. We report static and dynamic
+	length-tension testing results and derive a linearized model of these
+	properties for three different models. The results are briefly compared
+	with human muscle properties to evaluate the suitability of McKibben
+	actuators for human muscle emulation in biologically based robot arms
+	},
+  annote =	{},
+}
+
+
+@PhdThesis{Schmiedeler:2001:MRD,
+  author = 	 {James Patrick Schmiedeler},
+  title = 	 {The mechanics of and Robotic Design for Quadrupedal
+  		  Galloping},
+  year = 	 2001,
+  school = g-US:OSU,
+  address = g-US:OSU:adr,
+  abstract = {
+    To make galloping available as a high-speed gait of quadrupedal robots, this
+    dissertation addresses the mechanics of galloping and the design of legged
+    robots for rapid locomotion.  A simple method of measuring an animals
+    geometric and inertial properties is used to develop reasonable model
+    parameters for the animal. An impulsive model of galloping is extended to
+    all dynamic quadrupedal gaits to show that with equal stride frequencies,
+    galloping requires smaller vertical oscillations of the mass center than
+    trotting does at high speeds. In contrast, spring-mass models of both gaits
+    indicate that trotting is accomplished with smaller vertical oscillations
+    and/or lower stride frequencies at lower speeds. In conjunction, these two
+    results suggest that animals transition from a trot to a gallop in order to
+    minimize their stride frequencies without experiencing large vertical
+    displacements.
+    For a quadruped robot to gallop in an energy-efficient manner, it must be
+    designed to exhibit this same behavior at high speeds. The generalized
+    inertia ellipsoid is presented as visualization tool for comparing leg
+    designs in terms of impact losses and energy required for leg return.
+    Kinetostatic analysis of effective stiffness is introduced as a means of
+    establishing leg geometry in order to match the leg stiffness of animals.
+    This method is implemented in the design of an articulated, prototype leg
+    which stores elastic energy in mechanical extension springs during its
+    return phase and releases that energy as thrust during stance. Experimental
+    results with this leg indicate that it has the performance capabilities to
+    be used in a quadruped galloping machine.
+    },
+}
+
+@PhdThesis{Lennartsson:1999:EMD,
+  author = 	 {Anders Lennartsson},
+  title = 	 {Efficient Multibody Dynamics},
+  school = 	 g-S:KTH:Mech,
+  year = 	 1999,
+  address =	 g-S:KTH:adr,
+  annote =	 {
+	It is nice to read.},
+  affiliation =	 g-S:KTH:Mech,
+  location =	 l-Christian
+}
+
+@InProceedings{Pratt:1996:VAC,
+  author = 	 {J. Pratt and A. Torres and P. Dilworth and G. Pratt},
+  title = 	 {Virtual actuator control},
+  booktitle = 	 proc-IROS,
+  volume =	 3,
+  year =	 1996,
+  pages =	 {1219--1226},
+  abstract =
+	{Robots typically have an individual actuator at each joint
+	which can result in a nonintuitive and difficult control
+	problem. In this paper we present a control method in which
+	the real joint actuators are used to mimic virtual actuators
+	which can be more intuitive and hence make the control problem
+	more straightforward. Our virtual actuator control method
+	requires a solution to the force distribution problem when
+	applied to parallel mechanisms. An extension of Gardner's
+	partitioned actuator set control method (1991) is
+	presented. This extended method allows for dealing with
+	constrained degrees of freedom in which the torque cannot be
+	specified but can be measured. A simulated hexapod robot was
+	developed to test the proposed control method. The virtual
+	actuators allowed textbook control solutions to be used in
+	controlling this highly nonlinear, parallel mechanism. Using a
+	simple linear control law, the robot walked while
+	simultaneously balancing a pendulum and tracking an object.},
+  annote =	 {See special notes: prj/review/doc/TIT/articles.lyx},
+  affiliation =	 g-US:MIT,
+  location =	 l-Groups # g-US:MIT
+}
+@Article{Bogert:1988:SQL,
+  author = 	 {A. J. Van Den Bogert and H. C. Schamhadt and A. Crowe},
+  title = 	 {Simulation of quadrupedal locomotion using a rigid body model},
+  journal = 	 j-biomech,
+  year = 	 1988,
+  volume =	 22,
+  number =	 1,
+  pages =	 {33--41},
+  abstract =
+	{Locomotion of the horse is simulated using a mathematical
+	model based on rigid body dynamics. A general method to
+	generate the equations of motion for a two-dimensional rigid
+	body model with an arbitrary number of hinge joints is
+	presented and a numerical solution method, restricted to
+	tree-structured models, is described. Joint movements
+	originating from muscular forces or moments are simulated, but
+	the method also allows that parts of the model follow strictly
+	the pattern of kinematic data. Moment-generators with
+	first-order linear feedback were used as a rotational
+	muscle-equivalent.  Ground-hoof interaction forces are
+	approximated by a viscoelastic model and pseudo-Coulomb
+	friction in vertical and horizontal directions
+	respectively. Results of model simulations are compared to
+	experimentally recorded data. Subsequently, adjustments are
+	made to improve the agreement between simulation and
+	experimental results. },
+  annote =	 {
+	Contents: Method for 2D simulation and/or force analysis.
+		The idea is to use this method to iteratively find muscle forces/parameters, when prescribing a motion and some real joint trj., i.e. bio.mech. analysis.
+	It does have some moment/inertia parameters for a horse.},
+  category =	 {biological gait analysis},
+  affiliation =	 g-NL:Utrecht,
+  location =	 l-GC
+}
+@Book{Kane:1985:DTA,
+  author = 	 {Kane and Levinson},
+  title = 	 {Dynamics: {T}heory and application},
+  publisher = 	 pub-McGraw-Hill,
+  year = 	 1985,
+  note =	 {ISBN 0-07-037846-0},
+  annote =	 {Unacquired, but I don't think I'll acquire the book.
+	Marin Lesser (Lesser:1995:ACN) describes it as:
+	"This is the standard reference for Kane's approach to mechanics.
+	It covers roughly the same ground as this course buyt takes an
+	algorithmic rather than geometrical point of view. Kane's partial
+	velocites are the components of our tangent vectors. The problems
+	are interesting and varied."},
+  location =	 {-}
+}
+
+@Article{Lankarani:1990:CFM,
+  author =       {H. M. Lankarani; P.E. Nikravesh},
+  title =        {A contact force model with hysteresis damping for impact analysis of multibody systems},
+  journal =      {Trans. of the ASME, J. of Mechanical Design},
+  year =         1990,
+  volume =       112,
+  pages =        {369-76},
+  annote =	 {I use this a ref. for the ground model in the ICRA2000 paper},
+  location =	 l-Peter
+}
+
+@Article{Klein:1983:UFA,
+  author = 	 {C. A. Klein and K. W. Olson and D. R. Pugh},
+  title = 	 {Use of force and attitude sensors for locomotion of a legged vehicle over irregular terrain},
+  journal = 	 j-int-j-rob-res,
+  year = 	 1983,
+  volume =	 2,
+  number =	 2,
+  pages =	 {3--17},
+  abstract =	 {
+	A number of legged vehicles are being developed for their
+	mobility characteristics over irregular terrain. One such
+	vehicle is the Ohio State University Hexapod vehicle (OSU
+	Hexapod). Recently, the vehicle has been modified so that it
+	can successfully walk over uneven terrain. Each of the feet
+	has been equipped with two seminconduction strain gauges to
+	measure lateral forces and a piezoelectric load cell to
+	measure vertical forces. A vertical gyroscope and pendulums
+	for orientation sensing have also been added. The control of
+	locomotion over rough terrain can be decomposed into two
+	complementary control processes; attitude control and active
+	compliance. Attitude control is used to maintain the body tilt
+	in a desired orientation, and active compliance is used to
+	provide a suspension system by distributing force loading
+	among the legs. It has been found that optimal force setpoints
+	for the active-compliance algorithm can be calculated in
+	closed form. This paper discusses the sensing hardware and the
+	control system needed for legged locomotion over irregular
+	terrain. Experimental results are provided for both statically
+	determinate and indeterminate hexapod gaits.},
+  annote =	 {
+	A really nice article, especially considering it was written
+	in '83.  Contains derivation of closed-form solution to
+	force-setpoint problem (see my force-distribution notes) and
+	proof that force setpoints change linearly with body motion
+	for fixed foot placements. Further notes about that can be
+	found in my balance notes.
+
+	Joints are velocity controlled and cartesian foot velocity
+	references are converted using the inverse Jacobian. Then an
+	active compliance controller is used to control the vertical
+	foot velocity. (See balance notes for more details).
+
+	P.7: "For maximum trafficability, the vehicle's attitude
+	should adjust as a function of the average ground-surface
+	slope and keep the ground within the reachable volume of the
+	legs". They don't do it this way, but it might be a useful
+	criterion.
+
+	To maintain a horizontal attitude, they calculate approximate
+	displacements required for each leg, and then use a
+	first-order system to get a corresponding velocity
+	modification for the feet.
+
+	P.9: They found experimentally that it was good to limit the
+	force-error signal, so that leg extension would be limited in
+	case of force sensor failure.
+
+	Found in Emura:1991:ACQ},
+  affiliation =	 g-US:OSU,
+  location =	 l-Groups # g-US:OSU
+}
+
+@InProceedings{Nishikawa:1998:ASM,
+  author = 	 {N. Nishikawa and T. Murakami and K. Ohnishi},
+  title = 	 {An Approach to Stable Motion Control of Biped Robot with Unknown Load by Torque Estimator},
+  booktitle = 	 proc-AMC,
+  year =	 1998,
+  pages =	 {82--87},
+  abstract =	 {
+	This paper describes a nove approach of a stable walking
+	control in 3D biped robot with an unknown loaded object. In
+	general, it is difficult for the biped robot to realize a
+	stable walking without using information of a loaded object
+	since there is no fixed point to keep the stable posture of
+	the robot. Then the estimation of the mass and the position of
+	a target object is useful for increasing the walking
+	stability. Here we propse a torque sensorless estimator of the
+	loaded ojbect by external torque observer. The estimated
+	variables make it easy to dertermine the stable motion and
+	trajectory of the robot by considering the C.O.G. (Center of
+	Gravity of the robot). The effectiveness of the propose method
+	is conifrmed by several simulations and experiments.},
+  annote =	 {Unread: Could be intersting},
+  affiliation =	 g-JP:Keio,
+  location =	 l-Groups # g-JP:Keio
+}
+
+@Article{Hardell:1996:ISC,
+  author = 	 {Christian Hardell},
+  title = 	 {An integrated system for computer aided design and analysis of multibody systems},
+  journal = 	 j-eng-with-comp,
+  year = 	 1996,
+  volume =	 12,
+  number =	 1,
+  pages =	 {23--33},
+  abstract =	 {
+	An integrated system for design and analysis of multibody
+	systems has been developed and is described in this paper. The
+	use of the system is demonstrated through the example
+	provided.  The system consists of a commercially available CAD
+	program and a multibody system analysis code developed at the
+	Royal Institute of Technology in Stockholm. These tools are
+	integrated using a relational database, the structure of which
+	was developed at Lulea University of Technology, in order to
+	get a complete system for design and analysis of multibody
+	systems. The main gains from the integrated system are the
+	possibilities of using calculated component data like mass and
+	moment of inertia from the CAD program in the simulation
+	models, the automatic formulation of input files for the
+	analysis code, and finally the visualization of simulation
+	results using the surface data of the solid models. The
+	interactive structured query language (ISQL) of the database
+	management system provides the possibility of examining the
+	components of the multibody system during the design work and
+	before any simulation is performed. },
+  annote =	 {
+	I've only browsed it. See the abstract.
+	It is good to refer to it in my ICRA2001-article, it also
+	has more references to similar work (i.e. integration of
+	CAD-tools and for instance symbolic derivation of equations).},
+  affiliation =	 g-S:LuTH,
+  location =	 l-Misc,
+}
+
+@TechReport{Hardell:1994:IDA,
+  author = 	 {C. Hardell},
+  title = 	 {An integrated design and analysis system for multibody systems.},
+  institution =  {Luleå Univ. of Technology},
+  year = 	 1994,
+  number =	 {1994:01 L},
+  address =	 {Luleå, Sweden},
+  note =	 {ISSN 0280-8242},
+  annote =	 {Should describe how I-DEAS drawings can be used
+	to automatically (with Sophia) generate the equaztions.
+	according to Lennartsson:1999:EMD, p. 29
+	I do not have a copy of this report.},
+}
+
+@Book{Murray:1994:MIR,
+  author = 	 {Richard M. Murray and Zexiang Li and S. Shankar Sastry},
+  title = 	 {A Mathematical Introduction to Robotic Manipulation},
+  publisher = 	 {CRC Press},
+  year = 	 1994,
+  affiliation =	 {?},
+  annote =	 {ISBN=0-8493-7981-4}
+}
+
+@Article{Pratt:2002:LIW,
+  author =	{Pratt and Gill Andrews},
+  title =	{Low impedance walking robots1},
+  journal =	{Integrative and comparative biology},
+  year =	{2002},
+  volume =	{42},
+  number =	{1},
+  pages =	{174--181},
+  abstract =	{
+      For both historical and technological reasons, most robots, including
+      those meant to mimic animals or operate in natural environments,3 use
+      actuators and control systems that have high (stiff) mechanical impedance.
+      By contrast, most animals exhibit low (soft) impedance. While a robot's
+      stiff joints may be programmed to closely imitate the recorded motion of
+      an animal's soft joints, any unexpected position disturbances will
+      generate reactive forces and torques much higher for the robot than for
+      the animal. The dual of this is also true: while an animal will react to a
+      force disturbance by significantly yielding position, a typical robot will
+      greatly resist.
+
+      These differences cause three deleterious effects for high impedance
+      robots. First, the higher forces may cause damage to the robot or to its
+      environment (which is particularly important if that environment includes
+      people). Second, the robot must acquire very precise information about its
+      position relative to the environment so as to minimize its velocity upon
+      impact. Third, many of the self-stabilizing effects of natural dynamics
+      are \u201cshorted out\u201d4 by the robot's high impedance, so that
+      stabilization requires more effort from the control system.
+
+      Over the past 5 yr, our laboratory has designed a series of walking robots
+      based on \u201cSeries-Elastic Actuators\u201d and \u201cVirtual Model
+      Control.\u201d Using these two techniques, we have been able to build
+      low-impedance walking robots that are both safe and robust, that operate
+      blindly without any model of upcoming terrain, and that add minimal
+      control effort in parallel to their self-stabilizing passive dynamics. We
+      have discovered that it is possible to achieve surprisingly effective
+      ambulation from rather simple mechanisms and control systems. After
+      describing the historical and technological motivations for our approach,
+      this paper gives an overview of our methods and shows some of the results
+      we have obtained.
+      },
+  annote =	{},
+}
+
+F. Zonfrilli, G. Oriolo, D. Nardi: "A biped locomotion strategy for the
+quadruped robot Sony ERS-210", 2002 IEEE Int. Conf. on Robotics and Automation,
+Washington, DC, 2002.
+ 
+
+  Jung-Hoon Kim, Ill-Woo Park, and Jun-Ho Oh, ?Design of Lower Limbs for a
+  Humanoid Biped Robot,? International Journal of Human-friendly Welfare Robotic
+  Systems, Vol.2, No.4 , pp.5-10 , 2002
+
+    Jung-Hoon Kim and Jun-Ho Oh, ?Torque Feedback Control of the Humanoid
+    Platform KHR-1,? in Proceedings of 3rd IEEE International Conference on
+    Humanoid Robots, Karlsruhe and Munich, Germany, Oct. 1-3, 2003
+
+Papers to check when reading Akinfiev
+* Chilikin and Sandler 1981 Something about poor efficiency for motor in the 
+				start stop regime
+* Fernandez et al. 2003
+
+* The thesis by Martijn Wisse
+	Essentials of dynamic walking -- Analysis and design of two-legged
+	robots.
+  Can be found at http://mms.tudelft.nl/dbl/research/biped
+
+
+ Ted McGeer
+ passive bipedal running , Proc. Roy Soc. London: Bio. Sci.
+ Passive Dynamic walking, Int Jour. Robotics Research
+ Passive walking with knees, Proc-icra
+
+

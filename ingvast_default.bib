@@ -1,0 +1,1050 @@
+%%%
+%%% Author:	Christian Ridderström
+%%%
+%%% 0.  	Contents
+%%%
+
+List of contents
+  I.	How to use this file
+ 	a.	List of entry types
+	b.	List of field types
+
+  II.	Standard abbrievations
+
+  III.	How to find stuff
+
+  IV.	The database (moved, see the file chr.bib)
+
+**********************************************************************
+
+%%%
+%%% I.  	Usage of this file
+%%%
+
+This file is meant to be an archive of all the articles I (possibly
+other persons too) have read. Each entry can of course be referenced
+from other files, i.e. this is a bib-file. The entries could for
+instance be used to generate reference lists. Another use is to find
+the physcal location of the article.
+
+An entry consists of:
+'at-sign'entryType{citeKey,
+   field = {},
+   ...
+}
+
+When there is only one author, i construct the citeKey using the
+sirname and year: Hirose84.  When there are several authors, i use the
+first two letters from each name and the year: FuWa84.
+
+An example of an entry (without the 'at'-character):
+
+ Article{keyUsedToCiteTheArticle,
+  author = 	  {},
+  title = 	  {},
+  journal = 	  {},
+  year = 	  {},
+  abstract =	  {A copy of the articles abstract},
+  annote = 	  {Personal comments about the work},
+  affiliation = {The responsible "group"},
+  reader =	  {ChR},
+  searchKey =	  {Keywords, usable for searching this file},
+  location =	  "Where the article is, if it is available."
+}
+
+%%
+%% Ia.	List of entry types
+%%
+
+article = An article from a journal or magazine.
+book = A book with an explicit publisher.
+booklet = A work that is printed and bound, but without a named
+	publisher or sponsoring institution.
+Conference = See InProceedings
+InBook = A part of a book, which may be a chapter (or section or
+	whatever) and/or a range of pages.
+InCollection = A part of a book having its own title.
+InProceedings = An article in a conference proceeidings.
+Manual = Technical docementation.
+MastersThesis = A Master's thesis.
+PhdThesis = A PhD thesis.
+Proceedings = The proceedings of a conference.
+TechReport = A report published by a school or other institution,
+	usually numbered within a series.
+UnPublished = A document having an author and title, but not formally
+	published.
+
+%%
+%% Ib.	List of field types.
+%%
+
+address= Usually the address of the publisher. May be ignored for
+	large publishing houses.
+annote = This field is ignored by the standard bibliographys. I write
+	a personal comment/opinion here about the work, i.e. if it is
+	useful or not.
+	Personally, I use the following subfields within this field:
+	Unread: <descriptive text, e.g. how much I need to read it>
+	- Indicates that I haven't read the article carefully  yet.
+
+	GenNote: <A general though or idea.>
+	- Here I write down a though or idea I had while reading the
+	  article
+
+	ToDo: <Something I need to do, relating to this article>
+	- Indicates that I need to get refs from it or something else.
+
+	Reread: <Why I should read the article again>
+	- Indicates that I should read the article again.
+
+	Review: <What this has to do with my review>
+	- Indicates that the article has something to with my review
+	  report.
+
+author = The name(s) of the author(s), in the format described in the
+	LATEX book, i.e. "Christian and Freyr and Lennart".
+booktitle = Title of a book, part of which is being cited. For book
+	 entries, use the title field.
+
+category = Here I write what kind of category I would sort this
+	under. So far I am using the following categories (not all
+	articles are classified, since I started with this rather
+	late)
+
+			Categories:
+	- simulation
+	About simulation methods. For instance algorithms to do fast
+	multibody simulation.
+
+	- control structure
+	About control structures for (mostly walking) robots
+
+	- biological gait analysis
+	About analysis and models of locomotion. For instance analasysis
+	to find torques and forces in joints during walking. or models
+	of energy consumption.
+
+	- neurophysiology
+	Biological stuff about nervous systems etc.
+
+	- posture stability measure
+	About measures of the stability of a posture. One example is
+	the stability margin measure.
+
+	- generation of reference trajectories
+	About how to generate reference trajeotories.
+
+	- walking machine design
+	About design of walking machines (robots). I mostly mean the
+	mechanical design.
+
+	- foot design
+	About designing feet
+
+chapter = A chapter (or section or whatever) number.
+crossref = The database key of the entry being cross referenced.
+edition = The edition of a book (example: Second). It should be an
+	ordinal and the first letter capitalized.
+editor = Name(s) of editor(s), typed as indicated in the LATEX
+	book. If there is also an author field, then the editor field
+	gives the editor of the book or collection in which the
+	reference appears.
+howpublished = How something strange has been published. The first
+	word should be capitalized.
+institution = The sponsoring institution of a technical report.
+journal = A journal name. Abbreviations are provided for many journals
+key = This field is used for alphabetizing, cross referencing and
+	creating a label when the "author" information is
+	missing. This field should not be confused with the key in the
+	"\cite" command, nor the key in the beginning of a database
+	entry.
+month = The month in which the work was published or, for an
+	unpublished work, in which it was written. You should use the
+	standard abbreviation.
+note = Any additional information that can help the reader. The first
+	word should be capitalized.
+number = The number of a journal, magazine, technical report or of a
+	work in a series. An issue of a journal or magazine is usually
+	identified by its volume and number; the organization that
+	issues a technical report usually gives it a number; and
+	sometimes books are given numbers in a named series.
+organization = The organization that sponsors a conference or that
+	publishes a manual.
+pages = One or more page numbers or range of numbers (example: 2--11).
+	A range such as 2-11 is automatically translated into 2--11,
+	i.e. a double dash.
+publisher = The publisher's name.
+school = The name of the school where a thesis was written.
+series = The name of a series or set of books. When citing an entire
+	book, the title field gives its tile and an optional series
+	field gives the name of a series or multi-volume set of books.
+title = The work's title, typed as explained in the LATEX book.
+type = The type of a technical report, example: "Research note"
+volumne = The volume of a journal or multivolume book.
+year = The year of a publication, or for an unpublished work, the year
+	it was written.
+
+There are also som personal field types that I have defined. These
+aren't included in a standard bibliography. They are instead used to
+store information about the articles.
+
+abstract = A copy of the articles abstract.
+annote = Se the field above.
+affiliation = Institute/department/university/group/author who did the
+	work. This could be used for tracking/finding other articles
+	from the same group. The work done by Shigeo Hirsoe at Tokyo
+	Institute of Technolyg, could for instance be grouped as:
+	Tokyo Institute of Technolyg. There are of course lots of ways
+	of grouping an article.
+location = Where I have stored the paper, or if Freyr of Lennart has
+	it. The entry might indicate a series of folders, instead of a
+	single folder. For instance, "American Papers" could actually
+	refer to "American Papers I" through "American Papers III", if
+	the series consists fo three folders. In this case, the first
+	volume should contain information about in which volume the
+	paper can be found.
+reader = Who has read the article, if others (Freyr or Lennart) add
+	entries to this file.
+searchKey = Keywords that characterize the content of the article. I
+	haven't defined any standard keywords yet.
+
+**********************************************************************
+%%%
+%%% II. 	Standard abbrievations
+%%%
+
+The folowing abbreviations are consitently used throughout this bibliography file:
+	acad	= academy, academic
+	adv	= advanced
+	amer	= american
+	ams	= american mathematical society
+	anal	= analysis
+	appl	= application, applied
+	arith	= arithmetic
+	assoc	= association
+	auto	= automatic, autonomous
+	bio	= biology
+	biosci	= biosciences
+	bull	= bulletin
+	bus	= business
+	can	= canada
+	comb	= combinatorial
+	comp	= computer
+	comm	= communications
+	ctrl	= control
+	dyn	= dynamic, dynamical
+	ed	= educational
+	env	= environment
+	ieee	= institute of electrical and electronics engineers
+	img	= image
+	intell	= intelligent
+	j	= journal
+	law	= law
+	mach	= machine
+	mag	= magazine
+	math	= mathematics
+	mech	= mechanical, mechanics
+	meas	= measurement
+	nat	= national
+	phys	= physics, physical
+	pr	= press
+	prof	= professional
+	proc	= proceedings, processing
+	psych	= psychology
+	res	= research
+	rev	= review
+	rob	= robot, robotic
+	sig	= signal
+	st	= street
+	stat	= statistics
+	sys	= systems
+	tech	= technical, technology
+	th	= theory
+	trans	= transactions
+	vis	= vision, visual
+	zool	= zoology
+
+These abbrevations ensure that consistent spelling in the labels for different names of magazines, journals etc.
+
+@Preamble{"\ifx\undefined\allcaps\def\allcaps#1{#1}\fi"}
+
+%%
+%% IIa. Journal abbreviations:
+%%
+@String{j-16th-cent = "The Sixteenth Century Journal"}
+%
+% A
+@String{j-aarboekje-leiden = "Jaarboekje voor geschiedenis en oudheidkunde van Leiden en omstreken"}
+@String{j-abacus = "Abacus"}
+@String{j-acm-sigsoft = "ACM Sigsoft"}
+@String{j-acoust-soc-amer = "J. Acoustic Soc. Amer."}
+@String{j-acta-appl-math = "Acta Applicandae Math."}
+@String{j-acta-arith = "Acta Arith."}
+@String{j-acta-crystal-a = "Acta Crystal A"}
+@String{j-acta-litt-sci = "Acta Litt. Sci. Szeged"}
+@String{j-acta-math = "Acta Math"}
+@String{j-acta-math-hung = "Acta Math. Acad. Sci. Hung."}
+@String{j-adaptive-behavior = "Adaptive Behavior"}
+@String{j-adv-appl-math = "Adv. Appl. Math"}
+@String{j-adv-appl-prob = "Adv. Appl. Prob."}
+@String{j-adv-mater = "Adv. Mater."}
+@String{j-adv-math = "Adv. Math"}
+@String{j-adv-rob = "Advanced Robotics"}
+@String{j-adv-water-rsrc = "Advances in Water Resources"}
+@String{j-aiaa = "AIAA Journal"}
+@String{j-am-j-physiol = "Am. J. of Physiol."}
+@String{j-amer-educator = "Amer. Educator"}
+@String{j-amer-math = "Amer. J. Math."}
+@String{j-amer-math-monthly = "Amer. Math. Monthly"}
+@String{j-amer-stat-assoc = "J. Amer. Stat. Assoc."}
+@String{j-amer-zoo = "J. Amer. Zoo."}
+@String{j-ams = "J. Amer. Math. Soc."}
+@String{j-ams-coll-pub = "AMS Coll. Publ."}
+@String{j-ams-contemp-math = "AMS Contemp. Math."}
+@String{j-anal-math = "J. Anal. Math."}
+@String{j-analyse-math = "J. d'Analyse Math."}
+@String{j-ann-poincare = "Ann. Inst. Henri Poincar{\'e}"}
+@String{j-ann-rev-material-sci = "Annual Rev. of Materials Sciences"}
+@String{j-ann-rev-physiol = "Annual Rev. Physiol."}
+@String{j-ann-rev-neuro = "Annual Rev. Neurosci."}
+@String{j-annals-fourier = "Ann. Inst. Fourier (Grenoble)"}
+@String{j-annals-math = "Annals of Mathematics"}
+@String{j-annals-math-2 = "Annals of Mathematics (2)"}
+@String{j-annals-math-stat = "Ann. Math. Stat."}
+@String{j-annals-math-studies = "Annals of Mathematics Studies"}
+@String{j-annals-prob = "Annals of Probability"}
+@String{j-annals-sens =  "Ann. Scient. Ec. Norm. Sup."}
+@String{j-annals-stat = "Annals of Statistics"}
+@String{j-appl-math-opt = "Appl. Math. and Optimization"}
+@String{j-appl-optics = "Appl. Optics"}
+@String{j-appl-phys = "J. Appl. Physics"}
+@String{j-appl-phys-let = "Appl. Phys. Lett."}
+@String{j-appl-physiology = "Appl. Physiology"}
+@String{j-appl-psych = "J. of Applied Psychology"}
+@String{j-appl-stat = "Appl. Stat."}
+@String{j-applic-anal = "Applicable Analysis"}
+@String{j-approx-th = "J. Approx. Th."}
+@String{j-arch-rat-mech-anal = "Arch. Rat. Mech. and Analysis"}
+@String{j-arith-teacher = "Arithmetic Teacher"}
+@String{j-arkiv-math = "Arkiv f{\"u}r Math."}
+@String{j-art-bull = "Art Bulletin"}
+@String{j-art-intell = "Artificial Intelligence"}
+@String{j-asme-mech-des = "Trans. \allcaps{ASME} J. Mech. Des."}
+@String{j-asme-biomech-eng = "Trans. \allcaps{ASME} J. Biomechanical Engineering"}
+@String{j-assp-mag = "\allcaps{ASSP} Magazine"}
+@String{j-asymp-stat = "Asymptotic Statistics"}
+@String{j-atmos-env = "Atmospheric Environment"}
+@String{j-atmos-sci = "J. of Atmospheric Science"}
+@String{j-australian-math = "Australian J. Math."}
+@String{j-aut-rob = "Autonomous Robots"}
+%	{LookIn: Kluwer/WWW (No downloads), from 1994-, vol 1:1-}
+@String{j-automatn-remote-ctrl = "Automation and remote control"}
+@String{j-automatn-tech = "Automatisierungstechnik."}
+@String{j-automatica = "Automatica"}
+%
+% B
+@String{j-bell-sys-tech = "Bell Sys. Tech. J"}
+@String{j-biol-cyber = "Biological Cybernetics"}
+	LookIn: Springer/WWW
+@String{j-biomech = "J. of Biomechanics"}
+@String{j-bioscience = "BioScience"}
+@String{j-biomet = "Biometrika"}
+@String{j-bol-mat-sao-paulo = "Bol. Soc. Matem. Sa\~{o} Paulo"}
+@String{j-boston-globe = "Boston Globe"}
+@String{j-boston-phoenix = "Boston Phoenix"}
+@String{j-bull-ams = "Bull. AMS"}
+@String{j-bull-ams-new = "Bull. (New Series) AMS"}
+@String{j-bull-knob = "Bulletin van de Koninklijke Nederlandese Oudheidkundige Bond"}
+@String{j-bull-london-ms = "Bull. London Math. Soc."}
+@String{j-bull-math-soc-sci-math-roumanie = "Bull. Math. de la Soc. Sci. Math. de la R. S. Roumanie"}
+@String{j-bull-soc-math-france = "Bull. Soc. Math. France"}
+%
+% C
+@String{j-cable-trans = "Cables et Transmissions"}
+@String{j-cambridge-studies-adv-math = "Cambridge Studies in Advanced Mathematics"}
+@String{j-can-math = "Canadian J. Math."}
+@String{j-can-phys = "Canadian J. Phys."}
+@String{j-chemo-intell-lab = "Chemometrics and Intelligent Laboratory System"}
+@String{j-child-math-behavior = "J. Child. Math. Behavior"}
+@String{j-colloq-math = "Colloq. Math."}
+@String{j-colloq-math-bolyai = "Colloq. Math. Soc. J{\'a}nos Bolyai"}
+@String{j-comb-th = "J. Combinatorial Theory"}
+@String{j-comb-th-series-a = "J. Combinatorial Theory Series A"}
+@String{j-comment-math-helv = "Comment. Math. Helv."}
+@String{j-comm-ACM = "Communications of the ACM"}
+@String{j-comm-math-phys = "Comm. Math Phys."}
+@String{j-comm-partial-diff-eqns = "Comm. in Partial Differential Equations"}
+@String{j-comm-pure-appl-math = "Comm. Pure Appl. Math."}
+@String{j-common-cause = "Common Cause Magazine"}
+@String{j-comp-class-learn = "Computer Classroom Learning"}
+@String{j-comp-graphics = "Computer Graphics"}
+@String{j-comp-j = "Computer Journal"}
+@String{j-comp-law = "Computer/Law Journal"}
+@String{j-comp-math-appl = "Comp. and Maths. with Appls."}
+@String{j-comp-vis-graphics-img-proc = "Computer Vision, Graphics, and Image Processing"}
+@String{j-comp-op-res = "Computers and Operations Research"}
+@String{j-comp-speech-lang = "Computer Speech and Language"}
+@String{j-comp-tech-law = "Journal of Computers, Technology and Law"}
+@String{j-compos-math = "Compositio Math."}
+@String{j-computer = "Computer"}
+@string{j-concepts-neuro = "Concepts Neurosci."}
+@String{j-control-opt = "SIAM J. Control Optim."}
+@String{j-cornell-rev = "Cornell Review"}
+@String{j-cpsr = "\allcaps{CPSR} Newsletter"}
+@String{j-cr-acadsci-canada = "C.R. Math. Rep. Acad. Sci. Canada"}
+@String{j-cr-acadsci-paris = "C.R. Acad. Sci. Paris"}
+@String{j-cr-acadsci-ussr = "C.R. (Doklady) Acad. Sci. U.S.S.R."}
+@String{j-cras = "C.R.A.S."}
+@String{j-cybernetica = "Cybernetica"}
+%
+% D
+@String{j-datamation = "Datamation"}
+@String{j-deutsch-math-v = "Jber. Deutsch. Math.---Verein"}
+@String{j-diff-eq = "J. Diff. Equations"}
+@String{j-diff-geom = "J. Diff. Geom."}
+@String{j-discrete-math = "Discrete Math"}
+@String{j-dokladi-akad-nauk = "Dokladi Akad. Nauk SSSR"}
+@String{j-doops = "Doopsgezinde Bijdragen"}
+@String{j-duke-math = "Duke Math. J."}
+@String{j-dyn-meas-ctrl = "J. Dynamic Systems, Measurement and Control"}
+@String{j-dyn-stab-sys = "J. Dynamics and Stability of Systems"}
+@String{j-dyn-ctrl = "Dynamics and Control"}
+	LookIn: Kluwer/WWW (No Downloads), vol 5-, 1995-
+%
+% E
+@String{j-edm = "Ergebnisse der Mathematik"}
+@String{j-emory-law = "Emory Law Journal"}
+@String{j-eng-mat = "Eng. Mat."}
+@String{j-eng-with-comp = "Engineering with Computers"}
+@String{j-enseignement-math-2 = "l'Enseignement Math. (2)"}
+@String{j-env-sci-tech = "Envir. Sci. Technol."}
+@String{j-ergonomics = "Ergonomics"}
+@String{j-exp-biol = "J. of Experimental Biology"}
+@String{j-exp-brain-res = "J. Experimental Brain Research"}
+	LookIn: Springer/WWW, year?
+%
+% F
+@string{j-fluid-mech = "Journal of Fluid Mech."}
+@String{j-func-anal = "J. Functional Analysis"}
+@String{j-fund-math = "Fund. Math."}
+%
+% G
+@string{j-gamm-mit = "GAMM-Mitteilungen"}
+@String{j-geom-anal = "J. Geometric Anal."}
+@String{j-geophys-res = "J. of Geophysical Research"}
+@String{j-geophysics = "Geophysics"}
+@String{j-graph-th = "J. Graph Theory"}
+%
+% H
+@String{j-harpers = "Harper's Magazine"}
+@String{j-harvard-bus-rev = "Harvard Business Review"}
+@String{j-harvard-ed-rev = "Harvard Educational Review"}
+@String{j-harvard-law-rev = "Harvard Law Review"}
+@String{j-human-neuro = "Human Neurobiol."}
+@String{j-hydraulic-div = "J. Hydraulic Div."}
+@String{j-human-rob = "Journal of Humanoid Robotics"}
+%
+% I
+@String{j-ibm-res-dev = "IBM J. Res. Develop."}
+@String{j-iee-japan = "Trans. \allcaps{IEE} of Japan"}
+@String{j-idem = "Idem"}
+@String{j-ieee = "J. of \allcaps{IEEE}"}
+@String{j-ieee-aerospace = "\allcaps{IEEE} Trans. Aerospace Electronic Systems"}
+@String{j-ieee-antenna = "\allcaps{IEEE} Trans. Antennas Propagation"}
+@String{j-ieee-assp = "\allcaps{IEEE} Trans. \allcaps{ASSP}"}
+@String{j-ieee-acoust-speech = "\allcaps{IEEE} Trans. Acoust., Speech, and Signal Process."}
+@String{j-ieee-auto-ctrl = "\allcaps{IEEE} Trans. Automatic Control"}
+@String{j-ieee-bio-med = "\allcaps{IEEE} Trans. Biomedical Eng."}
+@String{j-ieee-circuit-th = "\allcaps{IEEE} Trans. Circuit Theory"}
+@String{j-ieee-ctrl-sys-mag = "\allcaps{IEEE} Control Systems Magazine"}
+@String{j-ieee-ctrl-sys-tech = "\allcaps{IEEE} Trans. on Control Systems Technology"}
+@String{j-ieee-comm = "\allcaps{IEEE} Trans. Comm."}
+@String{j-ieee-comp = "\allcaps{IEEE} Trans. Computers"}
+@String{j-ieee-ed =  "\allcaps{IEEE} Trans. Education"}
+@String{j-ieee-elect = "\allcaps{IEEE} Trans. Audio Electroacoustics"}
+@String{j-ieee-expert = "\allcaps{IEEE} Expert"}
+@String{j-ieee-geo-rs = "\allcaps{IEEE} Trans. Geo. Remote Sensing"}
+@String{j-ieee-ind-elec = "\allcaps{IEEE} Trans. on Industrial Electronics"}
+@String{j-ieee-inf-th = "\allcaps{IEEE} Trans. Inf. Theory"}
+@String{j-ieee-med-imag ="\allcaps{IEEE} Medical Imaging"}
+@String{j-ieee-neural-networks = "\allcaps{IEEE} Trans. Neural Networks"}
+@String{j-ieee-pami = "\allcaps{IEEE} Trans. on Pattern Anal. and Machine Intel."}
+@String{j-ieee-quant-elect = "\allcaps{IEEE} J. Quantum Electronics"}
+@String{j-ieee-rel = "\allcaps{IEEE} Trans. Reliability"}
+@String{j-ieee-rehab = "\allcaps{IEEE} Trans. Rehab. Eng."}
+@String{j-ieee-rob-automatn = "\allcaps{IEEE} Robotics and Automation Magazine"}
+@String{j-ieee-tran-rob-automatn = "\allcaps{IEEE} Transactions on Robotics and Automation"}
+@String{j-ieee-sig-proc = "\allcaps{IEEE} Trans. Signal Processing"}
+@String{j-ieee-smc = "\allcaps{IEEE} Trans. Systems, Man, and Cybernetics"}
+@String{j-ieee-sys-man-cyb = j-ieee-smc}
+@String{j-ieee-spectrum = "\allcaps{IEEE} Spectrum"}
+@String{j-illinois-math = "Illinois J. Math"}
+@String{j-indiana-u-math = "Indiana Univ. Math. J."}
+@String{j-inform-contr = "Inform. Contr."}
+@String{j-instructor = "The Instructor"}
+@String{j-int-eqn-op-th = "Integral Equations and Operator Theory"}
+@String{j-int-j-man-mach-study = "Int. J. of Man. Mach. Stud."}
+@String{j-int-j-rob-res = "Int. J. of Robotics Research"}
+@String{j-rob-soc-jpn = "J. Robotics Soc. Jpn"}
+@String{j-int-j-rob-auto = "Int. J. of Robotics and Automn."}
+@String{j-int-j-rob-automat = "Int. J. of Robotics and Automation"}
+@String{j-int-j-lab-rob-auto = "Int. J. Lab. Robot. Automat."}
+@String{j-int-j-sys-sci = "Int. J. of Systems Science"}
+@String{j-int-j-th-phys = "Int. J. Theor. Phys."}
+@String{j-int-j-comp-app = "Int. J. of Computer Applications in Technology"}
+@string{j-int-neural-sys = "Int. J. Neural Syst."}
+@String{int-eng-sys-nn = "Intelligent Engineering Systems Through Neural Networks"}
+@String{j-int-management-sys = "Int. J. of Management and Systems"}
+@String{j-interfaces = "Interfaces"}
+@String{j-intell-rob-sys = "J. of Intelligent and Robotic Systems"}
+	LookIn: Kluwer/WWW (No Downloads), from 1994-, Vol 11:1-
+@String{j-intell-aut-sys = "J. of Intelligent Autonomous Systems"}
+@String{j-intell-aut-veh = "Intelligent Autonomous Vehicles"}
+@String{j-israel-math = "Isra{\"e}l J. Math."}
+@String{j-izv-akad = "Izv. Akad. Nauk. USSR Ser. Mat."}
+@String{j-tran-soc-inst-ctrl-eng = "Trans. of the Society of Instrument and Control Engineers"}
+%
+% J
+@String{j-japan-appl-math = "Japan J. Appl. Math."}
+@String{j-jerusalem = "Jerusalem"}
+@String{j-jewish-social-studies = "Jewish Social Studies"}
+@String{j-jhapltd = "Johns Hopkins \allcaps{APL} Tech. Dig."}
+@string{j-jmiv = "JMIV"}
+@String{j-josa-comm = "JOSA Communications"}
+@String{j-japan-soc-mech-eng = "Trans. of the Japan Society of Mechanical Engineers"}
+%
+% K
+@String{j-kyber = "Kybernetik"}
+@String{j-Korean-inst-telemat-elec = "J. of the Korean Inst. of Telematics and Electronics"}
+%
+% L
+@String{j-lect-notes-biomath = "Lecture Notes in Biomathematics"}
+@String{j-lect-notes-math = "Lecture Notes in Mathematics"}
+@String{j-let-math-phys = "Lett. Math. Phys."}
+@String{j-london-math-soc = "J. London Math. Soc."}
+%
+% M
+@String{j-macquarie-math-rep = "Macquarie Mathematics Report"}
+@String{j-mammalogy = "J. of Mammalogy"}
+@String{j-math-anal-appl = "J. Math. Anal. Appl."}
+@String{j-math-ann = "Math. Ann."}
+@String{j-math-appl-anal = "J. Math. Appl. Anal."}
+@String{j-math-behavior = "J. Math. Behavior"}
+@String{j-math-bio = "J. Math. Bio."}
+@String{j-math-biosci = "J. Math. Biosciences"}
+@String{j-math-cluj = "Mathematicae Cluj"}
+@String{j-math-comp = "Math. Comp."}
+@String{j-math-ctrl-sig-sys = "Math. Control, Signals and Sys."}
+@String{j-math-geo = "Mathematical Geology"}
+@string{j-math-imag-vis = "J. Math. Imag. Vision"}
+@string{j-math-kyoto-u = "Jour. Math. Kyoto Univ."}
+@String{j-math-mech = "J. Math. Mech."}
+@String{j-math-meth-appl = "Math. Meth. in the Appl. Sci."}
+@String{j-math-model = "Math. Modeling"}
+@String{j-math-nachr = "Math. Nachr."}
+@String{j-math-note = "Mat. Note"}
+@String{j-math-phys = "J. Math and Physics"}
+@String{j-math-proc-camb = "Math. Proc. Camb. Phil. Soc."}
+@String{j-math-pures-appl = "Journal de Math{\'e}matiques Pures et Appliqu{\'e}es"}
+@String{j-math-sbornik = "Math. \allcaps{USSR} Sbornik"}
+@String{j-math-scan = "Math. Scand."}
+@String{j-math-sys-th = "Math. Systems Theory"}
+@String{j-math-zeitschr = "Math. Zeitschr."}
+@String{j-mayflower-quarterly = "Mayflower Quarterly"}
+@String{j-mem-ams = "Mem. Am. Math Soc."}
+@String{j-mem-kyushu = "Mem. Fac. Sci. Kyushu Univ."}
+@String{j-metaphilosophy = "Metaphilosophy"}
+@String{j-mech-eng-sci = "J. of Mechanical Engineering Science"}
+@String{j-mech-solids = "Mechanics of Solids"}
+@String{j-mech-design = "Journal of Mechanical Design"}
+@String{j-mich-math = "Michigan Math. J."}
+@String{j-mod-opt = "J. Mod. Opt."}
+@String{j-monat-math = "Monatsh. f{\"u}r Math."}
+@String{j-monat-math-physik = "Monatsch. Math. u. Physik"}
+@String{j-mother-jones = "Mother Jones"}
+@String{j-multivar-anal = "J. Multivariate Analysis"}
+%
+% N
+@string{j-nanobio = "Nanobiology"}
+@String{j-nat-lampoon = "National Lampoon"}
+@String{j-nature = "Nature"}
+@String{j-nederland-arch = "Nederlandse Archievenblad, Tijdschrift van de Vereniging van Archivarissen in Nederland"}
+@String{j-nederland-kunst-jaarboek = "Nederlands Kunsthistorisch Jaarboek"}
+@String{j-neural-comp = "Neural Computation"}
+@String{j-neural-networks = "Neural Networks"}
+@String{j-neuro = "J. Neurophysiology"}
+@String{j-neurosci = "J. Neurosci."}
+@String{j-new-england-hist = "New England Historical and Genealogical Register"}
+@String{j-nonlinear-anal-th = "Nonlinear Anal., Theory, Methods and Applications"}
+@String{j-nonlinear-sci = "J. of Nonlinear Sciences"}
+	LookIn: Springer/WWW from 1998- or vol 8-
+@String{j-notes-cras = "Notes au Compte-Rendu de l'Academie Des Sciences"}
+@String{j-num-math = "Num. Math"}
+@String{j-number-th = "Journal of Number Theory"}
+@String{j-ny-times = "New York Times"}
+%
+% O
+@String{j-october = "October"}
+@String{j-opt-comm = "Opt. Commun."}
+@String{j-opt-let = "Opt. Lett."}
+@String{j-opt-soc-amer-a = "J. Opt. Soc. Amer."}
+@String{j-optica-acta = "Optica Acta"}
+@String{j-optical-eng = "Optical Eng."}
+@string{j-optical-quantum-elect = "Optical and Quantum Electronics"}
+@String{j-org-dynamic = "Organizational Dynamic"}
+@String{j-oud-holland = "Oud Holland"}
+%
+% P
+@String{j-pacific-math = "Pacific J. Math."}
+@string{j-patt-rec = "Journal of Pattern Recognition"}
+@String{j-perception-psychophysics = "Perception \& Psychophysics"}
+@String{j-philips-res = "Philips J. of Research"}
+@String{j-phonetics = "J. of Phonetics"}
+@String{j-phys-let = "Phys. Lett."}
+@String{j-phys-rev = "Phys. Rev."}
+@String{j-phys-rev-a = "Phys. Rev. A"}
+@String{j-phys-rev-let = "Phys. Rev. Lett."}
+@String{j-physica = "Physica"}
+@String{j-physica-D = "Physica D"}
+@String{j-physica-scripta = "Physica Scripta"}
+@String{j-physiol = "J. Physiol."}
+@String{j-physiol-rev = "Physioloy Review"}
+@String{j-pitman-rnm = "Pitman Research Notes in Math."}
+@String{j-pitman-rnm:adr = "Longman Scientific and Technical, Harlow, Essex"}
+@String{j-print = "Print"}
+@String{j-printing-world = "Printing World"}
+@String{j-prob-rel-fields = "Prob. Th. Rel. Fields"}
+@String{j-proc-ams = "Proc. Amer. Math. Soc."}
+@String{j-proc-cmaanu = "Proc. Centre for Mathematical Analysis of the Australian  National University"}
+@String{j-proc-cmaanu:adr = "Canberra"}
+@String{j-proc-icassp = "Proc. \allcaps{ICASSP}"}
+@String{j-proc-ieee = "Proc. \allcaps{IEEE}"}
+@String{j-proc-imp-acad-tokyo = "Proc. Imp. Acad. Tokyo"}
+@String{j-proc-london-math-soc = "Proc. London Math. Soc."}
+@String{j-proc-math = "Proc. J. Math."}
+@String{j-proc-nat-acad-sci-usa = "Proc. Nat. Acad. Sci. USA"}
+@String{j-proc-phys-soc = "Proc. Phys. Soc."}
+@string{j-proc-roy-soc-london = "Proc. Roy. Soc. London B."}
+@String{j-proc-symp-pure-math = "Proc. of Symp. Pure Math."}
+@String{j-prof-issues = "Journal of Professional Issues"}
+@String{j-prost-orth = "Journal of Prosthetics and Orthotics"}
+@String{j-psych-women = "Psychology of Women Quarterly"}
+@String{j-pub-affairs-quart = "Public Affairs Quarterly"}
+@String{j-pub-centre = "Publication du Centre Europ{\'e}en d'{\'E}tudes Burgondo-M{\'e}dianes"}
+@String{j-pub-mat = "Publicacions Matematiques"}
+%
+% Q
+@String{j-q-math = "Quarterly J. of Math."}
+@String{j-q-math-oxford = "Quarterly J. of Math. Oxford"}
+@String{j-quaerendo = "Quaerendo, A Quarterly Journal from the Low Countries Devoted to Manuscripts and Printed Books"}
+%
+% R
+@String{j-radio-sci = "Radio Science"}
+@String{j-reine-math = "J. f{\"u}r die Reine u. Angewandte Math."}
+@String{j-renaissance-q = "Renaissance Quarterly"}
+@String{j-rend-circ-mat = "Rend. Circ. Mat. Palermo"}
+@String{j-rep-math-phys = "Reports on Math. Physics"}
+@String{j-results-math = "Results in Math."}
+@String{j-rev-math-iber = "Revista Math. Iberoamericana"}
+@String{j-rev-mod-phys = "Rev. Mod. Phys."}
+@String{j-rob-auto-sys = "Robotics and Autonomous Systems"}
+@String{j-rob-mech = "J. of Robotics and Mechatronics"}
+@String{j-rob-sys = "J. Robotic Systems"}
+@String{j-rob-comp-integ-man = "Robotics and Computer Integrated Manufacturing"}
+@String{j-robotica = "Robotica"}
+@String{j-rocky-math = "Rocky Mountain J. Math."}
+@String{j-royal-london =  "Proc. Roy. Soc. London"}
+@String{j-rutgers-comp-tech-law = "Rutgers J. of Computer Technology and the Law"}
+%
+% S
+@String{j-sci-amer = "Scientific American"}
+@String{j-science = "Science"}
+@String{j-screen = "Screen"}
+@String{j-sex-roles = "Sex Roles"}
+@String{j-siam-alg-disc-meth = "\allcaps{SIAM} J. Alg. Disc. Meth."}
+@String{j-siam-appl-math = "\allcaps{SIAM} J. of Applied Math."}
+@String{j-siam-math = "\allcaps{SIAM} J. Math."}
+@String{j-siam-math-anal = "\allcaps{SIAM} J. Math. Anal."}
+@String{j-siam-num-anal = "\allcaps{SIAM} Journal of Numerical Analysis"}
+@String{j-siam-rev = "\allcaps{SIAM} Review"}
+@String{j-sig-proc = "Signal Processing"}
+@String{j-SJTU = "J. of Shanghai Jiao Tong Univ."}
+@String{j-soc-econ-plan = "Socio-Economic Planning"}
+@String{j-soc-ind-math = "J. Soc. Indust. Appl. Math."}
+@String{j-source = "Source"}
+@String{j-source-art = "Source, Notes in the History of Art"}
+@String{j-sys-ctrl-eng = "J. of Systems and Control Engineering"}
+@String{j-sys-ctrl-let = "Systems \& Control Letters"}
+%
+% T
+@String{j-terramech = "J. of Terramechanics"}
+% V
+@String{j-am-vet-res = "American J. of Veterinary Research"}
+% Z
+@String{j-zool = "J. of Zoology (London)"}
+
+%%
+%% Publisher abbreviations
+%%
+
+@STRING(pub-KLUWER	= "Kluwer Academic Publishers Group")
+@STRING(pub-KLUWER:adr	= "Dordrecht, The Netherlands")
+
+@String(pub-KOGAN	= "Kogan Page Ltd")
+@String(pub-KOGAN:adr	= "London")
+
+@String(pub-MIT		= "MIT Press")
+@String(pub-MIT:adr	= "Cambridge, MA")
+
+@String(pub-McGraw-Hill	= "McGraw-Hill")
+@String(pub-McGraw-Hill:adr = "?")
+
+@String{pub-MICHIGAN	= "Ann Arbor: University of Michigan Press"}
+
+@String{pub-NH		= "North-Hol{\-}land"}
+@String{pub-NH:adr	= "Amsterdam, The Netherlands"}
+
+@String(pub-OXFORD	= "Oxford University Press")
+
+@String(pub-Oxford-Sci	= "Oxford Science Publishing")
+
+@String(pub-PLENUM	= "Plenum Press")
+
+@String(pub-PUP		= "Princeton University Press")
+@String(pub-PUP:adr	= "41 William Stree, Princeton, New Jersey 08540")
+
+@String(pub-PERGAMON	= "Pergamon Press")
+
+@String(pub-PRENTICE	= "Prentice Hall")
+@String(pub-PRENTICE:adr = "Upper Saddle River, New Jersey 07458, USA")
+
+@STRING(pub-SV		= "Spring{\-}er-Ver{\-}lag")
+@STRING(pub-SV:adr	= "Berlin, Germany-/ Heidelberg, Germany~/London, UK~/ etc.")
+
+@String{pub-UCLA-CS	= "University of California Computer
+			   Science Dept., School of Engineering
+			   and Applied Science"}
+@String{pub-UCLA-CS:adr	= "Los Angeles, CA, USA"}
+
+@String{pub-UCP		= "University of California Press"}
+@String{pub-UCP:adr	= "Berkeley, CA, USA"}
+
+@String(pub-WAVERLY	= "Waverly Press")
+@String(pub-WAVERLY:adr	= "Baltimore, Maryland, US")
+
+@String(pub-WILEEY	= "Wiley Publ.")
+@String(pub-WILEY:adr	= "New York, USA")
+@String(pub-ProfEngPub = "Professional Engineering Publishing Limited")
+@String(pub-WILEYSon    = "John Wiley \& Sons")
+
+%%
+%% Proceedings abbreviations:
+%%
+
+@String(proc-CIRA = "IEEE International Symposium on Computational Intelligence in Robotics and Automation CIRA")
+@String(proc-ICRA = "Int. Conf. on Robotics and Automation")
+	LookIn: IEL Online
+@String(proc-ICAR = "Int. Conf. on Advanced Robotics")
+@String(proc-ICAM = "Int. Conf. on Advanced Mechatronics")
+@String(proc-ICNN = "Int. Conf. on Neural Networks")
+@String(proc-IROS = "{IEEE/RSJ} Int. Conf. on Intelligent Robots and Systems")
+@String{proc-ISER = "International Symposium on Experimental Robotics"}
+@String{proc-ISAMAM = "International Symposium on Adaptive Motion of Animals and Machines"}
+@String(proc-ISRR = "ISRR")
+@String(proc-ISIR = "Int. Symp. on Industrial Robots")
+@String(proc-ieee-int-joint-symp-intell-sys = "IEEE Int. Joint Symposia on Intelligence and Systems")
+@String(proc-ieee-int-symp-intell-ctrl = "IEEE Int. Symposium on Intelligent Control")
+@String(proc-IJCAII = "Int. Joint Conf. on Artificial Intelligence")
+@String(proc-SMC = "Int. Conf. on Systems, Man and Cybernetics")
+@String(proc-IAS = "Int. Conf. on Intelligent Autonomous Systems")
+@String(proc-ROBOMEC = "Proc. of ROBOMEC")
+@String(proc-RO-MAN = "IEEE Int. Workshop on Robot and Human Communication")
+@String{proc-rob-res = "Robotics Research"}
+@String(proc-sys-eng = "\allcaps{IEEE} Int. Conf. on System Engineering")
+@String(proc-conf-adv-rob = "Int. Conf. on Adv. Rob.")
+@String{proc-conf-dec-ctrl = "Proc. \allcaps{IEEE} Conf. on Decision and Control"}
+@String{proc-conf-rob-challening-env = "Proc. \allcaps{ASCE/NASA} Conf. on Rob. in Challenging Environments"}
+@String(proc-CLAWAR = "Int. Conf. on Climbing and Walking Robots")
+@String(proc-CLAWAR98 = "CLAWAR '98  First International Symposium")
+@String(proc-AMC = "Int. Workshop on Advanced Motion Control Proc.")
+@String(proc-mach-learning = "Proc. Machine Learning Workshop")
+@String{proc-coll-inf-tech-CLAWAR = "\allcaps{IEE} Colloquium on Information Technology for Climbing and Walking Robots"}
+@String(proc-int-conf-multisensor-fusion-integ-intell-sys = "IEEE/SICE/RSJ Int. Conf. on Multisensor Fusion and Integration for Intelligent Systems")
+@String(proc-NordDesign = "NordDesign");
+@String(proc-int-symp-rob-app = "Int. Symposium on Robotics and Applications")
+@String(proc-UK-Mechatronics= "UK Mechatronics Forum International Conference")
+%%
+%% Source references
+%%
+
+@STRING{BNNIN = "Biological Neural Networks in Invertebrate Neuroethology and Robotics"}
+@STRING{NNFA = "Neural Networks: Foundations to Applications"}
+
+%%
+%% Affiliation groups
+%%
+@String(g-AU:RISC = "RISC-Linz, J. Kepler Univ.")
+@String(g-BU:BAS = "Bulgarian Academy of Sciences")
+@String(g-CA:Alberta = "Univ. of Alberta")
+@String(g-CA:Alberta:adr = "Edmonton, AB T6G 2G7, Canada")
+@String(g-CA:UBC = "Univ. of British Columbia")
+@String(g-CA:McGill = "McGill Univ.")
+@String(g-CA:McGill:adr = "Montreal, QC H3A 2A7, Canada")
+@String(g-CA:Manitoba = "Univ. of Manitoba")
+@String(g-CA:Manitoba:adr = "Winnipeg, Manitoba, Canada R3T-2N2")
+@String(g-CA:NRC = "Natonal Research Council")
+@String(g-CA:Simon_Fraser = "Simon Fraser Univ.")
+@String(g-CA:Simon_Fraser:adr = "Burnaby, British Columbia, Canada V5A 1S6")
+@String(g-CA:Toronto = "Univ. of Toronto")
+@String(g-CA:Toronto:adr = "Toronto, Canada M551A4")
+@String(g-CA:Waterloo = "Univ. of Waterloo")
+@String(g-CA:UNB = "Univ. of New Brunswick")
+@String(g-CA:UNB:adr = "Fredericton, NB, Canada, E3B 5A3")
+@String{g-CH:ETH = "ETH Z{\"}urich"}
+@String(g-CN:SIA = "Shenyuang Inst. of Automation, China")
+@String(g-CN:SJTU = "Shanghai Jiao Tong Univ." )
+@String(g-CN:Northeastern_U = "Northeastern Univ.")
+@String(g-CN:Northeastern_U:adr = "110006 Shenyang, PR China")
+@String(g-CN:Hong_Kong = "Hong Kong Univ. of Science & Tech.")
+@String(g-D:Bielefeld = "Univ. of Bielefeld")
+@String(g-D:FZI = "Forschungszentrum Informatik")
+@String(g-D:Heidelberg = "Univ. of Heidelberg")
+@String(g-D:Kaiserslautem = "University of Kaiserslautem")
+@String(g-D:Karlsruhe = "University of Karlsruhe")
+@String(g-D:TU = "Technische Univ., Munchen")
+@String(g-D:Ruhr = "Ruhr-Univ. Bochum")
+@String(g-D:Ruhr:adr = "44780 Bochum, Germany")
+@String(g-DK:Riso = "Ris\/o National Laboratory")
+@String(g-E:CSIC = "Institut de Cibernetica (UPC - CSIC)")
+@String(g-E:CSIC:IAI = "instituto de Automatica Industrial--CSIC")
+@String(g-E:CSIC:IAI:adr  = "CN III, La Poveda, 28500-Arganda del Rey, Madrid, Spain")
+@String(g-E:CSIC:adr = "Diagonal 647, 08028--Barcelona, Spain")
+@String(g-E:Valladolid = "Univ. of Valladolid, Spain")
+@String(g-F:LRP = "Laboratoire de Robotique de Paris" )
+@String(g-F:LRP:adr = "10-12 Av. de l'Europe, 78140 Velizy, France")
+@String(g-F:LGMPB = "Laboratoire de Genie Mecanique Productique et Biomecanique")
+@String(g-F:LGMPB:adr = "Institut Universitaire de Technologie de CACHAN, 9 av. de la Division Leclerc - BP 140 -, 94234 Cachan - France")
+SString(g-F:LAAS = "LAAS/CNRS")
+@String(g-F:LAAS:adr = "7 Av. du Colonel Roche, 31077 Toulouse Cedex, France")
+@String(g-F:LAG = "Laboratoire d'Automatique de Grenoble")
+@String(g-F:LAG:adr = "UMR-CNRS 5528, ENSIEG-INPG, B.P.46, 38402, St Martin d'Heres, France")
+@String(g-F:LPM = "Laboratoire de Physiologie du Moumvent")
+@String(g-F:LPM:adr = "ER CNRS, 124 Universite Paris Sud, Orsay, 91405 ORSAY cedex, France")
+@String(g-F:INRIA = "INRIA Rhone-Alpes")
+@String(g-F:INRIA:adr = "655 ave. de l'Europe, 38330 Montbonnot, France")
+@String(g-F:Nantes = "Institut de Recherche en Cybernetique de Nantes")
+@String(g-F:Nantes:adr = "1 rue de la Noe, BP92101, 44321  Nantes Cedex 03, France")
+@String(g-I:BARC = "Bhabha Atomic Research Centre")
+@String(g-I:BARC:adr = "Bombay 400 085 India")
+@String(g-IT:Rome = "Univ. of Rome")
+@String(g-IT:Rome:adr = "Italy")
+@String(g-IT:Pisa = "Univ. of Pisa")
+@String(g-IT:Pisa:adr = "Via Diotisalvi 2, 56100 Pisa, ITALY")
+@String(g-JP:Brother = "Brother Ind. Corp.")
+@String(g-JP:Chiba = "Chiba Institute of Technology")
+@String(g-JP:Chiba:adr = "2-17-1, Tsudanuma, Narashino-shi, Chiba, 275-0016, Japan")
+@String(g-JP:Gifu = "Gifu Univ.")
+@String(g-JP:Honda = "Honda R&D Co., Ltd.")
+@String{g-JP:Honda:Wako = "Wako Res. Center, Honda R&D Co. Ltd."}
+@String{g-JP:Honda:Wako:adr = "Saitama, Japan"}
+@String(g-JP:Hosei = "Hosei Univ., Japan" )
+@String(g-JP:Keio = "Keio Univ.")
+@String(g-JP:Kyoto = "Kyoto Univ.")
+@String(g-JP:Kumamoto = "Kumamoto Univ.")
+@String(g-JP:MEL = "Mechanical Engineering Laboratory, Dept. of Robotics, Tsukuba-City")
+@String(g-JP:Mie = "Mie Univ.")
+@String(g-JP:Mitsubishi = "Mitsubishi Heavy Industries, Ltd")
+@String(g-JP:Nagoya = "Nagoya Univ.")
+@String(g-JP:Osaka = "Osaka Univ.")
+@String(g-JP:Sony = "Sony");
+@String(g-JP:TEU = "Tokyo Engineering Univ.")
+@String(g-JP:TIT = "Tokyo Institute of Technology" )
+@String(g-JP:Tohoku = "Tohoku Univ.")
+@String(g-JP:Tohoku:adr = "Aramaki Aoba, Aoba-ku, Sendai 980, Japan")
+@String(g-JP:Tokyo = "Tokyo Univ.")
+@String(g-JP:Tokyo:adr = "7-3-1, Hongo, Bunkyou-ku, Tokyo 113, Japan")
+@String(g-JP:TRDC = "Takasago Research and Development Center")
+@String(g-JP:Electro-Communications = "Univ. of Electro-Communications")
+@String(g-JP:Waseda = "Waseda Univ.")
+@String(g-JP:Yokohama_National = "Yokohama National Univ., Japan")
+@String(g-JP:RIKEN = "RIKEN")
+@String(g-JP:Ritsumeikan = "Ritsumeikan Univ.")
+@String(g-KR:KAIST = "Korea Advanced Institute of Science and Technology")
+@String(g-misc = "misc.")
+@String(g-M:UNAM = "U.N.A.M.")
+@String(g-M:UNAM:adr = "A. Postal 70-186, C.P. 04510, Mexico, D.F.")
+@String(g-NL:Utrecth = "Utrecht Univ.")
+@String(g-PL:Warsaw = "Warsaw Univ. of Technology")
+@String(g-PL:Warsaw = "Warsaw Univ. of Technology")
+@String(g-PL:Warsaw:adr = "Nowowiejska 22/24, PL-00-665, Warsaw, Poland")
+@String(g-PT:Modern = "Modern Univ.")
+@String(g-PT:Portugal = "Univ. of Portugal")
+@String(g-RU:Moscow = "Academy of Sciences of the USSR")
+@String(g-RU:MSTU = "Moscow State Technical Univ.")
+@String(g-RU:VSTU = "Volgograd State Technical Univ.")
+@String(g-S:CAS = "Center of Autonomous Systems, KTH" )
+@String(g-S:KTH:CAS = "Center of Autonomous Systems, KTH" )
+@String(g-S:KTH:MMK = "Dept. of Machine Design")
+@String(g-S:KTH:MMK:adr = "Royal Institute of Technology, S-100 44 Stockholm, Sweden")
+@String(g-S:KTH = "The Royal Inst. of Technology")
+@String(g-S:KTH:adr = "100 44 Stockholm, Sweden")
+@String(g-S:KTH:Mech = "Dept. of Mechanics, KTH" )
+@String{g-S:KTH:NADA = "Dept. of Numerical Analysis and Computer Science"}
+@String{g-S:KTH:NADA:adr = "?"}
+@String(g-S:KTH:OptSyst = " Dept. of Optimization and Systems Theory")
+@String(g-S:KI = "Karolinska Institutet")
+@String(g-S:Chalmers = "Chalmers University of Technology")
+@String(g-S:LuTH = "Luleås Tekniska Högskola")
+@String(g-SB:Mihailo = "Mihailo Pupin Insitute, Belgrade")
+@String(g-SG:Singapore = "National Univ. of Singapore")
+@String{g-SG:Polytech = "Singapore Polytech."}
+@String(g-SL:Ljubljana = "Univ. of Ljubljana")
+@String(g-SL:Ljubljana:adr = "Ljubljana, Slovenia")
+@String(g-SK:Matej = "Univ. of Matej Bel")
+@String(g-TW:NCTU = "National Chiao Tung Univ., Taiwan")
+@String(g-TW:NTIT = "National Taiwan Institute of Technology")
+@String(g-TW:NTIT:adr = "43, Leelung Road, Section 4, Taipei, Taiwan")
+@String(g-TW:NTUST = "National Taiwan Univ. of Science and Technology")
+@String(g-TW:NCKU = "National Cheng Kung Univ.")
+@String{g-TW:NCKU = "Tainan, Taiwan"}
+@String(g-UK:Leeds = "Univ. of Leeds")
+@String(g-UK:Leeds:adr = "Leeds LS2 9JT, England")
+@String(g-UK:London = "Univ. of London")
+@String(g-UK:Portsmouth = "Univ. of Portsmouth")
+@String(g-UK:PORTECH = "PORTECH Ltd.")
+@String(g-UK:Salford = "Univ. of Salford")
+@String(g-UK:Salford:adr = "UK")
+@String(g-UK:UWE = "Univ. of the West of England, Bristol, UK")
+@String(g-UK:Wales = "Univ. of Wales")
+@String(g-UK:Wales:adr = "Cardif, UK")
+@String(g-UK:Warwick = "Univ. of Warwick")
+@String(g-UK:Warwick:adr = "Coventry CV4 7AL, United Kingdom")
+@String(g-US:Boston = "Boston Univ." )
+@String(g-US:Cambridge_RA = "Cambridge Research Associates")
+@String(g-US:Cambridge_RA:adr = "1430 Spring Hill Raod, Suite 200, McLean, Virginia 22102, USA")
+@String(g-US:California_St_Barbara = "Univ. of California, Santa Barbara")
+@String(g-US:California-San_Diego = "Univ. of California, San Diego")
+@String(g-US:Clemson = "Clemson Univ.")
+@String(g-US:CalTech = "California Institute of Technology")
+@String(g-US:CalTech:adr = "Pasadena, CA 91109, USA")
+@String{g-US:Cornell = "Cornell University"}
+@String{g-US:Cornell:adr = "Ithaca, NY 14853, USA"}
+@String(g-US:CMU = "Carnegie-Mellon Univ." )
+@String(g-US:CWRU = "Case Western Reserve Univ." )
+@String(g-US:CWRU:AARG = "Autonomous Agents Research Group" )
+@String(g-US:DNSI = "R. S. Dow Neurological Sciences Institute")
+@String(g-US:DNSI:adr = "Portland, Oregon 97209")
+@String{g-US:Drexel = "Drexel Univ."}
+@String{g-US:Drexel:adr = "Philadelphia, Pennsylvania 19104, USA"}
+@String(g-US:FANUC = "FANUC Robotics North America Inc.")
+@String(g-US:FANUC:adr = "Auburn Hills, Michigan 48326, USA")
+@String(g-US:Florida = "Univ. of Florida")
+@String{g-US:Florida = "Gainesville, Florida 32611, USA"}
+@String(g-US:FloridaAtlantic = "Florida Atlantic Univ., Boca Raton")
+@String(g-US:GM = "General Motors")
+@String(g-US:Harvard = "Harvard Univ.")
+@String(g-US:Harvard:adr = "Cambridge, Massachusetts, USA")
+@String(g-US:Houston = "Univ. of Houston")
+@String{g-US:Illinois-Chicage:adr = "P. O. Box 4348, Chicago, IL 60680, USA"}
+@String(g-US:Illinois-Chicago = "Univ. of Illinois at Chicago")
+@String{g-US:IllinoisU = "Illinois Univ."}
+@String{g-US:IllinoisU:adr = "Urbana, IL, USA"}
+@String(g-US:Lamar = "Lamar Univ.")
+@String(g-US:Lamar:adr = "Beaumont, TX, 77710, USA")
+@String(g-US:LSSU = "Lake Superior State Univ.")
+@String(g-US:LSSU:adr = "Sault Ste Marie, MI 49783, U.S.A.")
+@String(g-US:Metrica = "Metrica, Inc.")
+@String(g-US:Metrica:adr = "1012 Hercules, Houston, TX 77058")
+@String(g-US:MIT = "Massachusetts Inst. of Technology")
+@String(g-US:Michigan = "Univ. of Michigan")
+@String(g-US:Michigan:adr = "Ann Arbor, MI 48109-2110, USA")
+@String(g-US:Missouri = "Univ. of Missouri")
+@String(g-US:NeuroDyne = "NeruoDyne Inc.")
+@String(g-US:NeuroDyne:adr = "123 Hunting Cove, Williamsburg, VA 23185")
+@String(g-US:NMSU = "New Mexico State Univ.")
+@String(g-US:NMSU:adr = "Las Cruces, NM 88001, USA")
+@String(g-US:Notre_Dame = "Univ. of Notre Dame")
+@String(g-US:Notre_Dame:adr = "Indiana 46556")
+@String{g-US:OSU = "Ohio State Univ."}
+@String(g-US:OSU:adr = "Columbus, Ohio 43210, USA")
+@String(g-US:Princeton = "Princeton Univ.")
+@String(g-US:Princeton:adr = "Princeton, NJ 08544, USA")
+@String(g-US:Purdue = "Purdue Univ.")
+@String(g-US:Purdue = "Purdue Univ.")
+@String(g-US:Purdue:RVL = "Robot Vision Lab" )
+@String(g-US:Purdue:adr = "West Lafayette, IN 47907 1285, USA")
+@String(g-US:RPI = "Rensselaer Polytechnic Institute")
+@String(g-US:RPI:adr = "Troy, NY 12180")
+@String(g-US:SDSU = "South Dakota State Univ.")
+@String(g-US:Stanford = "Stanford Univ.");
+@String(g-US:S_Carolina = "Univ. of South Carolina")
+@String(g-US:Teleos_Research = "Teleos Research")
+@String(g-US:Teleos_Research:adr = "576 Middlefield RD, Palo Alto, CA 94301, USA")
+@String(g-US:UCB = "Univ. of California at Berkely")
+@String(g-US:UCDavis = "Univ. of California at Davis")
+@String(g-US:USCLA = "Univ. of Southern Californai, Los Angeles")
+@String(g-US:UCLA = "Univ. of California, Los Angeles" )
+@String(g-US:UMass = "Univ. of Massachusetts at Amherst")
+@String(g-US:UMass:adr = "Amherst, MA 01003")
+@String(g-US:UNH = "Univ. of New Hampshire")
+@String(g-US:UNH:adr = "Durham, NH 03824, USA")
+@String(g-US:UPenn = "Univ. of Pennsylvania")
+@String(g-US:Utah = "Univ. of Utah")
+@String(g-US:S_Lousiana = "Univ. of Southern Lousiana")
+@String(g-US:SW_Louisiana = "Univ. of Southwestern Louisiana")
+@String(g-US:SW_Louisiana:adr = "Lafayette, LA, USA")
+@String(g-US:Schlumberger = "Schlumberger Anadrill, Sugar Land")
+@String(g-US:Schlumberger:adr = "TX, USA")
+@String(g-US:Washington = "Washington Univ.")
+@String(g-US:Washington = "St. Louis, MO 63130")
+@String(g-US:WiscM = "Univ. of Wisconsin, Madison")
+@String(g-US:Yale = "Yale Univ.")
+@String(g-US:UMary = "University of Maryland")
+
+%%
+%% Location/folder
+%%
+@String{l-Christian	= "Christian has the reference"}
+@String(l-Freyr		= "Freyr has the reference" )
+@String(l-Jan		= "Jan has the reference")
+@String(l-Lennart	= "Lennart has the reference" )
+@String{l-Tom		= "Tom has the reference"}
+
+@String(l-Groups = "In Christian's binder: Groups -- references" )
+@String(l-BGA = "In Christian's binder: Biological Gait analysis --- references")
+@String(l-Neuro = "In Christian's binder: Neurophysiology --- references")
+@String(l-GC = "In Christian's binder: Gaits & Control -- references" )
+@String(l-Misc = "In Christian's binder: Miscellaneous references" )
+@String(l-TEX = "In Christian's binder: TEX" )
+@String(l-CVS = "In Christian's binder: CVS -- manuals" )
+@String(l-PassiveWalking = "In Christian's binder: Passive Walking")
+
+
+
+**********************************************************************
+
+%%%
+%%% III. How to find stuff
+%%%
+
+Below I write down when I didn't find an article, or when I found one.
+This is very partial and might be incorrect due to typos from me when
+I do the search.
+
+j-intell-rob-sys	Not found in IEL-online.
+j-rob-sys		Not found in IEL-online.
+j-intell-aut-veh	Not found in IEL-online.
+j-int-j-sys-sci		Not found in IEL-online. KTH lib has -95
+j-mech-solids		Not found in IEL-online.
+j-dyn-meas-ctrl		Not found in IEL-online.
+j-adv-rob		Not found in IEL-online.
+j-ieee-rob-automatn	Found in IEL-online.
+proc-RO-MAN		Found in IEL-online.
+proc-SMC		Found in IEL-online.
+proc-ICRA		Found in IEL-online.
+proc-IROS		Found in IEL-online.
+proc-ICAR		Found in IEL-online.
+{ASME Design Technical Conf.---22nd Biennial Mechanisms Conf.} - Linköping, Inst. bib.
+
+**********************************************************************
+% vim: ignorecase

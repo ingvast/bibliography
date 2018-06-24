@@ -1,0 +1,3471 @@
+%%% vim: softtabstop=2 ignorecase shiftwidth=2 textwidth=78
+%%%
+%%% Author:	Johan Ingvast
+%%% $Revision: 1.115 $
+%%% $Date: 2006/06/29 15:02:51 $
+
+%%%
+%%% IV.	The database
+%%%
+
+@Book{Song:1989:MTW,
+  author = 	 {Shin-Min Song and Kenneth J. Waldron},
+  title = 	 {Machines that Walk},
+  publisher = 	 pub-MIT,
+  year = 	 1989,
+  address =	 pub-MIT:adr,
+  abstract =
+	"",
+  annote = {
+    The book about statically stable walking machines.
+    Presents more or less the work behind the Adaptible Suspension Vehicle
+    (ASV)
+		},
+  affiliation =	 g-US:Illinois-Chicago # g-US:OSU,
+  location =	 {Borrowed from Freyr}
+}
+
+@Article{Waldron:1984:CDA,
+  author = 	 {Kenneth J. Waldron and Vincent J. Vohnout and Arrie Pery and
+		  Robert B. McGhee},
+  title = 	 {Configuration of the Adaptive Suspension Vehcile},
+  journal = 	 j-int-j-rob-res,
+  year = 	 1984,
+  volume =	 3,
+  number =	 2,
+  pages =	 {37--48},
+  annote =	 {
+	Describes the physical and actuator system of the ASV and why
+	the design choices were made. Not relevant for me. It is
+	interesting that they found that variable-displacment pumps
+	were better and cheaper than valve-ctrl techniques. Is this
+	still true today?},
+  affiliation =	 g-US:OSU # g-US:OSU # "? Israel ? " # g-US:OSU,
+  location =	 l-Groups # g-US:OSU
+}
+
+@Article{Schmiedeler:1999:MQG,
+  author = 	 {J. P. Schmiedler and K. J. Waldron},
+  title = 	 {The mechanics of quadrupedal galloping and the future of
+		  legged vehicles},
+  journal = 	 j-int-j-rob-res,
+  year = 	 1999,
+  volume =	 18,
+  number =	 2,
+  pages =	 {1224--1234},
+  abstract =	 {
+	Previous studies have noted that biological quadrupeds adjust
+	their gaits when encountering drag in their locomotion. This
+	paper investigates the hypothesis that these gait adjustments
+	allow the legs to operate atan optimal working length when
+	generating thrust. A 5-DoF dynamic model of a quadruped having
+	a rigid trunk and massless leg is formulated. This model
+	reflects the dimensions and inertial properties of a galloping
+	machine that theauthors are designing. The constrained
+	steady-state motion equations governing the transvere and
+	rotary gallops of the model are solved numerically for various
+	leelsof drag. The footfall phasing solutions for both forms of
+	the gallop approach a partially in-phase gait,the half-bound,
+	as drag increases. These gait transitions are the result of
+	constraints requiring the legs to operate at their optimal
+	working length when in contact with the terrain. Thus, the
+	behavios of the model supports the original hypothesis. This
+	paper also includes a discussion of future research directions
+	in the field of artificial legged locomotion.},
+  annote =	 {
+	They assume massless articulated legs and model the
+	environmental interaction through impulses. By formulating a
+	set of constraint equations, they can then solve for a steady
+	state gait as a function of drag (i.e. resistance from going
+	uphill). The variables they solve for include footfall times,
+	locomotion period and pose (attitude) at the beginning of a
+	cycle.
+
+	They assume that the impulses pass through the hip joints, I'm
+	not sure I totally agree with that assumption. The lateral
+	components of the impulses are also neglected (assumed zero).
+
+	I like this approach since it greatly reduces the search
+	space, by searching for impulses instead of forces as a
+	function of time.
+
+	ToDo: Check impulses from my simulation results and see if it fits.
+
+	Idea. It might be possible to use this kind of search to more
+	easily find gaits (different footfall sequences?). Even though
+	it might be necessary to add a step where the impulses are
+	converted to force, this can still save time.},
+  affiliation =	 g-US:OSU,
+  location =	 l-groups # g-US:OSU
+}
+
+@Article{Messuri:1985:ABR,
+  author = 	 {Domini A. Messuri and Charles Klein},
+  title = 	 {Automatic body regulation for Maintaining Stability of a
+                  legged vehicle during rough-terrain locomotion},
+  journal = 	 j-ieee-rob-automatn,
+  year = 	 1985,
+  volume =	 {RA-1},
+  number =	 3,
+  month =	 sep,
+  abstract =	 {
+	The evolution of legged vehicles has progressed significanlty
+	in recent years. These vehicles offer the potential of
+	increased mobility for traversing rough terrain. Teh ability
+	to maintain stability is an important consideration in the
+	development of any control algorithm for a legged
+	vehicle. Previous work on legged vehicle control generally
+	assumes that the terrain is regular enought that only minimal
+	operator interaction is necessary. However, for very irregular
+	terrain the operator may require a guidance mode that gives
+	maximum resolution and flexibility in controlling body, leg
+	position and orientation. several automatic body regulation
+	schmes that aid the operator in this important task are
+	described. A major development is the use of an improved
+	stability measure which can be automatically optimized. This
+	measure, together with a consideration of constraints on the
+	kinematic limits of individual legs, leads to the development
+	of schmese for automatic body regulation. the automatic body
+	regulation schemese are incorportated into the vehicle control
+	algorthm to provide a high degree of vehicle maneuverability
+	while reducing the opertor's burden.},
+  annote =	 {Found: Hirose:1997:QWM. Something to do with energystab. Good
+	ref for the review perhaps. Also refered to from Hirose:2001:NES.  Not
+	so interesting, but the Energy Stability Margin is introduced.  They
+	refer to work by A. A. Frank for something similar for bipeds.},
+  affiliation =	 g-US:OSU,
+  location =	 l-Groups # g-US:OSU
+}
+
+@Article{Vukobratovic:2004:ZMP,
+  author =  {Miomir Vukobratovic and Branislav Borovac},
+  title = {Zero-moment point --- Thirty five years of its life},
+  journal = j-human-rob,
+  year =  2004,
+  volume =  1,
+  number =  1,
+  pages = {157 -- 173},
+  abstract =  {
+  This paper devoted to the performance of the concept of Zero-Moment Point,
+  widely-known by the acronym ZMP.  Thirty-five years have elapsed since its
+  implicit presentation (actually before being named ZMP) to the scientific
+  community and thirty-three years since it was explicitly introduced and
+  clearly elaborated, initially in the leading journals published in English.
+  Its first practical domonstration took place in Japan in 1984, at Waseda
+  University, Laboratory of Ichiro Kato, in the first dynamically balanced robot
+  {WL-10RD} of the robotic family {WABOT}. The paper gives an in-depth
+  discussion of source results concerning ZMP, paying particular attention to
+  some delicate issues that may lead to confusion if this method is applied in a
+  mechanistic manner onto irregular cases of artificial gait, i.e.  in the case
+  of loss of dynamic balance of a humanoid robot.
+  
+  After a short survey of the history of the origin of ZMP a very detailed
+  elaboration of ZMP notion is given, with a special review concerning "boundary
+  cases" when the ZMP is close to the edge of the support polygon and "fictious
+  cases" when the ZMP should be outside the support polygon.  In addition, the
+  difference between ZMP and the center of pressure is pointed out.  Finally,
+  some unresolved or insufficiently treated phenomena that may yield a
+  significant improvement in robot performance are considered.
+  },
+  annote =  {},
+}
+
+@InProceedings{Zeglin:1998:CBL,
+  author = 	 {Garth Zeglin and Ben Brown},
+  title = 	 {Control of a Bow Leg Hopping Robot},
+  booktitle = 	 proc-ICRA,
+  pages =	 {793--798},
+  year =	 1998,
+  annote =	 {Discussed at DAMEK walking seminar},
+  abstract =	 {
+	The bow leg hopper is a new design for a locomoting system
+	with a resilient, flexible leg. It features a passive stance
+	phase and natural pitch stability. It is controlled with
+	actuators that configure the leg angle and stored leg energy
+	during flight. During stance, the actuators are mechanically
+	decoupled from the leg and the stored energy is released. The
+	trajectory is determined by the spring-mass physics and the
+	state of the leg at impact. This design casts the controller
+	as a function mapping three trajcectory parameters to two
+	control outputs once every hopping cycle. Our particular
+	solution uses a combination of graph-search planning and
+	feedback control. The planner searches to find sequences of
+	foot placements and computes control outputs using numerical
+	solution of a physical model. Feedback control is computed
+	once per bounce. Experimental data from a planar prototype are
+	included demonstrating navigation of simple artificial
+	terrain.},
+  affiliation =	 g-US:CMU,
+  location =	 l-Groups # g-US:CMU
+}
+
+@InProceedings{Brown:1998:BLH,
+  author = 	 {Ben Brown and Garth Zeglin},
+  title = 	 {The Bow Leg Hopping Robot},
+  booktitle = 	 proc-ICRA,
+  pages =	 {781--786},
+  year =	 1998,
+  annote =	 {Discussed at DAMEK walking seminar},
+  abstract =	 {
+	The bow leg hopper is a novel locomotor design with a highly
+	resilient leg that resembles an archer's bow. During flight, a
+	"thurst" actuator adds elastic energy to the leg, which is
+	automatically released during stance to control hopping
+	height. Lateral motion is controlled by directing the leg
+	angle at touchdown, which determines the angle of takeof or
+	reflection. The leg pivots freely on a hip bearing and is
+	automatically decoupled from the leg-angle positioner during
+	stance to preclude hip torques that would disturb boyd
+	attitude. Upright attitude is maintained without active
+	control by allowing the body to "hang" from the hip
+	joint. Preliminary experiments with a planar protoype have
+	demonstrated impressive performance (hopping heigts of 50 cm
+	or more), high efficiency (recover 70% of the energy from one
+	hop to the next) and low power rrequirements (45 minutes of
+	operation on a small battery pcak). Current experiments are
+	focused on developing control and planning schemes to enable
+	locomotion over discrete "stepping stones" and obstacles.},
+  affiliation =	 g-US:CMU,
+  location =	 l-Groups # g-US:CMU
+}
+
+@Article{Hildebrand:1965:SGH,
+  author = 	 {M. Hildebrand},
+  title = 	 {Symmetrical gaits of horses},
+  journal = 	 j-science,
+  year = 	 1965,
+  volume =	 150,
+  pages =	 {701--708},
+  affiliation =	 g-US:UCDavis,
+  location =	 l-BGA
+}
+
+@Article{Hildebrand:1989:QGV,
+  author = 	 {M. Hildebrand},
+  title = 	 {The quadrupedal gaits of vertebrates},
+  journal = 	 j-bioscience,
+  year = 	 1989,
+  volume =	 39,
+  number =	 11,
+  month =	 dec,
+  pages =	 {766--775},
+  affiliation =	 g-US:UCDavis,
+  annote =	 {
+	Found: in Berkemeier:1995:COP
+
+	Biological gait analysis, description and classification of
+	gaits. Hildebrand has classifed the gaits of a lot of animals
+	according to a few principles (see the article).
+
+	If I want information about how animals run, this is a good
+	place to find it. Otherwise, irrelevant for me.
+
+	Review: This should come in somehow. Def. of gaits? History?},
+  category =	 {biological gait analysis},
+  location =	 l-BGA
+}
+
+@Article{Colborne:1998:FJM,
+  author =  {G. Robert Colborne and Joel L. Lanovaz and Eric J. Sprigings and
+	     H. C. Schamhardt and Hilary M. Clayton },
+  title = { Forelimb joint moments and power during the walking stance phase of
+	  horses},
+  journal = j-am-vet-res,
+  year =  {1998},
+  volume =  {59},
+  number =  {5},
+  pages = {609 -- 614},
+  abstract =  {
+    To calculate normative joint moments of force and power for the forelimb of
+    walking horses as a benchmark against which to compare these mechanical
+    variables in horses with specific lameness. ANIMALS: 4 Dutch Warmblood
+    horses with no recent history of lameness. PROCEDURE: Horses were walked by
+    hand through the test area, and data from 5 walking trials were collected
+    for each horse. Two camera views were combined with vertical and
+    craniocaudal ground reaction forces to calculate net moments of force in the
+    sagittal plane across the carpal, metacarpophalangeal (fetlock), and distal
+    interphalangeal (coffin) joints during the stance phase of the forelimb.
+    Mechanical power was calculated as the product of net joint moment and the
+    joint's angular velocity. RESULTS: During the early part of the stance
+    phase, the carpal joint had oscillating periods of energy generation and
+    absorption against a predominant flexor moment, then an absorption phase at
+    the end of the stance phase, as the carpus flexed into swing against an
+    extensor moment. The fetlock absorbed energy in the early part of the stance
+    phase, then the terminal part was marked by a large generation of energy
+    across the joint. A flexor moment was measured at the coffin joint
+    throughout the stance phase, and this coincided with a long phase of energy
+    absorption followed by a short phase of generation for push-off. CONCLUSION:
+    Consistency of the power data indicates that typical profiles of work exist
+    for each of the joints (carpus, fetlock, and coffin). CLINICAL RELEVANCE:
+    Detection of changes to these profiles of work may contribute to diagnosis
+    of specific lameness conditions.
+    },
+  annote =  {},
+}
+
+@Article{Back:1993:QLD,
+  author =  {W. Back and A.J. van den Bogert and P.R. van Weeren and
+	     C. Bruin and A. Barneveld},
+  title = {Quantification of the locomotion of {D}utch {W}armblood foals},
+  journal = {Acta Anatomica},
+  year =  {1993},
+  volume =  146,
+  pages = {141 -- 147},
+  abstract =  {
+    To get an in-depth insight into the ontogeny of the equine locomotor
+    apparatus, the locomotion of 28 Dutch Warmblood foals was recorded at the
+    walk, trot canter on a treadmill using a CODA-3 apparatus.  A great
+    similarity in joint angle-time diagrams was found, although considerable
+    differences in kinematic gait parameters of individual foals could be
+    detected.  These results contribute to an objective comparison of the
+    locomotor performance of foals.
+    }
+}
+
+@Article{Hodgins:1990:BG,
+  author = 	 {Jessica K. Hodgins and Marc H. Raibert},
+  title = 	 {Biped Gymnastics},
+  journal = 	 j-int-j-rob-res,
+  year = 	 1990,
+  volume =	 9,
+  number =	 2,
+  pages =	 {115--131},
+  month =	 apr,
+  annote =	 {
+	Review: Ctrl type: Motion tapes -> Evarts:1971:CCM. I.e. preprogrammed
+	act. ctrl. cmd that are started upon an event. Relies on repeatable
+	conditions. Good for ballistic motions. Fb is used in Hodgins ctrl, but
+	sparsely, as triggers. It is not a pure motor tape implementation.
+
+	Interesting discussion on space-flight and ff. Apparently,
+	adjustmens are only done sparsely. In space: small
+	ext. disturbances and little variation in system
+	mdl-parametesr.
+},
+  affiliation =	 g-US:MIT,
+  location =	 l-Groups # g-US:MIT
+}
+
+@Article{Raibert:1986:RFL,
+  author =	 {Marc H. Raibert and Michael Chepponis and
+		  H. Benjamin Brown, jr},
+  title =	 {Running on Four Legs As Though They Were One},
+  journal = j-ieee-rob-automatn,
+  year =   1986,
+  volume =  2,
+  number =  2,
+  pages = {70 --82},
+  month = jun,
+  annote =  {},
+  abstract =  {},
+  location =	 l-Lennart
+}
+
+@Book{Raibert:1986:LRB,
+  author = 	 {Marc H. Raibert},
+  title = 	 {Legged robots that balance},
+  publisher = 	 {The MIT Press},
+  year = 	 1986,
+  affiliation =	 g-US:CMU,
+  annote =	 
+	"The book describes the one-, two- and fourlegged hopping
+	robots that Raibert built. Their controlsystems are also
+	described.  This book doesn't really serve any use in our
+	case.",
+  location =	 l-Freyr
+}
+
+@Book{Lesser:1995:ACN,
+  author = 	 {Martin Lesser},
+  title = 	 {The analysis of complex nonlinear mechanical systems},
+  publisher = 	 {World Scientific},
+  year = 	 1995,
+  editor =	 {},
+  address =	 {P O Box 128, Farrer Road, Singapore 9128},
+  annote =
+	{This is Martins book on how to use Kane's method to derive
+	equations. It's very useful.
+	I removed the following from the citation because it looked
+	so strange:
+	  volume =	 17,
+	  series =	 "A",
+	},
+  affiliation =	 {KTH, Mech. dept.},
+}
+
+@Article{Alexander:1990:TUS,
+  author = 	 {R. McNeill Alexander},
+  title = 	 {Three Uses for Springs in Legged Locomotion},
+  journal = 	 j-int-j-rob-res,
+  year = 	 1990,
+  volume =	 9,
+  number =	 2,
+  month =	 apr,
+  pages =	 {53--61},
+  affiliation =	 g-UK:Leeds,
+  abstract =
+	{Running animals and robots can save energy and reduce
+	unwanted heat production by bouncing along on sprnts, using
+	the principle of the pogo stick. (The prinipal springs in
+	animals are tendons.) They can make further energy savings by
+	using return springs to halt the legs at the end of each
+	forward or backward swing and start them swinging the other
+	way. The forces at impact of feet with the ground can be
+	moderated by compliant foot pads, which can improve road
+	holding by preventing "chatter" (vibrations in which the foot
+	repeatedly leaves and returns to ground before
+	settling). Animals use springs in all three ways but there
+	seems to be a need for more use of springs in legged robots,
+	especially in robots designed to run fast.},
+  annote =	 {
+	The usage of springs is discussed. It's a good article. Energy
+	efficiency, foot damping and leg-springiness is discussed.
+	
+	M3L: The force data from foot impact look very familar from experiments
+	with M3L. He gives refs indicating that similar force data is obtained
+	when humans walk.}, location =	 l-BGA
+}
+
+@InProceedings{Pratt:1995:SIE,
+  author = 	 {G. A. Pratt and M. M. Williamson and P. Dilworth and J. Pratt},
+  title = 	 {Stiffness isn't everything},
+  booktitle = 	 "Preprints of the fourth " # proc-ISER # "(ISER'95)",
+  year =	 1995,
+  address =	 {Stanford, California, USA},
+  month =	 jul, 
+  abstract =	 {
+	Most robot designers make the mechanical interface between an
+	actuator and its load as stiff as possible. This makes sense
+	in traditional position-controlled systems, because high
+	interface stiffness maximizes bandwidth and, for
+	non-collocated control, reduces instability. However, lower
+	interface stiffness has advantages as well, including grater
+	shock tolerance, lower reflected inertia, more accurate and
+	stable force control, less damage during inadvertent contact,
+	and the potential for energy storage. The ability of series
+	elasticity (usually in the form of a compliant coating on an
+	end-effector) to stabilize force control during intermittent
+	contact with hard surfaces is well known. This paper proposes
+	that for natural tasks where small-motion bandwidth is not of
+	paramount concern, actuator to load interfaces should be
+	significantly less stiff than in most present
+	designs. Furthermore, by purposefully placing the majority of
+	interface elasticity inside of an acutator package, a new type
+	of acutator is created with performance characteristics more
+	suited to the natural world. Despite common intuition, such a
+	series-elastic actuator is not difficult to control.}, 
+  annote =	 {
+	This is about using a spring in series with an actuator. Not
+	directly relevant for me, rather for Freyr and Bengt
+	},
+  affiliation =	 g-US:MIT, 
+  location =	 l-Groups # g-US:MIT,
+}
+
+
+@Article{Adachi:1988:MCQ,
+  author = 	 {Hironori Adachi and Noriho Koyachi and Eiji Nakano},
+  title = 	 {Mechanism and Control of a Quadruped Walking Robot},
+  journal = 	 j-ieee-ctrl-sys-mag,
+  year = 	 1988,
+  month =	 oct,
+  pages =	 {14--18},
+  affiliation =	 g-JP:MEL # g-JP:MEL # g-JP:Tohoku,
+  abstract =
+	{This paper provides a description of the quadruped walking
+	robot called "TURTLE-1". A new link mechansim named ASTBALLEM
+	is used for the legs of the robot, and highly rigid and easily
+	controllable legs are constructed using this mechanism. Each
+	leg has two degrees of freedom and is driven by two dc
+	servomotors. The motion of the legs is controlled by a
+	microcomputer, and various gaits are generated so that the
+	robot walks not only statically but also
+	quasidynamically. When the walking mode is static, the center
+	of gravity of the robot is kept statically stable. However,
+	when its walking quasidynamic, a two-legged supporting period
+	is required.},
+  annote =	 
+	{This is mostly a description of the ASTBALLEM leg and the
+	TURTLE-1 robot. It is capable of quasidynamic walking. They
+	classify gaits into twelve classes in an innovative
+	way. Potential energy orbit control is used. See
+	Adachi:1993:DQW instead.},
+  location =	 l-Groups # g-JP:MEL
+}
+
+@Article{Earl:2001:DPB,
+  author = 	 {R. Earl and A Alexandrou},
+  title = 	 {Deformation processes below a plate sinkage test on sandy loam
+                  soil: experimental approach},
+  journal = 	 j-terramech,
+  year = 	 2001,
+  volume =	 38,
+  number =	 3,
+  pages =	 {153--162},
+  annote =	 { Describes what happens in the ground when it is compressed
+  		   vertically. I just put a glance at it},
+  searchKey =
+	{ground; sinkage; sand; loam},
+}
+
+@Article{Usaborisut:2001:CTS,
+  author = 	 {P. Usaborisut and  M. Koike and  B. Bahalayodhin and  T.
+		  Niyamapa and  A. Yoda},
+  title = 	 {Cyclic torsional shear loading test for an unsaturated,
+		  hollowed specimen using Bangkok clayey soil},
+  journal = 	 j-terramech,
+  year = 	 2001,
+  volume =	 38,
+  number =	 2,
+  pages =	 {71--87},
+  abstract =	{},
+  annote =	 { Checks what happens when running a tractor in a sharp 
+  		corner. This way there is a considerable amount of 
+		torsion, that they want to study.  They do this with the 
+		Bangkok clayey soil that is saturated.
+		The tests were done cyclicly so that the ground was 
+		sheared by the strain beeing a sine wave.
+		Strain stress plots are done showing the hysterisis
+		They find that the unsaturated clay hardens with the 
+		cycles.}
+}
+
+@Article{Buchli:2003:DCP,
+  author = 	 {Jonas Buchli and Auke Jan Ijspeert},
+  title = 	 {Distributed central pattern generator model for robotics
+		  applications based on phase sensitivity analysis},
+  journal = 	 {unknown},
+  year = 	 2003,
+  abstract =	{A method is presented to predict phase relationships between 
+		 coupled phase oscilators. As an illustration  of how the method
+		 can be applied, a distributed Central Pattern Generator (CPG)
+		 model based on amplitude controlled phase oscillators is
+		 presented.  The CPG model is used to hightlight important
+		 aspects of a more general modeling framework.  Representative
+		 results of numerical integration of the CPG model are
+		 presented to illustrate its excellent properties in terms of
+		 transition speeds, robustness and independence on initial
+		 conditions},
+
+  annote =	 { I meet Jonas in Udine and he talked about this controller in
+  		in terms that it would solve a lot of problems.  However I do
+		not understand how it would be possible to map the foot position
+		to the phase of the oscillators.  This is my main objection to
+		the paper which probably is solved. I will ask him.
+		He has written the paper for a conference, which I don't
+		remember. It is not submitted yet.
+		His email is jonas.buchli@epfl.ch and the web page
+		http://birg.epfl.ch.
+		}
+}
+
+
+@Article{Hiroaki:2000:DEM,
+  author = 	 {Hiroaki Tanaka and  Masatoshi Momozu and  Akira Oida and
+		  Minoru Yamazaki},
+  title = 	{Simulation of soil deformation and resistance at bar
+		 penetration by the Distinct Element Method},
+  journal = 	 j-terramech,
+  year = 	 2000,
+  volume =	 37,
+  number =	 1,
+  pages =	 {41--56},
+  abstract =	{A mechanical model of soil is constructed using the Distinct 
+	Element Method (DEM) which makes it possible to analyze the
+	discontinuous property of soil. To discuss the applic- ability of the 
+	soil model by the DEM, a bar penetration test was conducted and the 
+	result was compared with the simulation results. From the results of 
+	the behavior of elements, it could be said that the mechanical model 
+	by the DEM could well simulate the discontinuous behavior of soil and 
+	the parameters used in the simulation play important roles to make the 
+	soil model useful. As for the penetrating resistance, some problems 
+	which lie in the present DEM model are discussed and the key to 
+	solving these problems is indicated. Moreover, the method to 
+	determine the time interval used in the DEM simulations is mentioned 
+	in terms of the stability of the solution in the calculation.},
+  annote =	 { Uses the method DEM to find out what the force from the
+  			ground would be ( vertical case), in a two dimensional
+			arrangement.
+		DEM is a way of simulating the ground as a number of particles
+		with defined interactions between them.
+		The method is interesting but I don't see that it predicts
+		very well.},
+}
+
+@Article{rajaram:1997:HSM,
+  author = 	 {G. Rajaram and  D.C. Erbach},
+  title = 	{Hysterisis in soil mechanical behavior},
+  journal = 	 j-terramech,
+  year = 	 1997,
+  volume =	 34,
+  number =	 4,
+  pages =	 {251--259},
+  abstract =	{},
+  annote =	 { Something about that clay cracks when it becomes dry.
+  		not very interesting.},
+}
+
+
+@Article{Upadhyaya:1997:ETP,
+  author = 	 {S. K. Upadhyaya and M. Sime and N. Raghuwanshi and B. Adler},
+  title = 	{Semi-empirical traction prediction equations based
+  		on relevant soil parameters},
+  journal = 	 j-terramech,
+  year = 	 1997,
+  volume =	 34,
+  number =	 3,
+  pages =	 {141--154},
+  abstract =	{},
+  annote =	 { They have performed a number of tests to make a
+  		function that returns parameters for ground models.
+		They do the tests on wheels. 
+		They lists data for both horisontal tests and vertical.
+		Plastic modulus are for example calculated.
+		I should read this more carefully},
+}
+
+
+@Article{Wells:1996:MTD,
+  author = 	 {L.G. Wells and Jiangn Taping and Zhang Xiao Xing},
+  title = 	{Measuring three-dimensional soil deformation},
+  journal = 	 j-terramech,
+  year = 	 1996,
+  volume =	 33,
+  number =	 6,
+  pages =	 {281--292},
+  abstract =	{},
+  annote =	 { They have built a fantastic mashine for measuring
+  		strain in a 3D bulk container of soil. The article 
+		presents the machine but hardly no measuring data},
+}
+
+
+@Article{Liu:1995:SSS,
+  author = 	 {Jude Liu},
+  title = 	{Investigation of the stress-strain relationship of sand},
+  journal = 	 j-terramech,
+  year = 	 1995,
+  volume =	 32,
+  number =	 5,
+  pages =	 {221--230},
+  abstract =	{},
+  annote =	 { Jude investigates the unidirectional horizontal stess
+  		strain relation, as well as the slip sinkage.
+		He/she proposes a new model K-G model is proposed and 
+		tested.  It is also benchmarked against the common
+	 	Duncan and Chang's hyperbolic model (D-C model).
+		The K-G model seem to perform better},
+}
+
+@Article{Schmid:1995:IVT,
+  author = 	 {Ingobert C. Schmid},
+  title = 	{Interaction of vehicle and terrain results from 10 years
+		 research at IKK},
+  journal = 	 j-terramech,
+  year = 	 1995,
+  volume =	 32,
+  number =	 1,
+  pages =	 {3-26},
+  abstract =	{},
+  annote =	 { This is a report telling what is going on at the IKK 
+  		which is a research institute in Hamburg.
+		It is also a pretty good introduction to the field of
+		ground wheel interaction.},
+}
+
+@Review{Yong:2001:SMI,
+  author = 	 {Raymond Yong},
+  title = 	{Book review: Soil Machine Interactions},
+  journal = 	 j-terramech,
+  year = 	 2001,
+  volume =	 38,
+  number =	 1,
+  pages =	 {61--62},
+  abstract =	{},
+  annote =	 {  This is really a book review that is written by Yong.
+  		The book handles finite elements in soil machine interaction.
+		It also seem to be a good review of the subject.
+		The book itself is written by: Jie Shen and Radhey Lal Kushwaha;
+		Marcel Dekker, New York },
+}
+
+
+@Article{Godbole:1993:PTP,
+  author = 	 {R. Godbole and  R. Alcock and D. Hettiaratchi},
+  title = 	{The prediction of tractive performance on soil surfaces},
+  journal = 	 j-terramech,
+  year = 	 1993,
+  volume =	 30,
+  number =	 6,
+  pages =	 {443--459},
+  abstract =	{},
+  annote =	 { They tries to predict ground properties.
+  		One interesting result is that the modulus of deformation
+		seem to be decreasing with normal load },
+}
+
+
+@Book{Bekker:1969:ITS,
+  author =       {M. G. Bekker},
+  title =        {Introduction to Terrain-Vehicle Systems},
+  publisher =    {University of Michigan Press},
+  year =         {1969},
+  address =      {Ann Arbor},
+  annote =	{ This is the one and only big reference book 
+  		when it comes to ground weehicle interaction.},
+}
+
+@MastersThesis{Benjelloun:1997:DCM,
+  author = 	 {Karim Benjelloun},
+  title = 	 {Design and Construction of the M3L Robot Leg},
+  school = 	 g-S:KTH:MMK,
+  year = 	 1997,
+  address =	 g-S:KTH:MMK:adr,
+  note =	 {TRITA-MMK 1997:27, ISSN 1400-1179},
+}
+
+@Article{McGhee:1968:SPQ,
+  author = 	 {R. B. McGhee and A. A. Frank},
+  title = 	 {On the Stability Properties of Quadruped Creeping Gaits},
+  journal = 	 j-math-biosci,
+  year = 	 1968,
+  volume =	 3,
+  nr =		 3,
+  pages =	 {331--351},
+  annote =	 {
+	Found: in Jeong:1995:SSP and in Hirose:1984:SDC, it identifies the
+	pattern of the wave gait and. Furthermore, it is the source of many
+	definitions!
+	
+	Review: Lots of defs (from McGhee:1968:SFS I think, this is a never
+	ending story). Some theorems too, see below.
+
+	This article shows that there are only six static gaits,
+	called creeping gaits (maximum one foot in the air, def by
+	Muybridge:1957:AM). Of these, only three work in practice and
+	the crawl gait used by animals for normal (slow) locomotion is
+	shown to be the one optimizing the stability criterion.
+
+	It is kind of cool that this is based on the automata theory
+	in McGhee:1968:SFS and the finite state model. This only
+	relevant to me as a source of defintions.},
+  affiliation =	 g-US:USCLA,
+  location =	 g-US:OSU
+}
+
+@Article{Gregersen:1998:EWP,
+  author = 	 {Colin S. Gregersen and Natalie A. Silverton and 
+		  David R.  Carrier},
+  title = 	 {External work and potential for elastic storage at the limb
+		  joint of running dogs},
+  journal = 	 j-exp-biol,
+  year = 	 1998,
+  nr =		 201,
+  pages =	 {3197--3210},
+  annote =	 {
+	The elastic storage in dog limbs are investigated.
+	They do this by looking at what potentila is there to have energy
+	stored, not by investigating the anatomy, but by looking at the
+	kinematics while the dogs trot and gallop.  So for a joint to have any
+	use of the storage of energy, it has to first flex the joint, and then
+	extend it. The energy possible gained is from the start of the flexion
+	to the maximum flexion.  This way they find that the lower joints have
+	the most potential for energy storage.},
+}
+
+@Booklet{Dahlgren:1990:UML,
+  author = {Lars Owe Dahlgren},
+  title = {Undervisningen och det meningfulla l{ä}randet},
+  booktitle = {Skapande vetande},
+  year = 1998,
+  note = {ISSN 0284-1266, ISBN 91-7870-660-2},
+  publisher = {Skapande Vetande},
+  },
+  
+}
+
+@InProceedings{Sardian:2001:GAH,
+	author={ P. Sardian and G. Bessonnet },
+	title = {Gait analysis of a human walker wearing robot feet as shoes},
+	booktitle = proc-ICRA,
+	pages = {2285--2292},
+	year = 2001,
+	abstract = {
+		This work takes part in the project of development of an 
+		anthrophomorphic biped robot, Bip. The tchnological 
+		construction has been completed and the robot has performed 
+		some slow static walks. The next stage is the implementation 
+		fo fast and dynamic walking gaits, in other words 
+		anthropomorphic gaits. The robot feet have been designed with 
+		a three-axis force-moment sensor for reconstructing the center 
+		of pressure - zerom oment point. ...
+		},
+	annote = {
+		The autors have taken the ground force sensors from the Bip
+		and put them on there own feet. They have then 
+		compared the walk with the force sensors on and a 
+		walk without force sensors. Bip force sensors (feet) are 
+		really stiff and does not have any toes.  Therefore they
+		were worried that the Bip could not walk in a natural way.
+		Anyway they found that the stiffness, and the lack of toes
+		did not really handicap a real human.
+		They have some nice measurements on force from the feet.
+		},
+	affiliation = {g-F:INRIA,g-F:LRV},
+	
+	},
+
+@InProceedings{Akinfiev:1998:RDQD,
+	author={ T. Akinfiev and M. Armada },
+	title = {Resonance and quasi-resonance drives for start-stop regime},
+	booktitle = proc-UK-Mechatronics,
+        publisher = {Pergamon},
+	pages = {91--96},
+	year = 1998,
+	annote = {
+		Here is where Akinfiev first (I think) presents the ideas 
+		about quasi resonant drives.
+		},
+	}
+
+@Article{ishikawa:2000:DRH,
+  author = 	 {Yasuhiro Ishikawa and Wenwei Yu and Hiroshi Yokoi and 
+	          Yukinori Kakazu},
+  title = 	 {Development of robot hands with an adjustable power
+		  transmitting mechanism},
+  journal = 	 int-eng-sys-nn,
+  publisher = 	{ASME Press},
+  year = 	 2000,
+  volume = 10,
+  
+  pages =	 {631--636},
+  annote =	 {
+	The writers have developed a hand for prothesis. The fingers are 
+	actuated with tendons.  
+	The tendon actuation system uses variable reduction to accomplish high
+	speed and also high torque. 
+	The system is controlled with a neural network. 
+	The article more describes the idea and what they expect from the 
+	system.  Nothing of how the controller looks like, and not much
+	theory of how the actuation system works.
+	},
+  ISBN = {0-7918-0161-6},
+  URL = { http://junji.complex.eng.hokudai.ac.jp/projects/ProstheticHand/
+          cgi/sender.cgi?index },
+}
+
+@InBook{Alexander:1996:OFA,
+  author = 	 {R. McNeil Alexander},
+  title = 	 {Optima for animals},
+  chapter = 	 3,
+  publisher = 	 pub-PUP,
+  year = 	 1996,
+  edition =	 {Revised},
+  pages =	 {45--64},
+  affiliation =	 g-UK:Leeds,
+  annote =	 {
+	This is most of chapter two of the book. The vertical force
+	during walking is described as well as the difference between
+	long and high jumping. A turtle gait is finally
+	discussed. This chapter is useful as inspiration.},
+  location =	 l-BGA
+}
+
+
+@Book{Johansson:1999:ITV,
+  author = 	 {Lars-Göran Johansson},
+  title = 	 {Introduktion till vetenskapsteorin},
+  publisher = 	 {Thales},
+  year = 	 1999,
+  address = {Stockholm},
+  annote =	 {
+  	Detta är en av de böcker vi hade i kusen vetenskapsfilosofi.
+	Den är skriven av en läkare och tar sin utgångspunkt i
+	läkarvetenskapliga frågeställningar.
+	},
+}
+
+@InProceedings{Janosi:1961:ADD,
+  author = 	 {Z. Janosi and B. Hanamoto},
+  title = 	 {The analytical determination of drawbar pull as a function
+  		of slip for tracked vehicles in deformable soils.},
+  year = 	 1961,
+  booktitle = "Proc. First Int. Conf. on Mechanics of Soil-Vehicle Systems",
+  address = {Torino, St. Vincent},
+}
+
+@PhdThesis{Kaliora:2002:CNB,
+  author = 	 {Georgia Kaliora},
+  title = 	 {Control of nonlinear system with bounded signals},
+  year = 	 2002,
+  month =	 sep,
+  school = g-UK:London,
+  annote =	 {
+  	Got it from the web, seem to be a good introduction.
+	},
+  abstract = {
+	This work contributes to the stabilization problem of cascaded nonlinear
+	systems by means of bounded control. The systems in consideration are
+	assumed to be in feedforward form, i.e. they consist of the cascade of
+	an asymptotically stable system driving a upper system, which is assumed
+	to have no exponentially unstable behaviour. Such systems are
+	stabilizable with forwarding, which is a constructive method for
+	obtaining stabilizing feedbacks, that strongly depends on the
+	solvability of a partial dierential equation. A related result on
+	forwarding, that relaxes this limitation, is presented. For the main
+	results of the thesis we start o with the non-standard assumption that
+	the lower subsystem of the cascade in consideration is input to state
+	stable. This allows to assume that the state of the lower subsystem is
+	driven in finite time in a small neighbourhood of the origin provided
+	the control input is kept small enough. Therein results from linear
+	control theory, and in particular the bounded real lemma inequality, are
+	used to design a bounded, partial state feedback stabilizing law. Global
+	asymptotic stability of the closed loop system is then proven by means
+	of a generalization of the small gain theorem. Within this framework,
+	results on the asymptotic stabilization with bounded controls of
+	constant sign and on the practical stabilization with quantized controls
+	are also discussed. In addition, a novel dynamic controller has been
+	presented for the problem of output feedback asymptotic stabilization of
+	linear systems, in the case of saturated measurements. The main results
+	are used to design a novel saturated feedback scheme for the
+	stabilization of a chain of integrators, while other benchmark
+	applications have been studied and new solutions have been presented.
+	Finally, a discussion on the geometric conditions governing systems that
+	are equivalent to feedforward forms completes the thesis.
+	},
+  }
+
+
+@InProceedings{Pfeiffer:2002:CJJ,
+  author =	{F. Pfeiffer and K. Löffler and M. Gienger},
+  title =	{The concept of Jogging {JOHNNIE}},
+  booktitle =	{Proceedings of the 2002 IEEE International conference on
+  		 robotics and automation},
+  year =	{2002},
+  address =	{Washington DC, USA},
+  pages =	{3129 - 3135},
+  abstract =	{
+  	Within the large variety of existing and still newly emerging biped
+	walking machines Jogging JOHNNIE represents a fundamental study on fast
+	walking and on especially adapted foot-dynamics.  Air phases are
+	possible with two feet lifted off the ground.  Each foot possesses six
+	degrees of freedom with respect to the body and additionally seven
+	degrees of freedom within the local foot environment.  The overall
+	system includes 23 degrees of freedom.  It is 1.80 m large and weighs
+	40kg. Up to now stable waling has been achieved.},
+  annote =	{},
+}
+
+@Article{Ritzman:2000:IWB,
+  author =	{Roy E. Ritxmann and Roger D. Quinn and James T. Watson and
+  		 Sasha N. Zill},
+  title =	{Insect walking and biorobtics: A relationship with mutual
+  		 benefits},
+  journal =	j-bioscience,
+  year =	2000,
+  volume =	50,
+  number =	1,
+  pages =	{23 - 33},
+  abstract =	{},
+  annote =	{Quote:
+  		 A biorobitcis effort following a "Biology-as-default" strategy
+		 can provide improved robotic design as well as insight into how
+		 animals function},
+}
+@Book{Isidori:1995:NCS,
+  author =       {Alberto Isidori},
+  title =        {Nonlinear control systems},
+  publisher =    pub-SV,
+  year =         {1995},
+  edition =	{Third},
+  address =      pub-SV:adr,
+  annote =	{ The course book of Introduction to Nonlinear Control
+  		  given By Xiaoming Hu at the spring of 2003 },
+}
+
+
+@Book{Pfeiffer:XXXX:TPM,
+  author =	{F. Pfeiffer and Th. Roßmann and J. Steuer},
+  title =	{Theory and practice of machine walking},
+  publisher =	{Lehrstuhl B f\"ur mechanik},
+  address =	{TU, M\"unchen},
+  abstract =	{
+  		In this paper the theory and two examples of machine walking is
+		presented.  Part I contents the theory of multi-body dynamics,
+		the kinematics an kinematics of rigid body systems seen at the
+		example of a six-legged robot and the therory of optimizatoin
+		with constraints.  Part II contents two examples of walking
+		robots.  First, there is a six-legged walking machine whose
+		kinematics, gait patterns and control system are derived from a
+		stick insect.  The second example is a tube crawling robot with
+		eigth legs.  It has four legs in the front and four legs in the
+		rear.  This construction shall enable it to go throudh pipes
+		with a diameter between 60 and 70 cm.},
+  annote =	{An overview of how to design a robot. Very engineering like},
+}
+
+@Unpublished{Hu:2003:NCS,
+  author = 	{Xiaoming Hu},
+  title =	{Introductin to nonlinear control systems},
+  year =	{2003},
+  institution= 	{Optimisation and systems theory},
+  address =	{Royal Institute of Technology, 100 44 Stockholm, Sweden},
+  note =	{ The main litterature for the course "Introduction to 
+  		  nonlinear control systems" given at the spring 2003},
+  }
+@Book{Khalil:1996:NS,
+  author =	{Hassan K. Khalil},
+  title =	{Nonlinear systems},
+  year =	1996,
+  edition=	{Second},
+  publisher=	pub-PRENTICE,
+  address=	pub-PRENTICE:adr,
+  annote =	{Part of my self study course},
+  }
+
+@Book{Slotine:1991:ANC,
+  author =	{Jean-Jacques E. Slotine and Weiping Li},
+  title  =	{Applied nonlinear control},
+  year =	1991,
+  publisher=	pub-PRENTICE,
+  address=	pub-PRENTICE:adr,
+  annote =	{Part of my self study course},
+  }
+
+@Article{Lin:2002:GNN,
+  author = 	 {Jian-Nan Lin and Shin-Min Song},
+  title = 	{Modeling gait transitions of quadrupeds and their 
+ 		 generalization with CMAC neural networks},
+  journal = 	 j-ieee-smc,
+  year = 	 2002,
+  volume =	 32,
+  number =	 3,
+  pages =	 {177--189},
+  abstract =	{},
+  annote =	 { Makes a parameterization of the motions of the trunk
+  		   when walking (quadruped). Then assumes the stroke for two 
+		   different gaits, from that solves how the an intermediate
+		   transition gait (one cycle) looks like.
+		   However the point here is that they make it into a neural
+		   network that they teach.  In that way they can make
+		   transitions between a continuum of gaits. 
+		   Note: A gait is in this sence one combination of parameters
+		   such as duty factors and phases.  
+		   Transitions between walk, and trot and trot and transverse
+		   gallop.},
+}
+
+@Article{Tuttle:1996:MHD,
+  author = 	 {Timothy D. Tuttle and Warren P. Seering },
+  title = 	{A nonlinear model of a Harmonic Drive gear train},
+  journal = 	 j-int-j-rob-auto,
+  year = 	 1996,
+  volume =	 12,
+  number =	 3,
+  pages =	 {368-374},
+  abstract =	{Harmonic drives can exhibit very nonlinear dynamic behavior. In
+  		 order to capture this behavior, not only must dynamic models 
+		 include accurate representations of transmission friction,
+		 complience, and kinematic error, but also important features of
+		 harmonic-drive gear-tooth geometry and interaction must be
+		 understood. In this investigation, experimental observations
+		 were used to guide the development of a model to describe
+		 harmonic-drive operation. Unlike less detailed representations,
+		 this model was able to replicate many of the features observed
+		 in actual harmonic-drive dynamic response. Unfortunately, since
+		 model parameters can only be derived from careful analysis of
+		 experimental dynamic response, it seems unlikely that any
+		 comparable sufficient representation can be constructed with
+		 parameter values obtained from catalogs or simple experimental
+		 observations.},
+  annote =	 { A detailed model of the HD is presented. The main phenonomen
+  		 they present (the angular velocity does not increase when the
+		 torque increases, for a specific range.) I don't think we will
+		 be able to see on warp.
+		   },
+}
+
+@InProceedings{SaavedrA:2003:DSD,
+  author =	{R. E. Fernández and T. Akinfiev and M. Armada},
+  title =	{Dual smart drive -- analytical solution, simulation, and
+		experimental results},
+  crossref = {c-clawar:2003},
+  pages =	{309-317},
+  abstract =	{This paper adresses a general methodology for understanding the
+		 working principles of the DUAL SMART DRIVE. For this purpose,
+		 the mathematical development that permits a definition of the
+		 kinematics and dynamics of this drive is deiscussed.  A clear
+		 pattern of the drive's work is extablished by obtaining an
+		 approximate analytical solution for the dynamic problem of the
+		 system, which is characterized by a large number of
+		 non-linearities.  For the sake of completeness, some
+		 simulations and experimental results are also presented in
+		 order to demonstrate the system performance.},
+
+}
+
+@InProceedings{Jiang:2001:FFD,
+  author =	{W. Y. Jiang and D. Howard},
+  title =	{Foot-force distribution in legged robots},
+  crossref = {c-clawar:2001},
+  pages =	{331 -- 338},
+  abstract =	{
+    Previous researchers have used the pseudo-inverse to solve the foot-force
+    distribution problem.  However, they have invaraibly writtenthe
+    indeterminate equilibrium equations with the foot-forces as the unknown
+    variables.  In this case, the pseudo inverse minimises the sum of the
+    squares of the foot-forces.  In this paper, alternative pseudo-inverse
+    formulations for solving the foot-force distribution problem are presented.
+    Simulation results indicate that the friction duty factor formulation is
+    excellent for minimizing the risk of foot slip.
+  },
+  annote = {
+    Four different force distrubution algorithms are compared. 
+    1) Minimizing the foot force
+    2) Minimizing the relative usage of the friction
+    3) Minimizing joint torque
+    4) Minimizing joint work.
+    The comparison is done comparing the utilized friction, joint torque and
+    work.  Only the first differs much, and joint work the least.
+    Applying the joint torque results in much too large friction, a factor five
+    to the minimization of the friction. Joint work minimization uses the
+    friction in a rather good way, slightly better than minimization of the
+    foot forces.
+    The comparison was made on a for legged 2D robot in simulation. It was on an
+    incline of 0.3 rad.
+  },
+}
+
+@InProceedings{Akinfiev:2002:DSD,
+  author =	{T. Akinfiev and R. Fernández and M. Armada},
+  title =	{Dual SMART drive for walking robots},
+  crossref = {c-clawar:2002},
+  pages =	{595-602},
+  abstract =	{ In this paper a special drive with continously changing
+		  transmission ratio and dual properties is under consideration.
+		  Such kind of drives is specially intended for usage in walking
+		  machines.  Several kinds of control algorithms are discussed.
+		  Special prototype of the driev has been designed, manufactured
+		  and tested.},
+  annote =	{I think this is first publication of the Dual Smart drive. That
+ 		 is the drive that has two different characteristics depending
+		 on the path taken  by the input shaft in the extreeme
+		 positions.},
+}
+
+
+@Article{Mennitto:1997:LAD,
+  author =	{G. Mennitto and M. Buehler},
+  title =	{{LADD} Transmissions: Design, manufacture, and new compliance
+  		 models},
+  journal =	{j-mech-design},
+  year =	{1997},
+  volume =	{1999},
+  number =	{2},
+  pages =	{197-203},
+  abstract =	{},
+  annote =	{Good article describing how the Ladd transmission was built. 
+  		 It consentrates on the {LADD} and and does not care about the
+		 {CARL}},
+}
+
+
+@InProceedings{Mennitto:1995:EVC,
+  author =	{G. Mennitto and M. Buehler},
+  title =	{Experimental validation of compliance models for {LADD}
+	  	 transmission kinematics},
+  booktitle =	proc-IROS,
+  year =	1995,
+  pages =	{385 - 390},
+  annote =	{Mennitto:1995:CAR says about the same thing, only better and
+  		 also some other stuff},
+}
+
+@InProceedings{Hirose:1989:DSF,
+  author =	{Shigeo Hirose and Kan Yoneda and Riki Furuya and 
+		 Tatsuo Takagi},
+  title =	{Dynamic and static fusion control of quadruped walking vehicle},
+  booktitle =	proc-IROS,
+  year =	1989,
+  pages =	{199--204},
+  annote =	{},
+  abstract =  {
+    A walking vehicle should be able to move in high speed in dynamic walk in
+    addition to slow but highly stable static walk. The current study presents
+    the importance of the dynamic-\&-static-fusion gait integrating the said
+    both locomotioin states, and introduces an expanded trot gait, suitable for
+    this walk. The overall structure of the control method is presented for
+    realizing the walk in the said fusion gait and the processing procedure of
+    the major portion is explained. The validity of the proposed
+    dynamic-\&-static fusion gait is demonstrated by the experimental quadruped
+    walking vehicle {"TITAN IV"} which performs continuous change of velocity
+    from standstill to maximum 400 mm/sec of the dynamic walk.
+    }
+}
+
+@InProceedings{Yoneda:1992:DSF,
+  author =	{Kan Yoneda and Shigeo Hirose },
+  title =	{Dynamic and static fusion gait of a quadruped walking vehicle 
+		 on a winding path},
+  booktitle =	proc-ICRA,
+  year =	1992,
+  pages =	{143 -- 148},
+  annote =	{},
+  abstract =  {
+    A quadruped walking vehicle has the potential both to walk, conserving the
+    conditions of smoothness and static stability, and to run, where the ride
+    will be bumpy but fast and dynamically stable. The authors have already
+    proposed the concept of {"dynamic and static fusion gait control"}
+    and discussed a basic control scheme for the purpose of adaptive selection
+    of these gaits during continuous walking. This paper extends the concept to
+    walking at variable speeds along a winding path. The motion sceme is
+    discussed on the basis of a generalized trot gait and incorporating
+    stability control based on feedforward and feedback control; trajectory
+    modification is based on {ZMP}. The validity of the motion schemes was
+    verified in walking experiments using the quadruped walking vehicles {TITAN
+    IV} and {TITAN VI}.
+    }
+}
+
+@InProceedings{Yoneda:1996:ITG,
+  author = 	 {K. Yoneda and H. Iiyama and S. Hirose},
+  title = 	 {Intermittent trot gait of a quadruped walking machine
+		  Dynamic stability control of an omnidirectinal walk},
+  booktitle = 	 proc-ICRA,
+  volume =	 4,
+  year =	 1996,
+  pages =	 {3002--3007},
+  abstract ={
+	This paper discusses an algorithm to make a quadruped machine
+	walk dynamically and omnidirectionally following a real-time
+	command from an operator. To produce a smooth body motion at
+	high speed locomotion, we introduced a new gait, named the
+	'intermittent trot gait', in which a four-leg-supporting phase
+	and a two-diagonal-leg-supporting phase appear in orders. In
+	this gait, the pitching and rolling motion of the body is
+	suppressed to a lower level than that of the other gaits
+	because the dynamic effects of the swinging legs almost cancel
+	each other. To realize the intermittent trot gait, new
+	algorithms to plan a landing point and body motion are
+	discussed. A landing point is decided by considering an
+	operator command and conversion to the standard leg
+	formation. A body motion is planned to produce dynamic
+	stability and to follow speed and direction commands. By using
+	these algorithms, a mechanical vehicle TITAN VI can walk
+	omnidirectionally, smoothly following a real-time operator
+	command. The top speed is 1 m/sec on flat terrain and 125
+	mm/sec on 105 mm up and down over rough terrain.},
+  annote =	 {See special notes},
+  affiliation =	 g-JP:TIT,
+  location =	 l-Groups # g-JP:TIT
+}
+
+@InProceedings{Kurazume:2001:FFD,
+  author = 	 {Ryo Kurazume and Shigeo Hirose and Kan Yoneda},
+  title = 	 {Feedforward and feedback dynamic trot gait control for a
+		  quadruped walking vehicle},
+  booktitle = 	 proc-ICRA,
+  pages =	 {3172--3180},
+  year =	 2001,
+  abstract =	 {
+	To realize dynamically stable walking for a quadruped walking
+	robot, the combination of the trajectory planning of the body
+	and leg position (feedforward control) and the adaptive
+	attitude control using sensory information (feedback control)
+	is indispensable. In this paper, we initially propose a new
+	trajectory planning for the stable trot gait named 3D sway
+	compenstaion trajectory planning for the stable trot gait
+	named 3D sway compensation trajectory, and show that this
+	trajectory has lower energy consumption than the conventional
+	sway trajectory that the authors have proposed. Next, as the
+	adaptive attitude control method used during the 2-leg
+	supporting phase of the trot gait, we consider four methods:
+	a) rotation of body along the diagonal line between supporting
+	feet, b) translation of body along the perpendicular line
+	between supporting feet, c) vertical swing motion of
+	recovereing legs, and d) horizontal swing motion of
+	rrecovereing legs. The stabilization efficiency of each method
+	is verified through computer simulation and the damping
+	experiment using a quadruped walking robot,
+	TITAN-VIII. Furthermore, the trot gati control that combines
+	the feedforward control based on the proposed 3D sway
+	compenstation trajectory and the adaptive feedback control
+	using body translation and vertical motion of swing legs is
+	developed, and the walking experiment on rough terrain using
+	TITAN-VIII is carried out.},
+  annote =	 {
+	From chr
+	The trajectory generation from "intermittent trot gait" is
+	expanded to allow motions in 3D.
+	Then they suggest/test four reactive methods to maintain
+	balance to be used in conjunction. All are based on using
+	inertial reactive forces to apply torque to the trunk.
+	a) rotation of trunk along line parallell to diagonal support
+	   line.
+	b) (horz.?) translation of trunk, perpendicular to diagonal
+	   support line
+	c) Move transferring legs vertically to maintain balance
+	d) Move transferring legs horizontally.
+ 
+	Note: They have flat feet, so Titan VIII can actually
+	passively compensate for trunk disturbances up to 8 degrees.
+ 
+	See my notes on balance methods},
+  affiliation =	 g-JP:Tokyo # g-JP:TIT # g-JP:TIT,
+  location =	 l-Groups # g-JP:TIT,
+}
+
+
+@InProceedings{Smith:2004:RGQ,
+  author =  {James Andrew Smith and Ioannis Poulakakis},
+  title = {Rotary gallop in the untethered quadrupedal robot {Scout II}},
+  booktitle = proc-IROS,
+  year =  2004,
+  volume = 3,
+  pages = {2556 -- 2561},
+  annote =  {
+    This paper discusses recent galloping results obtained using the Scout II
+    quadrupedal robot, an underactuated robot with minimal sensing.  The rotary
+    variation of the gallop has been implemented, resulting in a motion which
+    demonstrates both emergent stability and a circular trajectory, as predicted
+    in earlier simulationstudies bu other researchers.  It also demonstrates
+    phase relationships in the leg tochdown pattern which resemble results from
+    biology.
+    },
+}
+
+@InProceedings{Poulakakis:2003:OSP,
+  author =  {Ionannis Pulakakis and Evangelos Papadopoulos and Martin Buehler},
+  title = {On the stable passive dynamics of quadrupedal running},
+  booktitle = proc-ICRA,
+  year =  2003,
+  month = sep,
+  abstract =  {
+    In this paper, we study the passive dynamics of quadrupedal bounding, based
+    on a simplified model of our {Scout II} quadruped robot. Surprisingly,
+    numerical return map studies reveal that passive generation of a large
+    variety of cyclic bounding motions possible.  Most strikingly, local
+    stability analysis shows that the dynamics of the open loop passive system
+    alone can confer stability of the motion!  Stability improves at higher
+    speeds, which is in agreement with recent results from biomechanics.l  These
+    results can be used in developing a general control methodology for legged
+    robots, resulting from the synthesis of feed-forward and feed-back models
+    that take advantage of the mechanical system, and might explain the success
+    of simple, open loop bounding controllers on our experimental robot.
+    },
+}
+
+@InProceedings{Poulakakis:2003:ODB,
+  author =  {Ionannis Pulakakis and James Andrew Smith and Martin Buehler},
+  title = {On the dynamics of bounding and extensions towards the half-bound and
+	  the gallop gaits},
+  booktitle = proc-ISAMAM,
+  year =  2003,
+  month = mar,
+  abstract =  {
+    This paper examines how simple control laws stabilize complex running
+    behaviors such as bounding. First, we reveal and discuss the unexpectedy
+    different local and global speed versus touchdown angle relationships in the
+    self stabilized SLIP model.  Then we show that surprisingly, even for amuch
+    more complex, energy conserving quadruped model, many cyclic bounding
+    motions exist, which can be locally, open loop stable!  The success of
+    simple bounding controllers motivated the application of similar controllers
+    for asymmetric gaits and resulted inte hte frist experimeental
+    implememntation fo the half-bound and the rotary gallop on our Scout II
+    quadruped.
+    },
+}
+
+@InProceedings{Talebi:2000:QRR,
+  author =  {S. Talebi and I. Poulakakis and E. Papadopoulos and M. Buehler},
+  title = {Quadruped robot running with a bounding gait},
+  booktitle = proc-ISER,
+  year =  2000,
+  pages = {281 -- 289},
+}
+
+
+
+@InProceedings{Mennitto:1995:CAR,
+  author = 	 {G. Mennitto and P. Gregoire and M. Buehler},
+  title = 	 {{CARL}: {A} Compliant Articulated Robot Leg for Dynamic
+		  Locomotion},
+  booktitle = 	 proc-IAS,
+  year = 	 1995,
+  pages =	 {702--707},
+  abstract =
+	{Describes a new compliant articulated robot leg, CARL, which
+	the authors constructed as a prototype for an autonomous robot
+	quadruped. The leg is designed for dynamic walking, trotting
+	and bounding gaits, with an expected top speed of 3 m/s. It is
+	an anthropomorphic (articulated) 3 DOF design with revolute
+	joints as opposed to prismatic joints for improved mobility,
+	simplicity and low friction. It employs electric actuation
+	instead of hydraulics for indoor power autonomy, improved
+	modeling; control and reliability. To minimize leg mass, CARL
+	features an AnTagonistic LADD Actuation System (ATLAS) to
+	convert motor power to high joint torques efficiently and at
+	substantial weight savings compared to traditional
+	transmissions. Energy efficiency will further rely on
+	compliant operation, possible through new elastomer torsional
+	springs at ankle, knee and hip joints. },
+  annote =	 {A transmission proposed by Jacobsen 1975 (LADD) is used to
+  		  build an actuator for a leg.},
+  affiliation =	 g-CA:McGill,
+  location =	 l-Groups # g-CA:McGill,
+}
+
+@Misc{jacobsen:1975:RTL,
+	title =		{Rotary-to-linear and linear-to-rotary motion
+			 converters},
+	howpublished =	{US-Patent 3864983},
+	author =	{S. C. Jacobsen},
+	year =		{1975},
+	abstract = {
+	Cell elements of rotary-to-linear and linear-to-rotary motion
+	converters, series of such cells and combinations of such series are
+	disclosed together with operated and operating mechanisms. Each cell
+	element consists of a pair of rotatable separators which may be common
+	to adjacent cells and are interconnected by linking members arranged so
+	that when one separator is turned relative to another the cell is
+	subject to a contracting motion with the locations of the connections
+	between the links and each separator travelling along a combined rotary
+	and transitional path. With a contracted cell, an axial pull on one
+	separator exerts a combined axial pull and torque on its other
+	separator. The link lengths are less than the square root of the product
+	of the diameters of said paths unless stability over the maximum
+	rotation is not important. Prosthetic devices are disclosed
+	incorporating the converters.}
+	}
+
+@PhdThesis{Ringrose:1990:SSR,
+  author = 	 {Robert P. Ringrose},
+  title = 	 {Self-stabilizing running},
+  year = 	 1997,
+  month =	 feb,
+  school = g-US:MIT,
+  annote =	 {
+  	Robert show that it is possible to make a jumping robot stable by just
+	adding a correctly shaped foot.  Thus without any controller.  He shows
+	it analytically as well as in simulation and experiments.
+	He also uses the same thing with two and four "legs".
+	Mark Raiber was the supervisor.
+	},
+  abstract =  {
+  	Legged robots can sustain stable dynamic locomotion without sensors or
+	feedback.  It is possible to construct a running robot that is
+	inherently stable and needs no sensing to reject minor perturbations;
+	the robot is therefore self-stabilizing.  In contrast, most previous
+	attempts to make robots run have used active, high bandwidth feedback
+	control systems. I mathematically analyze the behaviour of a simple
+	self-stabilizing monopod, determine a running pattern, and generalize
+	the motion to  two and four legs. Using physics-based simulations, I
+	demonstrate the stability of these motions as applied to robots. The
+	quadruped can stably trot, pace, bound and gallop. I verify the
+	simulations' behaviour with a physical monopod robot. Low bandwidth
+	control systems layered on top of the self-stabilizing running motion
+	could allow the robot to respond to the operator's desires or changes
+	in the environment.
+	},
+},
+
+@Article{Teel:1992:GRB,
+  author = 	 {A.R. Teel},
+  title = 	 {Global stabilization and restricted tracking for multiple
+  		  integrators with bounded controls},
+  journal = 	 j-sys-ctrl-let,
+  year = 	 1992,
+  volume = 18,
+  number = 3,
+  pages = {165 - 171},
+  abstract = {
+  	Necessary and sufficient conditions for globally stabilizing linear
+	systems with bounded controls are known. However, it has been shown in
+	[5] that, for single-input systems, no saturation of a linear feedback
+	can globally stabilize a chain of integrators of order n, with n>=3. In
+	this paper, we propose a nonlinear combination of saturation functions
+	of linear feedbacks that globally stabilizes a chain of integrators of
+	arbitrary order. The appealing feature of the proposed control is that
+	it is fairly easy to construct. It is linear near the origin and can
+	also be used to achieve trajectory tracking for a class of trajectories
+	restricted by the absolute on the input.
+	},
+}
+
+@Article{Quinn:1998:CHR,
+  author =	{Roger D. Quinn and Roy E. Ritzmann},
+  title =	{Construction of a hexapod robot with cockroach kinematics
+  benefits both robotics and biology},
+  journal =	{Connection Science},
+  year =	1998,
+  volume =	10,
+  number =	{3 and 4},
+  pages =	{239 - 254},
+  abstract =	{
+  	Any device that moves by actuation several multi-segmented legs must
+	solve fundamental problems in mechanics and control regardless of
+	whether that device is made out of living tissue or metal.  With this in
+	mind, we believe that advances can be made both in the design of legged
+	robots and in understanding how legged animals locomote by working on
+	these issus in tandem.  This basic philosophy has led us to build a
+	hexapod robot with kinematics that are remarkably similar to those of
+	the death head cockroach Blaberus discoidalis.  This effort has required
+	us to make detailed neurobilogical and kinematic observations of
+	cockroaches walking on a treadmill and climbing over barriers.  The data
+	acquired in this way were then input to our dynamic simulation tool to
+	determine mechanically accurate parameters for the design of the robot.
+	The resulting vehicle captures the cockroach kinamtics so well that
+	issues that are being addressed in controlling it are pvoviding
+	important notions regardin the neutral control of locomotion in the
+	animal.  thus, the project has led to benefits in both directions.
+	Biological data inspired the initial design of the robot, while
+	engineering efforts in control are inspiring further neurobiological
+	experiments in animal locomotion.},
+  annote =	{ I have not read it, but since I have litsened to Ritzmann for
+  		some time I think I have a pretty good idea of whats in it.},
+}
+
+@PhdThesis{Robinson:2000:DAS,
+  author = 	 {David William Robinson},
+  title = 	 {Design and analysis of series elasticity in closed-loop
+  		  actuator force control},
+  year = 	 2000,
+  month = jun,
+  school = g-US:MIT,
+  annote =	 {
+  	 A good and easily understood analysis of the control and properties of
+	 an actuator for force control with internal elasticity.
+	}
+  }
+
+@InProceedings{Robinson:1999:SEA,
+  author      = {David W. Robinson and Jerry E. Pratt and Daniel J. Paluska
+        and Gill A. Pratt},
+  title	      = {Series Elastic Actuator Development for a Biomimetic
+        Walking Robot},
+  booktitle   = {\allcaps{IEEE/ASME} int'l conf. on adv. intelligent
+        mechatronics},
+  pages	      = {561-568},
+  year	      = 1999,
+  month	      = sep,
+  organization= {IEEE/ASME},
+  abstract    = {Series Elastic Actuators have linear springs intentionally
+        placed in series between the motor and actuator output. The pring
+        strain is measured to get an accurate estimate of force. Despite
+        using a transmission to achieve high force/mass and high power/mass,
+        the spring allows for good force control, high force fidelity,
+        minimum impedance , and large dynamic range. A second order linear
+        actuator model is broken into two fundamental cases: fixed load -
+        heigh force (forward transfer function), and free load - zero force
+        (impedance). This model is presented with dimensional analysis and
+        extends previous linear models to include friction. Using the model
+        and dimensionless groups, we examine nonlinear effects of motor
+        saturation as it relates to large force bandwidth and nonlinear
+        friction effects such as stiction. The model also helps to clarify
+        how the springs help and hinder the operation of the actuator. The
+        information gained from the model helps to create a design procedure
+        for Series Elastic Actuators. Particular emphasis is placed on
+        choosing the spring constant for the elastic element. Large force
+        bandwidth requires a high spring constatn. Minimizing nonlinear
+        friction and impedance requires a low spring constant. The design
+        procedure tries to balance these competing requirements and is used
+        to construct a physical actuator.},
+  annote      = {unread},
+  affiliation = g-US:MIT,
+  location    = l-Groups # g-US:MIT,
+}
+
+@PhdThesis{Shieh:1996:DOP,
+  author = 	 {Win-Bin Shieh},
+  title = 	 {Design and optimization of planar leg mechanisms featuring
+ 		  summetrical foot-point paths},
+  year = 	 1996,
+  school = g-US:UMary,
+  annote =	 {
+  	Found it on the web. 
+	A theoretical analysis of leg mechanism.
+	},
+  }
+
+
+
+@TechReport{Deb:2000:AFE,
+  author =	{Kalyanmoy Deb and Amrit Pratap and Sameer Agarwal and 
+  		 T.  Meyarivan},
+  title =	{A fast and elitist multi-objective genetic algorithm: 
+  		 {NSGA-II}},
+  year =	{2000},
+  number = 	{200001},
+  annote =	{I got the article sent to me from Anders Angantyr i Luleå
+  		 jag har inte full koll på referensen},
+  institution = { Kanpur genetic algorithm laboratory, Indian institute of
+  		technology},
+  address =  {Kanpur, India, http://www.iitk.ac.in/kangal},
+  
+  abstract =	{
+  	Multi-objective evolutionary algorithms which use non-dominated sorting
+	and sharing have been mainly criticized for their (i) 
+	$\mathcal O (MN^3)$ computational complexity (where M is the number of
+	objectives and N is the population size) (ii) non-elitism approach, and
+	(iii) the need for specifying a sharing parameter.  In this paper we
+	suggest a non-dominated sorting based multi-objective evolutionary
+	algorithm (we called it the Non-dominated Sorting GA-II or NSGA-II)
+	which alleviates all the above three difficulties. Specifically, a fast
+	non-dominated sorting approach with $\mathcal O (MN^2)$ computational
+	complexity is presented.  Second, a selection operator is presented
+	which creates a mating pool by combining the parent and child
+	populations and selecting the best (with respect to fitness and spread)
+	$N$ solutions.  Simulation results on a number of difficult test
+	problems show that the proposed {NSGA-II}, in most problems, is able to
+	find much better spread of solutions and better convergence near the
+	true Pareto-optimal front compared to PAES and SPEA -- two other
+	elitiset multi-objective EAs which pay special attention towards
+	creating a diverse Pareto-optimal front.  Moreover, we modify the
+	definition of dominace in order to solve constrained multi-objective
+	problems efficiently.  Simulation results of the constrained NSGA-II on
+	a number of test problems, including a five-objective, seven-constraint
+	non-linear problem are compared with another constrained multi-objective
+	optimizer and much better performance of NSGA-II is observed.  Because
+	of NSGA-II's low computational requirements, elitist approach,
+	parameter-less niching approach, and simple constraint-handling
+	strategy, NSGA-II should find increasing applications in the coming
+	years.
+	},
+}
+
+
+@InProceedings{Wallin:2003:MBO,
+  author =	{Markus Wallin and T. Gr{ö}nstedt and U. H{å}ll},
+  title =	{A mission based optimization study of engine configuratioins
+  for a low-signature reconnaissance {UAV} -- A multi-objective approach},
+  year =	{2003},
+  publisher =	{AIAA},
+  editor =	{},
+  abstract =	{},
+  annote =	{The article is part of  Wallin:2003:EOL thesis.  I had trouble
+  finding the right citations, don't really trust what I have written},
+}
+
+@PhdThesis{Wallin:2003:EOL,
+  author = 	 {Markus Wallin},
+  title = 	 {Engine Optimization for a low-signature reconnaissance {UAV}},
+  year = 	 2003,
+  school = g-S:Chalmers,
+  annote =	 {
+	},
+  abstract =  {
+	A twin-spool turbofan engine powering an Unmmaned Reconnaissance Aerial
+	Vehicle (URAV) has been optimised mainly with respect to IR radiation
+	from the exhaust jet.  The evaluation of different engine designs was
+	carried out using a simulated flight mission, which included take-off,
+	clime to high altitude, cruise, descent and low-altitude reconnaissance
+	cruise followed by a return flight to base.  The simulation was based on
+	a modified version of the GeSTPAn code, where weight models were used
+	for extimation of both engine weight and vehicle fuselage weight.  The
+	påtimisation process was based on Genetic Algorithms, for both a simngle
+	objective and multi-objectives.  The optimizations, which involved then
+	optimizeation variables was executed through a multi-processor
+	implementation using MPI.  The IR signature was found closely related to
+	the instantaneous fuel flow.  A low-signature engine design is
+	consequently characterised by high efficiency.  The thermodynamic
+	efficienfy of the engines was, however, limited by temperature
+	restrictions on the high-pressure compressor exit temperature and the
+	high-pressure turbine inlet temperature. The influence of different
+	levels of nozzle pressure losses was studied along with the effect of
+	different levels of the temperature restrictions. A reduction of the
+	nozzle pressure losses yields a lower exhaust gas temperature and a
+	smaller nozzle area, which both act to reduce the IR radiation.  An
+	increase in allowed compressor exit temperature also gives a reduction
+	int the exhaust gas temperature.  The nozzle area increases, however.
+	These two properties counteract in their contribution to IR radiation.
+	Still, the temperature reduction outweights the increases in nozzle.
+	The IR signature is thus reduced for an increase in allowed ccle
+	temperatures.  The study also revealed a sgnificant reduction of IR
+	radiation for a modes decrease in flight Mach number.
+	},
+},
+@Manual{Chipperfield:19XX:GAT,
+  author= 	 {Andrew Chipperfield and Peter Flemming and Hartmunt Pohlheim
+		   and Carlos Fonseca},
+  title = 	 {Genetic algorithm toolbox -- For use with Matlab},
+  organization = {Automatic control and systemns engineering at {U}niversity of
+  {S}heffield},
+  address = {http://www.shef.ac.uk/~gaipp/ga-toolbox},
+  }
+
+@book{Ljung:1999:SIT,
+  author = {Lennart Ljung},
+  title = {System identification -- Theory for the user},
+  edition = {2nd},
+  year = 1999,
+  publisher =  pub-PRENTICE,
+  }
+
+@InProceedings{Takaki:2004:LSC,
+  author =  {Takeshi Takaki and Toru Omata},
+  title = {Load-sensitive continuously variable transmission for robot hands},
+  booktitle = proc-ICRA,
+  year =  2004,
+  pages = {3391 -- 3396},
+  abstract =  {
+    This paper presents a load-sensitive continuously variable transmission
+    (CVT) for finger joints.  Fingers of a robot hand require power when
+    grasping an object and speed when opening and closing.  Therefore a CVT is
+    ideal to improve the power transmission of a finger joint. Existing friction
+    CVTs are too big and heavy to be installed in a finger joint.  By focusing
+    on the fact that finger joints do not necessarily rotate 360 degrees, a
+    remarkably simple and small load-sensitive CVT can be developed based on a
+    crank CVT.  The mechanism consists of a five bar linkage and a torsion
+    coiled spring.  We have developed one joint with the CVT and have
+    experimentally verified that the CVT can increase its reduction ratio from
+    0.5 to 3.3 in response to the load.
+    },
+  annote =  {A nice mechanism that does what PVT does. They don not present any
+  analysis of the mechanism, only results.},
+}
+
+@InProceedings{Takaki:2004:LSP,
+  author =  {Takeshi Takaki and Toru Omata},
+  title = {Load-sensitive continuously variable transmission for powerfull and
+	   inexpensive robot hands},
+  booktitle = { First IEEE technical exhibition based conference on robotics and
+  automation},
+  year =  2004,
+  month = nov,
+  pages = {45 -- 46},
+  abstract =  {
+    This paper presents a load-sensitive continuously variable transmission
+    (CVT) for finger joints. Fingers of robot hands require power when grasping
+    an object and speed when opening and closing. Therefore a CVT is ideal to
+    improve the power transmission of a finger joint. Existing friction CVT are
+    too big and heavy to be installed in a finger joint. By focusing on the fact
+    that finger joints do not necessarily rotate 360 degrees, this paper
+    presents a remarkably simple and small load-sensitive CVT consisting of a
+    five-bar linkage and a torsion coiled spring. Since no special machine
+    elements are necessary, it can be manufactured inexpensively. We have
+    developed a two-finger gripper with the CVT, which can grasp an object
+    powerfully and manipulate quickly.  }
+}
+
+
+
+@Article{Fernandez:200X:DSD,
+  author = { Roemi Fernández and joão Hespanha and Teodor Akinfiev and
+	    Manuel Armada},
+  title =  {Dual smart drive nonlinear control using backstepping and a time
+	    optimal reference},
+  journal = {j-aut-rob},
+  year =  {2004},  
+  volume =  {?},
+  number =  {},
+  pages = {},
+  abstract =  {},
+  annote =  {This article was sent to Jan for review.  I'll help him and this
+	     are my comments.
+	     
+      * I think the title is a bit mysterious. Is it really proper English?
+      * There are a number of figures missing.  Nothing above figure 3 exist.
+      * Why isn't the friction in the sliding nut modeled?
+      * There is an inconsistency in the equations.  Functions are sometime
+        written with a leading capital (Cos,Sin ...) and sometimes without.
+	At some places the functions are written in math font (italics) whereas
+	I like functions to be in normal font to be distinguishable from the
+	algebraic constants.
+      * The end of section 3 describing why the proposed controller is the time
+        optimal one is hard to understand even if the idea is not very
+	complicated.  I think things get complicated by introducing the four
+	voltage sequences.  It would probably be easier to understand if one
+	concludes that in order to be optimal one has to reach gamma in optimal
+	time and then show what signals that lead to gamma.
+      * The definition signs in eq 32 have become in wrong order := or =: ??
+      * The 'ideal' signal in the plots from simulation and experiments is
+        barely visible.
+      * The parenthesis of eq (38) are not correctly balanced regarding size
+      * The function defined in (37) have x_i as a parameter, this parameter is
+        then not used in the rhs.
+      *	The SI unit for kilogram is kg not Kg as written in table 1
+      * The figure 4 will probably not be very good in black and white. Is the
+        intention use color?
+      *	
+
+  }
+}
+
+@Article{Kuo:2001:SMB,
+  author =  {Arthur D. Kuo},
+  title = {A simple model of bipedal walking predicts the preffered speed --
+	   step length relationship},
+  journal = j-asme-biomech-eng,
+  year =  {2001},
+  volume =  {123},
+  pages = {264--269},
+  abstract =  {We used a simple model of passive dynamic walking, with the
+      addition of active powering on level ground, to study the preferred
+      relationship between speed and step lengh in humans.  We tested several
+      hypothetical metabolic costs, with one component proportional to the
+      mechanical work associated with pushing off with the stance leg at
+      toe-off, and ontother component associated with several possible costs of
+      forcing oscillations of the swing leg.  For this second component, a cost
+      based on the amount of force needed to oscilate the leg divided by the
+      time duration of that force predicts the preferred speed-step length
+      relationship much better than other costs, such as the amount of
+      mechanical work done in swinging the leg.  The cost of force/time models
+      the need to recruit fast muscle fibres for large forces at short
+      durations.  The actual mechanical work performed by muscles on the swing
+      leg appears to be of relatively less importance, although it appears to be
+      minimized by the use of short bursts of muscle activity in near-isometric
+      conditioins.  The combined minimization of toe-off mechanical work and
+      force divided by time predicts the preferred speed-step length
+      relationship.},
+}
+
+@TechReport{Welch:2001:IKF,
+  author =	{Greg Welch and Gary Bishop},
+  title =	{An introduction to the Kalman filter},
+  year =	{2001},
+  number = 	{SIGGRAPH 2001 Course 8},
+  annote =	{A good introduction to the general kalman filter as well as
+		EKF},
+  institution = {Department of Computer Science 
+		 at University of North Carolina at Chapel Hill},
+  address =  {http://www.cs.unc.edu/{~{welch,bg}}},
+}
+
+
+
+@Article{Lin:1991:UFS,
+  author =  {Yuandan Lin and Eduardo D. Sontag},
+  title = {A universal formula for stabilization with bounded controls},
+  journal = j-sys-cntrl-let,
+  year =  {1991},
+  volume =  {16},
+  number =  {6},
+  pages = {393--397},
+  abstract =  {
+  We provide a formula for a stabilizing feedback law using a
+  bounded control, under the assumption that an appropriate control-Lyapunov
+  function is known. Such a feedback, smooth away from the origin and continuous
+  everywhere, is known to exist via Artstein's Theorem. As in the
+  unbounded-control case treated in a previous note, we provide an explicit and
+  \universal" formula given by an algebraic function of Lie derivatives. In
+  particular, we extend to the bounded case the result that the feedback can be
+  chosen analytic if the Lyapunov function and the vector  elds de ning the
+  system are analytic.
+  },
+  annote =  {},
+}
+
+@InProceedings{Fukushima:2001:OLC,
+  author =	{Edwardo F. Fukushima and Hideichi Nakamoto and Riichiro Damoto
+  		and Shiego Hirose},
+  title =	{Optimal load-sensitive control of mobile robots equipped with
+  		continuously variable transmissions},
+  booktitle =	proc-IROS,
+  year =	2001,
+  pages =	{476 -- 481},
+  abstract =	{
+  	A continuously variable transmission (CVT) can be advantageously used to
+	drive a robot in its most efficient operation region for a wide range of
+	external loads. The paper describes an optimal load-sensitive control
+	algorithm for an actuator unit comprising a CVT and an electric motor.
+	The introduced control algorithm takes into account both the electrical
+	motor and the CVT efficiency. The validity of the proposed method is
+	demonstrated by simulations and experiments carried out on an actual
+	stair-climbing mobile robot "HELIOS-VI"
+	},
+  annote =	{},
+}
+
+@InProceedings{Hagiwara:1999:DDM,
+  author =  {Tetsuo Hagiwara and Shigeo Hirose},
+  title = {Development of dual mode {X}-screw: {A} novel load-sensitive linear
+	  actuator with a wide transmission range},
+  booktitle = proc-ICRA,
+  year =  1999,
+  pages = {537 -- 542},
+  abstract =  {
+  X-screw, a load-sensitive linear actuator that we have proposed, has many
+  desirable characteristics, but one drawback is that the linear motion is much
+  slower than a conventional lead screw because of the method X-screw uses to
+  produce linear motion. When the axial load is small, the transmission
+  efficiency of X-screw is approximately the same as that of a lead screw since
+  the transmitted power is low in this case. Therefore we have developed a dual
+  mode version of X-screw called "DM X-screw". This mechanism is able to
+  automatically switch between lead screw mode and X-screw mode in response to
+  the axial load. This feature makes it possible to apply DM X-screw to many
+  mechanical systems. We have used this mechanism in a pantograph jack that
+  makes use of its dual mode load-sensitive variable transmission properties.
+  This jack can be operated with a small input force and unlike conventional
+  jacks, several of these jacks can be used in combination to overcome the
+  output force limitations of normal pantograph jacks
+    },
+  annote =  {},
+}
+
+@InProceedings{Hirose:1999:DXL,
+  author =  {Shiego Hirose and Craib Tibbetts},
+  title = {Development of {X}-screw: {A} load-sensitive actuator 
+	   Incorporating a variable transmission},
+  booktitle = proc-ICRA,
+  year =  1999,
+  pages = {193 -- 199},
+  abstract =  {
+    This researh deals with the development of a load-sensitive
+    continuously variable transmission deskned for use as a
+    linear actuator. This mechanism, named X-screw, has
+    several unique features not found in other transmission
+    sytems that make it especially suitable for use as a robotic
+    actuatol: X-screw has a transmission ratio that
+    automatically changes in response to the load makiirg it
+    possible to combine relatively high speed motion under low
+    loads with a /age marimum load capacig in a much smaller
+    space and with less complexi2y than traditional transmission
+    systems. X-screw also has built-in overloadprotection since
+    it wil/ stop advancing $the load exceeds a certain value
+    although the motor is able to continue to rotate.
+    Furthermore, X-screw can produce arbitrarily slow linear
+    motion from a high speed input eliminating the need for
+    bulky gear reductions. Experimental tests conducted with
+    a protogpe have conzrmed the functionalig of this system.
+    },
+  annote =  {},
+}
+
+
+@InProceedings{Inagaki:1999:LMM,
+  author =  {K Inagaki and H Hishizawa and S Kawasumi},
+  title = {A leg mechanism for self-contained multi-legged walking robot},
+  crossref = {c-clawar:2003},
+  pages = {641 -- 648},
+  abstract =  {
+    Although walking robots have a noteworthy adaptability to the terrain, it is
+    not yet practically used.  The main reason for this fact is that the
+    efficiency of energy consuption of general walking robots is very poor.
+    Thus we cannot expect walking robots to possess long cruising ranges.  To
+    overcome this problem, we propose the following mechanisms; 1) a new joint
+    driving mechanism that can make use of engine driven actuators, 2) a new leg
+    structure in which the driving mechanism can be applied, and 3) a two states
+    variable transmission.  By use of these mechanisms, walking robot may the
+    development of longer cruising ranges.
+    },
+  annote =  {
+  De förelår en prismatisk konsturktion för den horisontella rörelsen av benet
+  och ett teleskop för den vertikala.  För att kunna köra i olika hastigheter
+  har de en transmission som kan gå mellan två utväxlingar genom att skifta
+  med hjälp av en koppling},
+}
+
+@InProceedings{Caballero:2001:MSN,
+  author =  {R Caballero and T Akinfiev and M Armada},
+  title = {On the modelling of {SMART} non-linear actuator for walking robots},
+  pages = {159 -- 166},
+  year = 2001,
+  crossref = {c-clawar:2001},
+  abstract =  {
+    The research for efficient locomotion mechanisms for walking machines has
+    yielded to the creation of {SMART} (Special Mechatronic Actuator for Robot
+    joinTs). This actuator has demonstrated to share some properties of the high
+    efficient quasi-resonance drive, but also presents a nonlinear dynamics
+    regime  that should be considered in robot control algorithm design.  The
+    aim of this paper is modeling this nonlinear dynamics and present a control
+    structure architecture that compensates this nonlinearities in robot
+    joints.
+  },
+  annote =  {},
+}
+
+@Article{Bicchi:2004:FAS,
+  author = {Antonio Bicchi and Giovanni Tonietti},
+  title =  {Fast and "Soft-Arm" tactics},
+  journal = j-ieee-rob-automatn,
+  year =  2004,
+  volume =  {},
+  number =  {},
+  pages = {22 -- 33},
+  abstract =  {},
+  annote =  {
+    Investigation of what can be done to reduce risks of robot arm hitting a
+    human seriously when working in human environment.
+    From research in car crash and equal they have found an expression for the
+    maximum velocity that a robtic arm is allowed to have, as a function of its
+    stiffness and mass properties, when hitting a human.
+    Optimal control was used to find the best mechanical solution when the task
+    is to move from one point to another. The result tells that it should be
+    somewhat flexible.
+    An investigation on different actuator solutions to get this is made and
+    also a robotic arm is built with McKibben actuators, with which they can
+    control stiffness.
+    },
+}
+
+@InCollection{Bicchi:2003:VSA,
+  author = {A. Bicchi and G. Tonietti and M. Bavaro and M. Piccigallo},
+  editor = {B. Siciliano and O. Khatib and F.C.A. Groen},
+  booktitle = {Proceedings of ISRR 2003},
+  title = {Variable Stiffness Actuators for Fast and Safe Motion Control},
+  publisher = pub-SV,
+  year = 2003,
+  series = {Springer Tracts in Advanced Robotics (STAR)},
+  keywords = {Robot Arms for Anthropic Environments, Robot Arms,
+	     Robotic Manipulation},
+  pdf = {'ftp://www.piaggio.ccii.unipi.it/pub/papers/anthropic-ISRR03.pdf'},
+ abstract = {
+    In this paper we propose Variable Stiffness actuation as a viable
+    mechanical/control co-design approach for guaranteeing control performance
+    for robot arms that are inherently safe to humans in their environment. A
+    new actuator under development in our Lab is then proposed, which
+    incorporate the possibility to vary transmission stiffness during motion
+    execution, thus allowing substantial motion speed-up while maintaining low
+    injury risk levels.
+    }
+}
+
+@InProceedings{Tonietti:2005:DCV,
+  author =  {Giovanni Tonietti and Riccardo Schiavi and Antonio Bicchi},
+  title = {Design and Control of a Variable Stiffness Actuator for
+           Safe and Fast Physical Human/Robot Interaction},
+ booktitle = proc-icra,
+ pages = {528-533},
+ year = 2005,
+ keywords = {Robot Arms for Anthropic Environments, Robot Arms, Robotic
+	    Manipulation},
+ pdf = {ftp://www.piaggio.ccii.unipi.it/pub/papers/softarm-ICRA05.pdf},
+ abstract = {This paper is concerned with the design and control of actuators
+    for machines and robots physically interacting with humans. According to
+    criteria established in our previous work on mechanical-control co-design
+    for intrinsically safe, yet performant machines, we pursue the Variable
+    Impedance Actuation (VIA) approach, purporting actuators that can control in
+    real-time both the reference position and the mechanical impedance of the
+    moving parts in the machine. In this paper we describe an implementation of
+    such concepts, consisting of a novel electromechanical Variable Stiffness
+    Actuation (VSA) motor. The design and the functioning principle of the VSA
+    are reported, along with the analysis of its dynamic behavior. A novel
+    scheme for feedback control of this device is presented, along with
+    experimental results showing performance and safety of a one-link arm
+    actuated by the VSA motor.} 
+}
+
+@InProceedings{Hurst:2004:APV,
+  author = "Jonathan W Hurst and Joel Chestnutt and Alfred Rizzi",
+  title = "An Actuator with Physically Variable Stiffness for Highly Dynamic
+	Legged Locomotion",
+  booktitle = proc-icra,
+  month = "May",
+  year = "2004",
+  abstract = {
+    Running is a complex dynamical task which places strict design requirements
+    on both the physical components and software control systems of a robot.
+    This paper explores some of those requirements and illustrates how a
+    variable compliance actuation system can satisfy them.  We present the
+    design, analysis, simulation, and benchtop experimental validation of such
+    an actuator system.  We demonstrate, through simulation, the application of
+    our prototype actuator to the problem of biped running.
+    },
+  key  = { AMASC }
+}
+
+@InProceedings{Ham:2005:MAC,
+  author =  {Ronald Van Ham and Bram Vanderborght and Micha\:el Van Damme
+	     and Björn Verrelst and Dirk Lefeber},
+  title = {{MACCEPA}: the actuator with adaptable compliance for dynamic walking
+	   bipeds},
+  booktitle = proc-CLAWAR,
+  year =  2005,
+  month = sep,
+  publisher = {},
+  address = {London, {UK}},
+  pages = {759 -- 766},
+  abstract =  {
+      Walking robots can be divided into two categories: on one hand the fully
+      actuated robots that don't use passive dynamics, and on the other hand the
+      energy efficient passive walkers. For autonomous robots the energy storage
+      is a problem, forecasting a bright future for passive walkers. At this
+      moment the passive walkers are restricted to one walking speed due to the
+      eigenfrequency, which is fixed by the mechanical constructions.  Several
+      actuators with adaptable compliant have been designed, but due to size,
+      complexity or controllability these are difficult to implement in bipeds.
+
+      Another application of the use of adaptable compliance is safe robot-
+      human interaction. Sometimes a robot has to be stiff, e.g. for pick and
+      place operations, but when moving between humans, a robot is preferably
+      compliant. Also for exoskeletons or rehabilitation devices this compliance
+      can improve ergonomics and speed up the rehabilitation process.
+      
+      The MACCEPA is a straightforward and easy to construct rotational
+      actuator, of which the compliance can be controlled separately from the
+      equilibrium position. The generated torque is a linear function of the
+      compliance and of the angle between equilibrium position and actual
+      position. This makes this actuator perfectly suitable for dynamic walking,
+      human-robotic interfaces and robotic rehabilitation devices.
+      },
+  annote =  {},
+}
+
+@InBook{Wester:1999:CMC,
+  editor =  {Michael J. Wester},
+  title = {Computer algebra systems: A practical guide},
+  publisher = 	 pub-WILEYSon,
+  year = 	 1999,
+  chapter = {3},
+  note = { Chapter written by Michael Wester and is named:
+	"A critique of the mathematical abilities of CA systems"},
+  abstract = {
+    Computer algebra systems (CAS) have become an essential computational tool
+    in the last decade. General purpose CASs , which are designed to solve a
+    wide variety of problems, have gained special prominence. In this chapter
+    the capabilities of seven major general purpose CASs (Axiom, Derive,
+    Macsyma, Maple, Mathematica, MuPad and Reduce) are reviewed on 542 short
+    problems covering a broad range of (primarily) symbolic mathematics
+    },
+  annote =	 {
+   This chapter is named:
+	"A critique of the mathematical abilities of CA systems"
+    A discussion and xxx of different CAS.  A thourogh test is performed and the
+    result is not too uplifting.
+	},
+  location =	 l-BGA
+}
+
+@Article{Tarn:1991:EMD,
+  author =  {Tzyh-Jong Tarn and Antal K. Bejczy and Xiaoping Yun and Zuofeng Li},
+  title = {Effect of motor dynamics on nonlinear feedback robot arm control},
+  journal = j-ieee-tran-rob-automatn,
+  year =  {1991},
+  volume =  {7},
+  number =  {1},
+  pages = {114 -- 122},
+  abstract =  {
+    Nonlinear feedback robot controller that incorporates the robot manipulator
+    dynamics as well as the robot joint motor dynamics is proposed in this
+    paper.  The manipulator dynamics and the differential geometric control
+    theory is applied to produce a linearized and decoupled robot controller.
+    The derived robot controller operates in the robot task space, thus
+    eliminating the need for decomposition of motion commands into robot joint
+    space commands.  Computer simulations are performed to verify the
+    feasibility of th proposed robot controller. The controller is further
+    experimentally evaluated on the PUMA 560 robot arm.  The experiments show
+    that the proposed controller produces good trajectory tracking performances
+    and is robust in the presence of model inaccuracies. Compared with nonlinear
+    feedback robot controller base4d on the manipulator dynamics only, the
+    proposed robot controller yields conspicuously improved performance
+    },
+  annote =  {},
+}
+
+
+@InProceedings{Oh:1998:BCD,
+  author =  {Jong H. Oh and Jin S. Lee},
+  title = {Backstpping control design of flexible joint manipulator using only
+  position measurements},
+  booktitle = proc-conf-dec-ctrl,
+  year =  {1998},
+  address = {Tampa, Florida USA},
+  pages = {931 --936 },
+  abstract =  {
+    A tracking controller is presented for flexible joint robot manipulators
+    with only position measurements and without any restrictions on the joint
+    stiffness gains. The controller is developed based on the integrator
+    backstepping design method and on the two observers: ofne for the filterd
+    linkvelocity errors and the other for the actuatro velocities. The proposed
+    controller achieves exponential tracking on link positions an velocities
+    whild keeping all internal signals bounded.  It also guarantees exponential
+    convergence of the extimated signals to their acutal ones.
+
+  },
+  annote =  {},
+}
+
+@Misc{Hewatt:2001:GCV,
+	title =		{Gyroscopic continuously variable transmission},
+	howpublished =	{US-Patent 6327922},
+	author =	{Chris B Hewatt},
+	year =		{2001},
+	abstract = {
+	The present invention is directed to an infinitely variable transmission
+	system that includes a gyroscope and a rotatable gear assembly to
+	translate torque from an input power shaft to an output power shaft.
+	},
+	annote = {
+	  I don't think this works because the torque from the precession will
+	  act otrhogonal to the flywheel angular velocity and the frame's, thus
+	  only give forces on the bearings.
+	  }
+}
+
+@MastersThesis{Moore:CVT:1997,
+  author  = {Carl Anthony Moore},
+  title = { Continuously variable transmission for
+	    serial link cobot architectures },
+  school = {Northwestern University},
+  year = 1997,
+  month = mar,
+  abstract = {
+    There are robotic applications in which the human user works in direct
+    physical contact with the robot.  Examples include surgical robotics, haptic
+    display, and trajectory enhancing systems. Because safety and stability are
+    of major concern in these systems, passive robots, which are intrinsically
+    safe and stable, are attractive solutions. A cobot is a new type of passive
+    robotic device created for use in these applications.  Cobots have no joint
+    actuators. Instead, they employ nonholonomic joints that redirect
+    undesirable user motions rather than fight them.  The scope of this thesis
+    is the creation and study of a nonholonomic joint called a continuously
+    variable transmission (CVT). The CVT will be used to create cobots with
+    serial link architectures. A cobot with n links uses n-1 CVTs to couple the
+    rotations of each consecutive pair of joints. Each CVT is computer
+    controlled to set the angular velocity ratio of the two joints that are
+    coupled to it. With all the cobots joints set to rotate in a particular
+    ratio, its end point is constrained to a particular trajectory through
+    space.  Cobots aid the user in task completion by providing virtual
+    constraint surfaces that guide the userÕs motion. For example, a cobot could
+    be used to constrain the motion of a surgeonÕs cutting tool to a trajectory
+    that was programmed pre-operatively. Or as part of a haptic display system,
+    a cobot could provide virtual walls for a person pushing on its end
+    effector.  When a force on a cobotÕs end effector is applied perpendicular
+    to a constraint surface, torques are created in the cobotÕs joints. These
+    torques produce joint angular velocity error causing the end effector to
+    leave the desired path and penetrate the constraint surface. At some value
+    of applied force, the torques become too great, and the constraint surface
+    is catastrophically violated.  In this thesis, a model of the friction
+    forces that support joint torques is developed. From the model, equations
+    are derived to relate joint angular velocity error to joint torque
+    magnitude. The maximum sustainable joint torques are also calculated. I find
+    that the relationship between joint angular velocity error and joint torque
+    is a function of the angular velocity ratio of the joints.  Experiments have
+    been done to test the friction model and to yield additional information on
+    CVT dynamics and resulting cobot performance.  The results are used to
+    determine what design changes can engender the creation of robust
+    constraints.  }
+  }
+
+@InProceedings{Ridderstrom:2002:SSBR,
+  author = 	 {Christian Ridderström},
+  title = 	 {Stability of statically balanced, radially symmetric stances
+		  for legged robots on compliant surfaces},
+  booktitle = 	 proc-CLAWAR,
+  year =	 2002,
+  address =	 {Paris, France},
+  month =	 sep,
+  abstract =	 {
+	This paper extends a recent criterion for the asymptotic
+	stability of a statically balanced robot. Earlier work showed
+	that if the combination of robot and environment is not stiff
+	enough (as specified in the criterion), a so called
+	"statically stable" stance is actually unstable. This
+	criterion was derived analytically and also verified in
+	experiment for a symmetric two-legged planar stance. Here the
+	criterion is extended to three dimensions for two-, three- and
+	four-legged radially symmetric stances. Additionally, a simple
+	"proof" and a more intuitive explanation for the planar case
+	is presented and also compared to a "buckling beam". Finally,
+	it is suggested that local asymptotic stability might be
+	determined in a simple way by comparing the "torsion stiffness
+	due to gravity", with the "torsion stiffness due to
+	compliance".  },
+  pdf =	  	 {data/Ridderstrom_2002_SSBR.pdf},
+  ps =	  	 {data/Ridderstrom_2002_SSBR.ps.gz},
+  annote =	 {ref:CAS-Warp, ref:Christian},
+  affiliation =	 g-S:CAS,
+  location =	 {},
+}
+
+
+@PhdThesis{Ridderstrom:2003:LLC,
+  author      = {Christian Ridderström},
+  title	      = {Legged locomotion: {B}alance, control and tools --- from
+        equation to action},
+  school      = g-S:KTH,
+  year	      = 2003,
+  address     = g-S:KTH:adr,
+  month	      = may,
+  abstract    = {
+	This thesis is about control and balance stability of legged
+	locomotion. It also presents a combination of tools that makes it
+	easier to design controllers for large and complicated robot
+	systems. The thesis is divided into four parts.
+
+	The first part studies and analyzes how walking machines are
+	controlled, examining the literature of over twenty machines
+	briefly, and six machines in detail. The goal is to understand how
+	the controllers work on a level below task and path planning, but
+	above actuator control. Analysis and comparison is done in terms of:
+	i) generation of trunk motion; ii) maintaining balance; iii)
+	generation of leg sequence and support patterns; and iv) reflexes.
+
+	The next part describes Warp1, a four-legged walking robot platform
+	that has been built with the long term goal of walking in rough
+	terrain. First its modular structure (mechanics, electronics and
+	control) is described, followed by some experiments demonstrating
+	basic performance. Finally the mathematical modeling of the robot's
+	rigid body model is described. This model is derived symbolically
+	and is general, i.e. not restricted to Warp1. It is easily modified
+	in case of a different number of legs or joints.
+
+	During the work with Warp1, tools for model derivation, control
+	design and control implementation have been combined, interfaced and
+	augmented in order to better support design and analysis. These
+	tools and methods are described in the third part. The tools used to
+	be difficult to combine, especially for a large and complicated
+	system with many signals and parameters such as Warp1. Now, models
+	derived symbolically in one tool are easy to use in another tool for
+	control design, simulation and finally implementation, as well as
+	for visualization and evaluation --- thus going from equation to
+	action.
+
+	In the last part we go back to "equation" where these tools aid the
+	study of balance stability when compliance is considered. It is
+	shown that a legged robot in a "statically balanced" stance may
+	actually be unstable. Furthermore, a criterion is derived that shows
+	when a radially symmetric "statically balanced" stance on a
+	compliant surface is stable. Similar analyses are performed for two
+	controllers of legged robots, where it is the controller that cause
+	the compliance.  },
+  keywords = {legged locomotion, control, balance, legged machines, legged
+	      robots, walking robots, walking machines, compliance, platform
+	      stability, symbolic modeling},
+  annote =	 {ref:CAS-Warp, ref:Christian, my thesis,
+	http://media.lib.kth.se:8080/dissengrefhit.asp?dissnr=3510},
+  affiliation = g-S:CAS,
+  note	      = {See \url{http://www.md.kth.se/~cas/publications}},
+  pdf	      = {thesis/Ridderstrom_2003_LLC.pdf},
+  ps	      = {thesis/Ridderstrom_2003_LLC.ps.gz},
+  location    = {online},
+}
+
+
+@PhdThesis{Hardarson:1999:PLR,
+  author = 	 {Freyr Hardarson},
+  title = 	 {Principles of Legged Robots --- Design and Control of a Single
+		  Leg Prototype},
+  school = 	 g-S:KTH:MMK,
+  year = 	 1999,
+  address =	 g-S:KTH:MMK:adr,
+  type =	 {Licentiate degree},
+  annote =	 {Freyr's lic. thesis, ref:CAS-Warp},
+  affiliation =	 g-S:CAS,
+  location =	 l-Christian
+}
+
+@PhdThesis{Hardarson:2002:SAS,
+  author = 	 {Freyr Hardarson},
+  title = 	 {Stability analysis and synthesis of statically balanced
+		  walking for quadruped robots},
+  school = 	 g-S:KTH,
+  year = 	 2002,
+  address =	 g-S:KTH:adr,
+  month =	 jun,
+  abstract =	 {
+	Walking robots have a potential to traverse certain types of terrain
+	in a more efficient and stable manner than more conventional robots,
+	using wheels or tracks. The property of walking robots that the
+	contact with the ground is discontinuous gives them the ability to
+	select footholds such that obstacles or holes are avoided. Other
+	advantageous properties of walking robots are that they cause less
+	damage to the terrain, active suspension is an intrinsic part of
+	their structure, and they are omnidirectional, which gives them an
+	advantage in maneuvering through cluttered and tight environments.
+
+	The control of walking robots requires that the issue of stability
+	against tipping over is treated in a more specific fashion than for
+	wheeled robots, as there are discrete changes in the support of the
+	robot when the legs are lifted or placed. The stability of the robot
+	is dependent on how the legs are positioned relative to the body and
+	on the sequence and timing in which the legs are lifted and
+	placed. In order to reduce the risk of the robot losing stability
+	while walking, a measure for the stability of the robot is typically
+	used in the gait and motion planning, in order to avoid, or detect,
+	that the robot could become unstable.
+
+	The main contribution of the thesis is in the analysis of the
+	stability of statically balanced quadrupedal gaits and how
+	statically balanced walking can be achieved. The center of pressure,
+	i.e. the point where the resultant of the ground reaction forces at
+	the feet acts, is used to develop a stability measure, which is then
+	used in the planning of the body motion. The stability measure is
+	used to set appropriate bounds on the motion of the robot, to
+	account for potentially destabilizing forces or moments. The motion
+	of the robot is planned by determining the supporting force for each
+	leg, which in turn will determine how the robot should shift its
+	weight in order to remain statically balanced. The approach proposed
+	in this thesis, therefore, solves simultaneously the problem of
+	determining a statically balanced motion trajectory for the body, as
+	well as, the distribution of forces to the feet, to compensate for
+	the weight of the robot. A description of the implementation and
+	experimental results are provided, using the quadruped robot
+	WARP1. The experimental results demonstrate the walking capability
+	of the robot, and its ability to handle inclined surfaces.},
+  annote =	 {ref:CAS-Warp},
+  affiliation =	 g-S:CAS,
+  pdf =	  	 {pubdata/Hardarson_2002_SAS.pdf},
+  location =	 l-Christian,
+}
+
+@InProceedings{Rehbinder:1999:AEW,
+  author      = {Henrik Rehbinder and Christian Ridderström},
+  title	      = {Attitude Estimation for Walking Robots},
+  booktitle   = proc-CLAWAR,
+  year	      = 1999,
+  month	      = sep,
+  address     = {Portsmouth, UK},
+  abstract    = {In this paper we consider the problem of designing a
+        reliable attitude sensor for a walking robot. We use rate gyroscopes
+        in combination with inclinometers and study the problem using
+        numerical simulations. The attitude estimation algorithm is an
+        extended Kalman filter (EKF) based on a nonlinear rigid body model
+        of the walking robot. We also include models of the sensor dynamics
+        in the filter. The attitude estimate converges to and tracks pitch
+        and roll accurately for 3 DOF rotations generated by realistic
+        walking simulations},
+  annote      = {ref:CAS-Warp, ref:Christian},
+  affiliation = g-S:CAS,
+  ps = {data/Rehbinder_1999_AEW.ps.gz},
+  pdf = {data/Rehbinder_1999_AEW.pdf},
+  location    = {I should retrieve my copy of this...},
+}
+
+@InProceedings{Rehbinder:2000:NPR,
+  author      = {Henrik Rehbinder and Xiaoming Hu},
+  title	      = {Nonlinear Pitch and Roll Estimation for Walking Robots},
+  booktitle   = proc-ICRA,
+  pages	      = {2617-2622},
+  year	      = 2000,
+  volume      = 3,
+  abstract    = { We study a nonlinear pitch and roll estimation problem for
+        a 4-rigid body, aiming at a walking robot application. The approach
+        taken is that sensor data from rate gyros and inclinometers are
+        combined using a high-gain observer that can be proven to be
+        exponentially convergent. The algorithm has successfully been
+        evaluated experimentally during conditions resembling walking robot
+        motion and has been compared with the more standard extended Kalman
+        filter (EKF). It is shown that the much simpler high-gain observer
+        performs slightly better than the EKF and that both algorithms
+        provide small and bounded estimation errors.},
+  annote      = {Contain reference for the high-gain observer (trunk). Nice
+        article I think, but uses typically mathematical orientated
+        assumptions
+	 ref:CAS-Warp},
+  ps	      = {data/Rehbinder_2000_NPR.ps.gz},
+  pdf	      = {data/Rehbinder_2000_NPR.pdf},
+  affiliation = g-S:CAS,
+  location    = l-groups # g-S:CAS,
+}
+
+
+@Article{Carrier:1998:DGR,
+  author = {David R. Carrier and COlin S. Gregersen and Batalie A. Silverton},
+  title =  {Dynamic gearing in running dogs},
+  journal = {Journal of experimental biology},
+  year =  {1998},
+  volume =  {201},
+  pages = {3185 -- 3195},
+  abstract =  {
+    Dynamic gearing is a mechanism that has been suggested to enhance the
+    performance of skeletal muscles by maintaining them at the shortening
+    velocities that maximize their power efficiency.  We investigated this
+    hypothesis in three domestic dogs during trotting and galloping. We used
+    ground force recordings and kinematic analysis to calculate the changes in
+    gear ratio that occur during the production of the external work of
+    locomotion.  We also monitored length changes of the vastus lateralis
+    muscle, an extensor muscle of the knee, using sonomicrometry in four
+    addtional dogs to determine the nature and rate of active shortening of this
+    muscle.  During both trotting and galloping, the gear ratios of the extensor
+    muscles of the elbow, wrist and ankle joints were relativesly constant early
+    in limb uspport.  The gear ratio at the hip exerted an extensor moment
+    initially, but decreased throughout limb supporta nd became negative midway
+    through support.  This pattern of decreasing gear ratio during the second
+    hlaf of support indicates that dynamic rearing does not maximize muscle
+    power or efficientcy at the elbow, wrist, hip and ankle joints.  In
+    contrast, the extensor muscle of the shoulder and knee joints exhibited an
+    increase of gear ratio during limb support. In two dogs, the vastus
+    lateralis muscle shortened at a relatively constant rate of 3.7--4 lenghts
+    s\textsup{-1} during intermediate speed galloping. This pattern of
+    increasing gear ratio and constant velocity of muscle shortening at the knee
+    joint is consistent with the hypothesis of dynamic gearing.  Given the
+    amount of work done at the knee and shoulder joints of running dogs, dynamic
+    gearing may contribute to the economy of constant-speed running and may be
+    important to integrated limb function.
+  },
+  annote =  {},
+}
+
+@Book{Muybridge:1957:AM,
+  author = 	 {Eadweard Muybridge},
+  title = 	 {Animals in Motion},
+  publisher = 	 {New Dover Edition, Dover Publications, Inc.},
+  year = 	 1957,
+  address =	 {New York},
+  note =	 {First published in 1899},
+  affiliation =	 {},
+  annote = 	 {
+	His name is seems to be spelled Eadweard Muybridge
+
+	A.10: In turning... the front foot on the side toward which it
+	turns is used as lead, thus keeping its support more nearly
+	under the weight of the body.
+
+	lead (p.10): An animal is said to lead with that foot which is last
+	to leave the ground before the one or two periods of
+	suspension (i.e. entirely in the air) within each stride.
+
+	step (p.201): Def av step and stride that you can understand:
+
+	"The differences between the step and the stride of an animal
+	are not always clearly understood."
+
+	Defs. are based on a function ?word?  a step is an ACT of
+	doing one leg cycle, from lifting to resuming the
+	support/propulsion funciton.
+
+	P.27: During very rapid horse motion, the (trunk?) motion
+	preserves a nearly horizontal lim., the (air) period beign too
+	brief to let gravity match the motion. The distance
+	ground-fetlock/pastenn joint is actually greater when the
+	horse is standing. (Note: compare to 110-m running, where the
+	altitude is as low as possible over the obstacles).},
+  location =	 l-BGA,
+}
+
+
+@InProceedings{Edsinger:2004:DCF,
+  author =  {Aaron Edsinger-Gonsales},
+  title = {Desgin of a compliant and force sensing hand for a humanoid robot},
+  booktitle = {Proceedings on International Conference of Intelligent
+  Manipulation and Grasping},
+  year =  2004,
+  address = {Genova, Italy},
+  pages = {291 -- 295},
+  editor =  {Rezina Molfino},
+  abstract =  {Robot manipulation tasks in unknown and unstructured environments
+  can often be better addressed with hands that are capable of force-sensing and
+  passive compliance.  We describe the design of a compact four
+  degree-of-freedom (DOF) hand that exhibits these properties.  This hand is
+  being developed for a new humanoid robot platrofm.
+       Our hand contains four modulear Force Sensing Compliant (FSC) actuatiors
+  acting on three fingers.  One actuator controls the spread between two
+  fingers. Three actuators independently control the top knuckle of each finger.
+  he lower knuckles of the finger are passively couple to the top knuckle.  We
+  place a pairo of torsion springs between the motor housing and hte hand
+  chaassis.  By measureing the deflection fo these springs, we can determine the
+  acting force ofhteactuators.l tThe springs also provede compliance in the
+  finger and protect the motor gearbox from high impact shocks.
+       Our novel actuators, combined with embedded control electronics, allow
+  for a compact and dexterous hand desing that is well sutied to humanoid
+  manipulation research.
+           },
+  annote =  {},
+}
+
+
+@Book{Ingvast:1989:HGR,
+  author =  {Håkan Ingvast},
+  title = {Hydraulikens grunder},
+  publisher = {Institutet för Tillämpad Hydraulik},
+  address = {Örnsköldsvik,Sweden},
+  year =  {1989},
+}
+
+@MastersThesis{Schuurmans:2005:ODU,
+  title = {Optimization and design in underactuated robotic
+		 grasping},
+  author = {Jasper Schuurmans},
+  school = {Delft University of Technology},
+  year = 2005,
+  annote ={
+ This is a very good MscTheesis work from my standards. It consists
+ of two papers. The first makes up the framework of grapsing, how
+ to evaluate grasps in terms of force and form closure. Methods of
+ how to calculate them. He investigates the number of phalanges
+ needed and how long each should be (by optimization). 
+ The second part introduces the underactuation and tries to find
+ the most ideal connection between the phalanxes by optimizing
+ pulley radiuses, and also introducing one more tendon.  It seem
+ that it is hard to do this and I wonder if the underlying premises
+ is ok, that of assuming that the normal contact force should be
+ distributed evenly.
+}
+}
+
+
+@InProceedings{Namiki:2003:DHM,
+  author =	{A. Namiki and Y. Imai and M. Ishikawa and M. Kaneko},
+  title = {Development of a High-speed Multifingered Hand System and Its
+	 Application to Catching},
+  booktitle = proc-IROS,
+  year =  2003,
+  pages =  {2666 -- 2671},
+  abstract =  {
+    In this paper we introduce a newly developed
+	high-speed multi-fingered robotic hand. The hand has 8-
+	joints and 3-fingers. A newly developed small harmonic drive
+	gear and a high-power mini actuator are fitted in each finger
+	link, and a strain gauge sensor is in each joint. The weight
+	of the hand module is only 0.8kg, but high-speed motion
+	and high-power grasping are possible. The hand can close
+	its joints at 180deg per 0.1s, and the fingertips have an
+	output force of about 28N. The hand system is controlled
+	by a massively parallel vision system. Experimental results
+	are shown in which a falling object was caught by the highspeed
+	hand.
+	},
+  annote =	{Very nice piece of work. Fast and strong. However not at all
+  passive. To catch, precice calculations are done.
+  },
+}
+
+@Article{Prattichizzo:1998:DAM,
+	author ={D. Prattichizzo and A. Bicchi},
+	title = {Dynamic analysis of mobility and graspability of general
+	  manipulation systems},
+	journal = j-ieee-tran-rob-automatn,
+	vol = 14,
+	no = 2,
+	pages ={241 -- 258},
+	year = 1998,
+	month = apr,
+	abstract = {
+	 We present a geometric approach to the dynamic analysis of
+	 manipulation systems of a rather general class, including some
+	 important types of manipulators as, e.g., cooperating,
+	 super-articulated, and whole-arm manipulators. The focus is in
+	 particular on simple industry-oriented devices, for which a
+	 minimalistic design approach requires a clear understanding of
+	 mobility and graspability properties in the presence of
+	 kinematic defectivity. The paper discusses the dynamics of
+	 these systems, and considers how their structural properties
+	 (in the classical system-theoretic sense, i.e., stability,
+	 controllability, observability, etc.) are related to
+	 frequently used concepts in robotics such as redundancy,
+	 graspability, mobility, and indeterminacy. Less common or
+	 novel concepts, such as those of defectivity, hyperstaticity,
+	 and dynamic graspability, are elicited and/or enlightened by
+	 this study. Some important practical consequences of the
+	 limited control possibilities of defective systems are thus
+	 put into evidence. Finally, a standard form of the dynamics of
+	 general manipulation systems is provided as a compact and
+	 readable synopsis of the dynamic structure. The form is a
+	 valuable tool for synthesizing dynamic controllers for such
+	 systems, especially suited to geometric control design methods
+	 }
+}
+
+@InCollection{Yokoi:2004:MAP,
+  author =	{Hiroshi Yokoi and Alejandro Hernandez Arieta and Ryu Katoh and
+	  Wenwei Yu and Ichiro Watanabe and Masaharu Maruishi},
+  title = {Mutual adaptation in a prothetics application},
+  booktitle =	{Embodied artificial intelligence},
+  year = 2004,
+  editor = { F. Iida and  R. Pfeifer and L. Steels and Y. Kuniyoshi },
+  pages = {146 -- 159},
+  publisher = pub-SV,
+  },
+
+@Article{Pfeifer:2005:MCC,
+  author =	{Rolf Pfeifer and Fumiya Iida},
+  title = {Morphological computation: connecting body, brain, and environment},
+  journal =	{Japaneses scientific monthly},
+  year =  {2005},
+  volume =	{58},
+  number =	{2},
+  pages = {48 -- 54},
+  abstract =  {
+	Traditionally, in robotics, artificial intelligence, and neuroscience,
+	there has been a focus on the study of the control or the neural system
+	itself.  Recently there has been an increasing interest into the notion
+	of embodiment not only in robotics and artificial intelligence, but also
+	in the neurosciences, psychology, and philosophy.  In this paper, we
+	introduce the notion of morphological computation and demonstrate how it
+	can be exploited on the one hand for designing intelligent, adaptive
+	robotic systems, and on the other for understanding natural systems.
+	While embodiment has often been used in its trivial meaning, i.e.
+	"intelligence requires a body" , the concept has deeper and more
+	important implications, concerned with the relation between physical and
+	information (neural,control) processes.  Morphological computation is
+	about connecting body, brain and environment.  A number of case studies
+	are presented to illustrate the concept.  We conclude with some
+	speculations about potential lessons for neuroscience and robotics.
+  },
+  annote =  {
+   This article is about morphological calculation, i.e. that the strucuture
+   itslef does the calcuations that otherwise would have to be done by
+   computers. Two examples of this is the facettes of fly's eyes which are more
+   dense in the forward direction. This makes the "flow" of moving objects about
+   the same pixel velocity when flying forward. This has also been used in
+   robotics. Another example are pasive hands like the Yoki hand which can close
+   an object without explicit calculation of how each finger should be moved.
+   Very nice paper, unfortunately not all of it printed.
+  }
+}
+
+@InProceedings{Birglen:2003:OFC,
+ title = {On the force capacity of underactuated fingers},
+ author = {Lionel Birglen and Clément M. Gosselin},
+ booktitle = 	 proc-ICRA,
+ pages = {1139 -- 1145},
+ year = 2003,
+ abstract = {
+  This paper studies the force capability of a particular class of
+  under-actuated fingers.  Force capability is defined as the
+  ability to create an external wrench onto a fixed object. The
+  concept of under-actuation in robotic fingers, with fewer
+  actuators than degrees of freedom (DOF) through the use of
+  springs and mechanical limits, allows the hand to adjust itself
+  to an irregularly shaped object without complex control strategy
+  an numerous sensors.  However, in some configurations, the force
+  distribution in an under-actuated finger can degenerate.  The
+  finger can no longer apply forces on the object, leading in some
+  cases to the ejection of the latter from the hand.  This paper
+  focuses on a 2--DOF finger and studies its ability to seize
+  objects with a secure grasp.  },
+ annote ={
+  Common few actuators but also few freedoms. Ex DIES-DIEM Cassino
+  finger TBM--hand. KIST gripper.  Some have used flexible
+  phalanges which result in a better adaptation to the object, but
+  reduces the strenght of the grip [Schultz:2001:UAH].
+
+  The paper maily deals with the stability properties of a finger.
+  If a force is applied somewhere on the phalanx what will happen
+  to the finger when trying to close it. Depending on the design
+  the finger will either close or open. If it opens it is bad. For
+  closing two things can happen, the more near phalanx may move
+  away from the object in a way that the finger slips over the
+  force (bad) or the finger closes correctly and can apply
+  additional force on the object. 
+  A design is proposed which has very good properties in this
+  sence.  }
+}
+
+@Article{Birglen:2004:KAU,
+  author = { L. Birglen and C.M. Gosselin},
+  title = { Kinetostatic analysis of underactuated fingers},
+  journal =	j-ieee-tran-rob-automatn,
+  year =  2004,
+  volume =	20,
+  number =	2,
+  pages = {211 -- 221},
+  abstract =  {},
+  annote =	{},
+}
+
+@InProceedings{Birglen:2005:FEC,
+ author ={Lionel Birglen and Clément M. Gosselin},
+ title = {Fuzzy enhanced control of an underactuated finger using
+		  tactile and position sensors},
+ year = 2005,
+ month = apr,
+ booktitle = proc-icra,
+ annote = {
+   Nice introduction about the need to reduce the number of dof in
+   order to handle the control complexity.  Commonly the dof has
+   been reduced togehter with the number of actuators.
+
+   The author attempts to do force control of the contact force
+   using FSR feedback and a fuzzy controller. He claims that the
+   fuzzy control or some other non traditional control is needed in
+   order to overcome the large internal friction.
+   }
+ }
+
+@Article{Carrozza:2004:SHD,
+ title = {The {SPRING} hand: Development of a self-adaptive
+		  prosthesis for restoring natural grasping},
+ author = {M.C. Carrozza and C. Suppo and  F.  Sebastiani and
+		  B. Massa and  F. Vecchi and  R. Lazzarini and
+		  M.R. Cutkosky and P. Dario},
+ journal = j-aut-rob,
+ year = 2004,
+ volume = 16,
+ number = 2,
+ pages ={125 -- 141},
+ abstract ={
+	Commercially available prosthetic hands are simple grippers
+	with one or two degrees of freedom; these pinch type devices
+	have two rigid fingers in opposition to a rigid thumb. This
+	paper focuses on an innovative approach for the design of a
+	myoelectric prosthetic hand. The new prosthesis features
+	underactuated mechanisms in order to achieve a natural grasping
+	behavior and a good distribution of pinching forces. In this
+	paper it is shown that underactuation allows reproducing most
+	of the grasping behaviors of the human hand, without augmenting
+	the mechanical and control complexity.
+	},
+ annote = {
+	He claims that we shouled bear in mind that prosthesis should
+	deal with grasping of objects. The task of manipulation is
+	something for the future and need "high-technology components"
+	that realize complex and compact structures.
+	Things lacking for cybernetic prosthesis:
+	  natrual interface to the peripheral nervous system
+	  light weight compact actuators (Hirose 1985)
+	There is no room inside prosthetic hands for bulky mechanisms
+	and actuators.
+	The phalanxes of commersial prosthetic hands (Otto Bock) are
+	deterimined at design stage. There is no shapa adaptation.
+
+	The human hand is underactuated as the distal interphalangeal
+	joints of hte fingers are not independently controllable.
+
+	The hand they designed have eight (8) dof, three fingers and
+	one thumb,  but only one actuator. Hence a highly underactuated
+	hand. 
+
+	The actuation is done by connection of tendons between the
+	fingers and the thumb (index and middle finger). The way this
+	is done is not very clear. However, it is partly a differential
+	mechanism and partly a flexible. I have no idea if they
+	actually have analyzed theoretically the  grasping properties.
+
+	}
+}
+
+
+@Article{Stellin:2006:PDA,
+  author = {Giovanni Stellin and  Giovanni Cappiello and  Stefano Roccella and
+	    Maria Chiara Carrozza and Paolo Dario and Giorgio Metta and
+	    Giulio Sandini and Francesco Becchi},
+  title = {Preliminary Design of an Anthropomorphic Dexterous
+  Hand for a 2-Years-Old Humanoid: towards Cognition},
+  annote = { I don't know where this is published, however it seem intersesting
+  and I found it at:
+  http://www.lira.dist.unige.it/papers/papers/Papers_06/BioRob2006_GeG_v9f.pdf
+  They designed a hand with a  sensor for wire tension that is interesting.
+  }
+}
+  
+@InProceedings{Lotti:2002:NAM,
+	title = {A novel approach to mechanical design of articulated fingers for
+	robotic hands},
+	author = { F. Lotti and G. Vassura},
+	booktitle = proc-IROS,
+	year = 2002,
+	month = oct,
+	vol = 2,
+	abstract = {
+	  The paper first discusses the reasons why simplified
+	  solutions for the mechanical structure of fingers in
+	  robotic hands should be considered a worthy design
+	  goal. After a brief discussion about the mechanical
+	  solutions proposed so far for robotic fingers, a different
+	  design approach is proposed. It considers finger
+	  structures made of rigid links connected by flexural
+	  hinges, with joint actuation obtained by means of
+	  flexures that can be guided inside each finger according
+	  to different patterns. A simplified model of one of these
+	  structures is then presented, together with preliminary
+	  results of simulation, in order to evaluate the feasibility
+	  of the concept. Examples of technological
+	  implementation are finally presented and the
+	  perspective and problems of application are briefly
+	  discussed.
+	  },
+	annote = {
+	  Joints can be made other than pin and bearing, suggested from nature:
+	    - Some relative motion between two surfaces not put inside each other,
+	      this can be either sliding or rolling motion
+	    - Deformation of part of the structure
+	  Lotti explores the second type, the flexural joint and points out good
+	  and bad things, good: No ligaments are necessary, the structure can be
+	  seen as one piece and contact problems avoided; the hinge is ususally
+	  elasitc thun gives a counteractive torque arount the joint which can
+	  be explored particulay for underactuated configurations.  bad: the
+	  kinematics is not as simple as for a revolute joint He discusses
+	  different models of the flexible hinge
+	  
+	  They note three differnt manufacturing possibilities:
+	  - All (phalanges, hinges and tendons) are made out of the same piece of
+		material.
+	  - Tendons are mades separately out of steel
+	  - Tendons, hinges and phalanges are different pieces and then joined.
+	  They found the PTFE have good properties, yeild strength over
+	  elasiticity module.  However, they also note that even if the quotient
+	  of steel is not at all as good, it would provide more predictable
+	  fatigue behaviour, higher buckling resistance and more controllable
+	  sliding conditions for tendons.
+	  A prototype of machined PTFE were built with three elastic hinges plus
+	  two active and one passive.  They don't have any measureing device for
+	  the angles of the joints, and have not equipped the prototype finger
+	  with any touch sensors. However, they have tested the finger and seen
+	  it can bend. There are some problems with accuracy in the trajectory
+	  control.  They plan to cover the finger with polyurethane gel.
+	},
+},
+
+@InProceedings{Tiezzi:2003:PGP,
+  author = {P. Tiezzi and F. Lotti and G. Vassura},
+  title = {Polyurethane gel pulps for robotic fingers},
+  booktitle = proc-ICAR,
+  year = 2003,
+  month = jun,
+  address ={Portugal},
+  abstract = {
+    The paper presents early results of an experimental
+	activity on finger pulps made of polyurethane gel, a
+	material that seems very promising under many aspects.
+	Tests concern both parametric relationship between the
+	normal force and the contact area (power law) and the
+	shape recovery under variable load, thus allowing
+	preliminary comparison with different materials already
+	described in the literature. In order to perform a
+	comparative evaluation including other parameters that
+	are relevant for application (e.g. surface friction and
+	vibration damping properties) a multi-purpose test
+	equipment is defined and its operating principles and use
+	methodology are described.
+	},
+  annote = {
+    The authors compare the Polyurethane gel with other coatings for robotic
+	fingers. Those are rubber, some foame and silicon. 
+	The gel seem to have good viscoelastic properties, high friction, good
+	elasiticity.
+	They claim its properties is more like the human flesh than any of the
+	other materials.
+	}
+},
+
+@InProceedings{Lotti:2004:UBH,
+  author = {F. Lotti and P. Tiezzi and G. Vassura and L. Biagiotti and C.
+		    Melchiorri},
+  title = {{UBH} 3: An anthropomorphic hand with simplified endo-Skeletal
+           structure and soft continuous fingerpads},
+  booktitle = proc-icra,
+  year = 2004,
+  address = {New~Orleans},
+  abstract = {
+    The paper describes work in progress at
+	the University of Bologna concerning the design of a
+	new anthropomorphic robot hand. The hand is based
+	on the modular assembly of articulated fingers that
+	adopt an original configuration of their structure, made
+	with rigid links connected by elastic hinges that are
+	coaxially crossed by flexible tendons. This innovative
+	design is suitable to host distributed sensory equipment
+	and continuous compliant cover, allowing a high level of
+	anthropomorphism together with great structural simplification,
+	reliability enhancement and cost reduction.
+	Furthermore, the proposed solution is very flexible, as
+	it can be adapted to many different hand configurations
+	and is not dependent on a particular type of actuation,
+	being compatible with future availability of any kind of
+	artificial muscles.
+	},
+  annote = {
+    This hand have the steel flexible hinges which also acts as the extension
+	mechanism, such that when tendon forces is removed the finger extends.
+	The joint of the most proximal phalanx have both f/e a/a freedom. It is
+	actuated by three tendons connected at 120 degrees.
+	
+	They find the finger hard to control by normal means and propose that
+	the finger/hand should be controlled by some kind of impedance
+	controller which is based on passivity. This way they don't need any
+	force feedback which they claim is a cause of high complexity and low
+	realiability. A drawback of the control method is that the actuator has
+	to be back drivable. They consider two actuators, McKibben muscles and
+	motor/ball-screw.  They choose the ballscrew solution because of better
+	control precision, however the reduction needs to be large so the
+	actuator is not backdrivable.  Therefore they have to introduce a force
+	sensor in the actuator. 
+
+	They note that the position of the tendon actuator is not enough for
+	knowing the finger position. Further the way the flexible joints works
+	makes it difficult to apply a normal angular sensor. The solution they
+	found was to add flex-sensors, such often used in data gloves to measure
+	the bending of human fingers. As an alternative they propose visual
+	servoing.
+
+	They also see a need for contact sensors. One of the reasons is to be
+	able to know the exact contact point, in particular if there is a
+	multiple of contact points). They see two possible solutions: an force
+	sensitive array attached to the finger frame and a torque/force sensor
+	attached to the frame. The first method was tested but the gel used for
+	covering the finger distributed the force such that the information was
+	less usefull. 
+
+	My comment to this article is that the overall goal of having a very
+	simple and cheap hand seem to be more and more distant. The actuators
+	with internal force feedback is not such a simple device and insering
+	intrisic force/torque sensors into the structure is also challenging,
+	ther is not much space!
+	}
+},
+
+
+
+@InProceedings{Biagiotti:2005:DUB,
+  author = {L. Biagiotti and F. Lotti and C. Melchiorri and G. Pali and
+	    P. Tiezzi and G. Vassura},
+  title =  {Development of {UB} hand 3: early results},
+  booktitle = proc-icra,
+  year =  2005,
+  abstract =  {
+	The first part of this paper describes the development of a humanoid
+	robot hand based on an endoskeleton made of rigid links connected with
+	elastic hinges, actuated by sheath routed tendons and covered by
+	continuous compliant pulps. The project is called UB Hand 3 (University
+	of Bologna Hand, 3rd version) and aims to reduce the mechanical
+	complexity of robotic end effectors yet maintaining full anthropomorphic
+	aspect and a good level of dexterity. In the second part this paper
+	focuses on the early experiences of the UB Hand 3 in performing
+	manipulation tasks.
+	},
+  annote =  {},
+}
+
+@InProceedings{Lee:1999:SFA,
+  author =  {Y.K. Lee and I. Shimoyama},
+  title = {A skeletal framework artificial hand actuated by pneumatic artificial
+	   muschles},
+  booktitle = proc-ICRA,
+  year =  1999,
+  month = may,
+  address = {Detroit, Michigan},
+  pages = {926 -- 931},
+  abstract =  {
+       This paper describes a method and a process for
+       developing a soft artificial hand similar to a real
+       human hand and its small- size- soft actuator. For the
+       soft actuator, we took a pneumatic artificial muscle and
+       succeeded in reducing it to a diameter of 3.5mm. The
+       pneumatic artificial muscle allows the artificial hand
+       not only to move softly and powerfully by pneumatic
+       power but also works as a sensor. As a frame for the
+       artificial hand, we used the skeleton model of human
+       hand in order to make the hand similar to real human
+       hand in structure as well as motion.
+       },
+  annote =  {},
+}
+
+@InProceedings{Becker:1986:SHH,
+  author =  {J. C. Becker and N. V. Thakor and K. G. Gruben},
+  title = { A study of human tendon kinematics with application to robot hand
+	    design},
+  booktitle = proc-ICRA,
+  year =  1986,
+  month = apr,
+  pages = {1540 -- 1545},
+  abstract =  {
+       Current trends in robotics are pointing to the design of dextrous
+       manipulators patterned after human hands. This article reports on some
+       studies of the human hand and how it relates to the design of
+       anthropomorphic manipulators. We discuss hand anatomy and a mathematical
+       model that relates tendon displacement to joint angle. This enables the
+       understanding of the role of the tendons in normal hand function as well
+       as in disability. This information may be used to design robot or hand
+       prosthesis tendons after their human counterparts. We present an example
+       of a shape memory alloy actuator based design. The actuators emulate
+       human tendon mechanisms.
+       },
+  annote =  {},
+}
+
+@inproceedings{DiCicco:CCS:2004,
+  author = "Matthew DiCicco and Lenny Lucas and Yoky Matsuoka",
+  title = "Comparison of Control Strategies for an EMG Controlled Orthotic
+	    Exoskeleton for the Hand",
+  booktitle = proc-ICRA,
+  month = "May",
+  year = "2004",
+  abstract = {
+    To restore dexterity to paralyzed hands, we have designed and constructed a
+    lightweight, low-profile orthotic exoskeleton controlled by the user's
+    residual electromyography (EMG) signals. In this paper, we compared several
+    simple strategies to control the orthotic device for a quadriplegic (C5/C6)
+    subject. When contralateral arm control was employed, we found that a simple
+    on/off strategy allowed for faster interaction with objects, while variable
+    control provided more controlled interactions, especially with deformable
+    objects. Furthermore, we designed a control strategy that allowed for a
+    natural reaching and pinching sequence without the use of the contralateral
+    arm. We validated that the EMG signal from the ipsilateral biceps could be
+    used to develop an extremely reliable natural reaching and pinching
+    algorithm. This evaluation showed that different control strategies may be
+    appropriate for different situations, and further investigation on the
+    natural algorithm is crucial.
+    }
+}
+
+@InProceedings{Yamada:2001:PSM,
+  author =  {Y. Yamada and T. Morizono and S. Sato and T. Shimohira and 
+	     Y. Umetani and T. Yoshida and S. Aoki},
+  title = {Proposal of a {SkillMate} finger for {EVA} gloves},
+  booktitle = proc-ICRA,
+  year =  2001,
+  pages = { 1406--1412},
+  abstract =  {
+    It has been pointed out that the hard structure of an EVA glove deteriorates
+    efficiency of tasks in the space environment. We also found a claim that an
+    EVA glove did not allow an astronaut to acquire contact information at the
+    fingertips. In the study, we proposed a SkilMate Hand for space EVA gloves
+    which has both a tactile media and a power assist devices. We locate
+    SkilMate in a wider framework of wearable intelligent machines which assist
+    in affording such working surroundings that they can exhibit their skills in
+    spite of their necessity for wearing special suits typically in hazardous
+    environments. The paper focuses on the development of a finger system of a
+    SkilMate Hand, and begins with determination of the design guidelines
+    through analyses from an interview with an astronaut. To improve the task
+    efficiency, we manufacture a power assist device which compensates the
+    bending moment exerted at a human finger joint utilizing an ultrasonic
+    motor. We show the structure and the control strategy of the motor drives.
+    To overcome the second problem of tactile insensibleness, we produce a
+    tactile media device which is composed of a slip sensor element on the outer
+    side and a vibrotactile display element on the inner side of a SkilMate
+    Hand. Transduction characteristics of both pressure sensitive conductive
+    rubber and piezo-rubber are experimentally examined in the low temperature
+    region. Finally, piezo-rubber is chosen to be used as a slip sensing
+    transducer.
+  },
+  annote =  {},
+}
+
+@article{Lucas:2004:ECH,
+   author = "L. Lucas and M. DiCicco and Yoky Matsuoka",
+   title = "An EMG-Controlled Hand Exoskeleton for Natural Pinching",
+   journal = j-rob-mech,
+   year = "2004",
+   volume = "16",
+   number = "5",
+   pages = "482 - 488",
+   abstract ={
+    Spinal cord and other local injuries often lead to partial paralysis while
+    the brain stays fully functional. When this partial paralysis occurs in the
+    hand, these individuals are not able to execute daily activities on their
+    own even if their arms are functional. To remedy this problem, a
+    lightweight, low-profile orthotic exoskeleton has been designed to restore
+    dexterity to paralyzed hands. The exoskeleton\'s movements are controlled by
+    the user\'s available electromyography (EMG) signals. The device has two
+    actuators controlling the index finger flexion that can be used to perform a
+    pinching motion against a fixed thumb. Using this orthotic device, a new
+    control technique was developed to allow for a natural reaching and pinching
+    sequence by utilizing the natural residual muscle activation patterns. To
+    design this controller, two actuator control algorithms were explored with a
+    quadriplegic (C5/C6) subject and it was determined that a simple binary
+    control algorithm allowed for faster interaction with objects over a
+    variable control algorithm. The binary algorithm was then used as an
+    enabling algorithm to activate the exoskeleton movements when the natural
+    sequence of muscle activities found a pattern related to a pinch. This
+    natural pinching technique has shown significant promise toward realistic
+    neural control of wearable robotic devices to assist paralyzed individuals.
+    }
+	
+}
+
+
+
+@InProceedings{Brown:1993:EGC,
+  author =  {Patricia Brown and Diana Jones and Sunil K. Singh and
+	      Joseph M.  Rosen},
+  title = {The exoskeleton glove for control of paralyzed hands},
+  booktitle = {},
+  year =  {},
+  publisher = {},
+  series =  {},
+  address = {},
+  pages = {},
+  editor =  {},
+  abstract =  {},
+  annote =  {},
+}
+
+
+
+@Article{Makaran:1993:SWH,
+  author =  {John E. Makaran and Douglas K. Dittmer and Ralph O Buchal
+	     and Dawn E. MacArthur},
+  title = {The {SMART} Wrist--Hand Orthosis {(WHO)} for quadriplegic 
+	   Patients},
+  journal = j-prost-orth,
+  year =  1993,
+  volume =  5,
+  number =  3,
+  pages = {73 -- 76},
+  abstract =  
+    {The SMART Wrist-Hand orthosis (WHO) is a new method of providing grasping
+     function for quadriplegic patients.  The use of shape memory alloy (SMA)
+     actuators in rehabilitation technology (SMART) allows for a new type of
+     actuator in addition to traditional actuatorssuch as Bowden cables,
+     pneumatic cylinders, electric motros and linear ratchets.  It provides
+     excellent function and ease of use.},
+  annote =  
+    {A jointed orthosis that can apply forces on the thumb and
+     index/pointing fingers. It is driven by SMA and takes input from a sip
+     and puff device. They also propose to connect it to electromyography.},
+}
+
+@Article{Slack:1992:MCW,
+  author =  {Mendal Slack and David Berbrayer},
+  title = {A myoelectrically controlled wrist-hand orthosis for brachial
+  plexus injury: {A} case study},
+  journal = j-prost-orth,
+  year =  1992,
+  volume =  4,
+  number =  3,
+  pages = {171 -- 174},
+  abstract = 
+    {A myoelectrically controlled powered wrist-hand orthosis was
+     developed for an individual with a unilateral brachial plexus injury.
+     The ligthweight orthosis, which incorporated supracondylar suspension,
+     provided up to 14 lbs. of pinch force and had a closure time of one
+     second.  The device also offered the individual added independence during
+     selected two-handed activities.},
+  annote = 
+    {A simple orthesis with one actuator for closing the thumb (or hand or
+    fingers the article does not exatly say). They used a linear actuator and
+    batteries from Otto Bock. The input was electromyograhpy.
+  }
+}
+
+@Article{Benjuya:1990:MHO,
+  author =  {Nisim Benjuya and Steven B. Kenney},
+  title = {Myoelectrically hand orthosis},
+  journal = j-prost-orth,
+  year =  1990,
+  volume =  2,
+  number =  2,
+  pages = {149 -- 154},
+  abstract = 
+    {A new myoelectric hand orthosis, primarily for the spinal cord injury
+     patients at the C5-6 level is developed.  The device, weighing only 500
+     grams, operates proportionally to the bioelectric potentials picked-up by
+     the surface electrodes.  The device offers compability with the daily
+     activities of the user without interference and can be donned and doffed
+     independently.
+  },
+  annote = {
+    A myoelectric orthesis for the index and pointing finger. It transmitts
+    the forces in something like a Bowden cable where the wire is rotating.
+    The rotating motion is transmitted to motion of the fingers by a worm
+    at the joint. Hence the invention includes an external jont.
+  }
+}
+
+@Article{Trease:2005:DLD,
+  author =  {Brian P. Trease and Yong-Mo Moon and Sridhar Kota},
+  title = {Design of large-displacement compliant joints},
+  journal = j-asme-mech-des,
+  year =  2005,
+  month = jul,
+  volume =  127,
+  number =  4,
+  pages = {788--798},
+  abstract =  {
+  This paper investigates the drawbacks of typical flexure connectors and
+  presents several new designs for highly effective, kinematically well-behaved
+  compliant joints.  A revolute and a translational compliant joint are
+  proposed, both of which offer great improvements over existing flexures in the
+  qualities of (1) a large range of motion, (2) minimal "axis drift," (3)
+  increased off-axis stiffness, and (4) a reduced stress-concentrations.
+  Analytic stiffness equations are developed for each joint and parametric
+  computer models are used to verify their superior stiffness properties. A
+  catalog of design charts based on the parametric models is also presented,
+  allowing for rapid sizing of the joints for custom performance. A joint range
+  of motion has been calculated with finite element analysis, including stress
+  concentration effects. DOI: 10.1115/1.1900149
+  },
+  annote =  {},
+}
+
+@TechReport{Asada:2000:FSM,
+  title = {Fingernail sensors: measurement of fingertip touch force, finger
+  posture and fingertip shear force},
+  author = {H. Harry Asada and Stephen Mascaro},
+  year =	{2000},
+  number = 	{3-1},
+  month = sep,
+  institution = { MIT Home Automation and Healthcare Consortium},
+  annote ={
+      This is a final report of Phase 2. see further about other referenses in
+      Asada:2001:FSM},
+  abstract = {
+    This report presents the entire work on the fingernail sensor, a new type of
+    touch sensor for detecting contact pressure at the human fingertip. Unlike
+    traditional electronic gloves, in which sensor pads are placed between the
+    fingers and the environment surface, this new sensor allows the fingers to
+    directly contact the environment without obstructing the humans natural
+    haptic senses. The finger touch force is detected by measuring changes in
+    the coloration of the fingernail; hence the sensor is mounted on the
+    fingernail rather than on the fingertip.  Specifically, the fingernail is
+    instrumented with miniature light emitting diodes (LEDs) and photodetectors
+    in order to measure changes in the reflection intensity when the fingertip
+    is pressed against a surface. The changes in intensity are then used to
+    determine changes in the blood volume under the fingernail, a technique
+    termed reflectance photoplethysmography. A hemodynamic model is used to
+    investigate the dynamics of the blood volume at two locations under the
+    fingernail. A miniaturized prototype nail sensor is designed, built, and
+    tested. The theoretical analysis is verified through experiment and
+    simulation.
+     
+    The utility of the fingernail sensors is extended to measuring both the
+    posture of human fingers and shear force at the human fingertip. Instead of
+    using a traditional electronic glove with bending sensors embedded along the
+    finger and shear sensors embedded beneath the fingertip, the wearable
+    fingernail sensor can be used to measure the resulting changes in coloration
+    of the fingernail. Since the sensor is mounted on the fingernail, finger
+    posture can be measured without wearing a glove that hampers the motion of
+    the fingers. Similarly, shear forces can be measured without covering the
+    finger pad and obstructing the humans natural haptic sense. A new fingernail
+    sensor with a two-dimensional spatial array of photodetectors is constructed
+    in order to measure finger posture and shear forces. Experiments are
+    performed in order to measure the outputs of the photodetectors in response
+    to applied finger posture and shear forces. Analysis is then performed to
+    correlate the outputs to the inputs and provide a means of distinguishing
+    between normal forces, shear forces, and changes in finger posture.
+    },
+  }
+
+@TechReport{Asada:2001:FSM,
+  title = {Fingernail sensors: measurement of fingertip touch force, finger
+  posture and fingertip shear force},
+  author = {H. Harry Asada and Stephen Mascaro},
+  year =	{2001},
+  number = 	{3-1},
+  month = apr,
+  institution = { MIT Home Automation and Healthcare Consortium},
+  annote ={
+  This is a Progress report no 3-1
+  See further publications of Asada at
+  http://darbelofflab.mit.edu/publications/publications.html
+  Those include:
+    Mascaro, S. and Asada, H., 2000, "Photo plethysmograph Fingernail Sensors
+    for Measuring Finger Forces without Haptic Obstruction," to the IEEE
+    Transactions on Robotics and Automation.
+
+    Mascaro, S., Chang, K.-W. and Asada, H., 1999, "Photo-Plethysmograph Nail
+    Sensors for Measuring Finger Forces Without Haptic Obstruction," Proceedings
+    of the IEEE International Conference on Robotics and Automation, Vol. 2, pp.
+    962-967. Winner of the Best Conference Paper Award.
+
+    Mascaro, S. and Asada, H., 1999, "Virtual Switch Human-Machine Interface
+    Using Fingernail Touch Sensors," Proceedings of the IEEE International
+    Conference on Robotics and Automation, Vol. 4, pp. 2533-2538.
+  },
+  abstract =	{
+    This report presents the continuing work on the fingernail sensor, a novel
+    wearable sensor for detecting both finger posture and fingertip touch
+    forces. Instead of using a traditional electronic glove with bending sensors
+    embedded along the finger and force sensors embedded beneath the fingertip,
+    the wearable fingernail sensor can be used to measure the resulting changes
+    in coloration of the fingernail. Since the sensor is mounted on the
+    fingernail, finger posture can be measured without wearing a glove that
+    hampers the motion of the fingers.  Similarly, touch forces can be measured
+    without covering the finger pad and obstructing the humans natural haptic
+    sense. Specifically, the fingernail is instrumented with miniature light
+    emitting diodes (LEDs) and photodetectors in order to measure changes in the
+    reflection intensity when the fingertip is pressed against a surface. The
+    changes in intensity are then used to determine changes in the blood volume
+    under the fingernail, a technique termed reflectance photoplethysmography.
+    
+    In the last year, the utility of the fingernail sensors has been extended to
+    measuring both the posture of human fingers and shear force at the human
+    fingertip. A new fingernail sensor with a two-dimensional spatial array of
+    photodetectors is constructed in order to measure finger posture and shear
+    forces. Experiments are performed in order to measure the outputs of the
+    photodetectors in response to applied forces and changes in finger posture.
+    Analysis is then performed to correlate the outputs to the inputs and
+    provide a means of estimating normal forces, shear forces, and finger
+    posture. The results of the analysis are also used to prune the sensor by
+    eliminating unnecessary photodetectors, thereby minimizing sensor complexity
+    and power requirements.
+    },
+  }
+
+
+
+@InProceedings{Scheibert:2004:ANB,
+  author =  {Julien Scheibert and Alexis Prevost and Georges Debrégeas 
+	     and Rodrigue Rousier and Patrice Rey},
+  title = {A novel biomimetic haptic sensor to study the physics of touch},
+  booktitle = {Proceedings of Mécanotransduction},
+  year =  {2004},
+  address = {Paris, France},
+  month =  sep,
+  abstract =  {
+    Caressing textured objects involves complex and poorly understood mechanical
+    phenomena at the interface between their surfaces and the skin.
+    Mechanoreceptors embedded in the skin detect its distortions and generate
+    nervous signals which contribute to a representation of the apprehended
+    texture.  Using a biomimetic approach, we have built a friction experiment
+    to study both friction and adhesion between a novel haptic sensor and
+    substrates whose texture is well controlled.  This haptic device consists of
+    a MEMs based millimetric-sized force sensor, embedded in an elastomeric
+    sheet mimicking the human skin. It allows us to measure locally both
+    compression and shear forces a few millimeters below the sheet surface.
+    
+    The substrates are glass cover slides, either smooth or patterned in
+    roughness using standard micro-photolithography techniques. They are put in
+    contact with the haptic sensor under normal load, and pulled at constant
+    velocity. The stress signals are recorded and correlated to the known
+    texture.
+    
+    In this paper, we report results of preliminary performance tests of our
+    haptic sensor.  Reproducibility is found to be good and discrimination to be
+    straightforward between smooth substrates of different surface properties.
+    Furthermore, this device easily detected the presence of a single step as
+    well as its orientation with respect to the sense of motion. Finally, simple
+    Fourier analysis allows both detection and measurement of the spatial
+    periodicity of a substrate etched on a depth of about 1 m, close to the
+    limit of physiological detection
+    },
+  annote =  {},
+}
+
+@Misc{Tools:Matlab,
+  author      = {{The MathWorks Inc.}},
+  title	      = {{MATLAB, Simulink, xPC Target etc}},
+  howpublished= {\url{http://www.mathworks.com}},
+  annote      = {Referens till Matlab},
+  affiliation = {-},
+  address     = {3 Apple Hill Dr., Natick, MA 01760-2098, USA},
+  location    = {-},
+}
+
+@Misc{Tools:RealLink,
+  author      = {{RealTech AG}},
+  title	      = {{RealLink/32}},
+  howpublished= {\url{http://www.realtech.ch}},
+  annote      = {Referens till RealLink},
+  note	      = {now xPC Target from \cite{Tools:Matlab}},
+  affiliation = {-},
+  annote      = {Now owned by The MathWorks Inc.},
+  location    = {-},
+}
+
+@Misc{Tools:Maple,
+  author      = {{Waterloo Maple Inc.}},
+  title	      = {{Maple}},
+  howpublished= {\url{http://www.maplesoft.com}},
+  annote      = {Referens till Maple},
+  affiliation = {-},
+  address     = {57 Erb. St. W., Waterloo, ON, N2L 6C2, Canada},
+  location    = {-},
+}
+*************************************************************************
+   After this point goes anything that is referenced earlier
+*************************************************************************
+@Proceedings{c-clawar:1999,
+  editor =	pub-ProfEngPub,
+  booktitle =	{2nd International Conference on Climbing and Walking Robots},
+  year =	{1999},
+  month = 	sep,
+  address =	{Portsmouth,Great Britan},
+}
+
+@Proceedings{c-clawar:2001,
+  editor =	pub-ProfEngPub,
+  booktitle =	{4th International Conference on Climbing and Walking Robots},
+  year =	{2001},
+  month = 	sep,
+  address =	{Karlsruhe, Germany},
+}
+@Proceedings{c-clawar:2002,
+  editor =	pub-ProfEngPub,
+  booktitle =	{5th International Conference on Climbing and Walking Robots},
+  year =	{2002},
+  month = 	sep,
+  address =	{Paris, France},
+}
+
+@Proceedings{c-clawar:2003,
+  editor =	pub-ProfEngPub,
+  booktitle =	{6th International Conference on Climbing and Walking Robots},
+  year =	{2003},
+  month = 	sep,
+  address =	{Catania, Italy},
+}
+ 

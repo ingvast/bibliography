@@ -1,0 +1,103 @@
+% Here i add any report that is not made a true techreport. It is in my computer
+% but not really published.
+% Also those papers that are sent for publications should go here. Once
+% published they are moved into ingvastpapers.bib
+
+@TechReport{Ingvast:2004:OPW,
+	author =	{Johan Ingvast},
+	title  =	{Optimization of PVT for the walking robot {Warp 1}},
+	address = {Brinellv. 83, 100 44 Stockholm, Sweden},
+	institution =	g-S:KTH:MMK,
+	month = jan,
+	year = 2004,
+	abstract ={
+	A genetic algorithms have been used to find the Pareto front of two
+	objective variables for a passive variable transmission (PVT).
+	Constraints was the PVT's ability to amplify torque and the stiffness of
+	the output shaft. The velocity ratio between the input and the output
+	shaft at no load and the torque rise time was used as the objective
+	functions. Five physical properties; two radii, the wire length, an
+	angle and two spring properties was used as design variables. 
+	--
+	The ideas behind NSGA-II [Deb:2000:AFE] was used for the main algorithm.
+	Two thousand generations were evaluated with a population of 500
+	individuals. Altogether about 250 thousand function evaluations were
+	made. The evolved Pareto front was not as continuous as expected but the
+	main relation was visible. The minimum velocity ratio found was about
+	0.9 (with the torque amplification or torque ratio three) and the
+	minimum rise time found was about 0.15 s.
+	--
+	For comparison, a raw computation on the meshed variable space was made.
+	About 700 thousand points were evaluated. However, not at any point did
+	that result become better than the result from the genetic algorithm
+	search. 
+	}
+}
+
+@TechReport{Ingvast:2006:DCU,
+	author =	{Johan Ingvast},
+	title  =	{Design considerations for underactuated robotic and
+			 prosthetic fingers},
+	address = {Brinellv. 83, 100 44 Stockholm, Sweden},
+	institution =	g-S:KTH:MMK,
+	month = apr,
+	year = 2006,
+	abstract ={
+		This article investigates some of the issues found in
+		litterature useful when building a low cost underactuated hand,
+		either a robot hand or a prosthesis hand.
+
+		The movements of underactuated fingers can by definition not be
+		controlled precisely as a fully actuated finger.  Therefore the
+		machanics has to be designed in a way that support grasping
+		without explicit control.  The design of such a finger is a
+		challenging task, and if designed poorly, the finger might not
+		be useful at some situations.  The article describes som
+		econcepts of finger design as well as some of the pitfalls.
+
+		Underactuated hands have the possibility to be low cost, not
+		only because of few actuators, but also because less sensor
+		information is needed.  Furthermore, the design does not have to
+		be as precise, as for fully actuated hands.  Therefore, new
+		approaches of finger hardware are possible.
+	}
+}
+
+
+
+%
+%    Papers that shall eventuatlly be moved.
+%
+@InProceedings{Ingvast:2006:TTF,
+  author =	{Johan Ingvast and Jan Wikander},
+  title =	{The trunk follows the feet ---
+  		 an approach for making a quadruped robot trot and walk},
+  booktitle =	{rejected from IROS and ICRA},
+  year =	{2006},
+  address =	{Beijingm, China},
+  pages =	{7},
+  editor =	{},
+  abstract =	{
+  This paper presents a way of making a robot walk and trot with a continuous
+  transition in between. The main parts are a trunk motion planner, a planner
+  for the footholds and a robot center of mass estimator. The instantaneous
+  trunk path is a summation of weighted positions of the feet in contact with
+  the ground. The weights are a function of time and can be planned ahead. If at
+  least three of the weight functions are non-zero (and positive) and they are
+  continuous in time, the resulting path is statically stable and continuous.
+  When only two are non-zero, the path is not statically stable but the path
+  will still be continuous, thus possible to use for trot. 
+       The overall walking direction is given by the footholds which are planned
+  with the feet in contact with the ground as a reference, not the trunk.  Since
+  both the foothold planner and the trunk motion planner use the feet position
+  as reference one can say that the trunk follows the feet, hence the title.
+       In the trotting gait, when only two feet are on the ground, the behaviour
+  of the motion is very sensitive to the position of the center of mass.
+  Therefore a center of mass estimation is implemented which only uses ground
+  contact switches on the feet as feedback. 
+       Transitions between crawl and trot are demonstrated in experiments using
+  the quadruped robot Warp1.
+  },
+  note =	{Submitted for review},
+}
+
